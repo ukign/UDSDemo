@@ -1,0 +1,4 @@
+---- MAX_EXTENDED_DATA_NUMBER Matches (3 in 2 files) ----
+Diagnostic.c (d:\workspace\ukign\diagnosticdemo\diagnostic)://static Snapshot ExtendedData[MAX_EXTENDED_DATA_NUMBER];
+Diagnostic.c (d:\workspace\ukign\diagnosticdemo\diagnostic):	if(ExtendedDataAdded < MAX_EXTENDED_DATA_NUMBER)
+Diagnostic.h (d:\workspace\ukign\diagnosticdemo\diagnostic):#define MAX_EXTENDED_DATA_NUMBER 	5//

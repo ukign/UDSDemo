@@ -1,0 +1,2897 @@
+
+PROGRAM "D:\workspace\ukign\DiagnosticDemo\bin\Project.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC12
+Memory Model: BANKED
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.40 Build 10203, Jul 23 2010
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+datapage.c.o                            Model: BANKED,        Lang: ANSI-C
+Start12.c.o                             Model: BANKED,        Lang: ANSI-C
+STRING.C.o (ansibi.lib)                 Model: BANKED,        Lang: ANSI-C
+rtshc12.c.o (ansibi.lib)                Model: BANKED,        Lang: ANSI-C
+Cpu.c.o                                 Model: BANKED,        Lang: ANSI-C
+IO_Map.c.o                              Model: BANKED,        Lang: ANSI-C
+Vectors.c.o                             Model: BANKED,        Lang: ANSI-C
+DiagnosticDemo.c.o                      Model: BANKED,        Lang: ANSI-C
+CAN1.c.o                                Model: BANKED,        Lang: ANSI-C
+TJA1043_Can_Sel.c.o                     Model: BANKED,        Lang: ANSI-C
+TJA1043_EN.c.o                          Model: BANKED,        Lang: ANSI-C
+Diagnostic.c.o                          Model: BANKED,        Lang: ANSI-C
+DiagnosticTimer.c.o                     Model: BANKED,        Lang: ANSI-C
+J1939TP.c.o                             Model: BANKED,        Lang: ANSI-C
+NetworkLayer.c.o                        Model: BANKED,        Lang: ANSI-C
+EEPromDriver.c.o                        Model: BANKED,        Lang: ANSI-C
+RTI1.c.o                                Model: BANKED,        Lang: ANSI-C
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xC002 (_EntryPoint)
+_startupData is allocated at 0xC042 and uses 6 Bytes
+extern struct _tagStartup {
+  unsigned nofZeroOut     1
+  _Range   pZeroOut       0x2000     2990
+  _Copy    *toCopyDownBeg 0xC1C5
+} _startupData;
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                             66     R     0xC000     0xC041   ROM_C000
+.startData                        10     R     0xC042     0xC04B   ROM_C000
+NON_BANKED                       377     R     0xC04C     0xC1C4   ROM_C000
+.copy                            241     R     0xC1C5     0xC2B5   ROM_C000
+.text                          13015     R    0xE8000    0xEB2D6   PAGE_0E
+.data                            244   R/W     0x2000     0x20F3   RAM
+.abs_section_8                     1   N/I        0x8        0x8   .absSeg0
+.abs_section_9                     1   N/I        0x9        0x9   .absSeg1
+.abs_section_b                     1   N/I        0xB        0xB   .absSeg2
+.abs_section_c                     1   N/I        0xC        0xC   .absSeg3
+.abs_section_11                    1   N/I       0x11       0x11   .absSeg4
+.abs_section_13                    1   N/I       0x13       0x13   .absSeg5
+.abs_section_15                    1   N/I       0x15       0x15   .absSeg6
+.abs_section_1c                    1   N/I       0x1C       0x1C   .absSeg7
+.abs_section_1e                    1   N/I       0x1E       0x1E   .absSeg8
+.abs_section_20                    1   N/I       0x20       0x20   .absSeg9
+.abs_section_21                    1   N/I       0x21       0x21   .absSeg10
+.abs_section_22                    1   N/I       0x22       0x22   .absSeg11
+.abs_section_23                    1   N/I       0x23       0x23   .absSeg12
+.abs_section_26                    1   N/I       0x26       0x26   .absSeg13
+.abs_section_27                    1   N/I       0x27       0x27   .absSeg14
+.abs_section_28                    1   N/I       0x28       0x28   .absSeg15
+.abs_section_29                    1   N/I       0x29       0x29   .absSeg16
+.abs_section_2a                    1   N/I       0x2A       0x2A   .absSeg17
+.abs_section_2b                    1   N/I       0x2B       0x2B   .absSeg18
+.abs_section_2c                    1   N/I       0x2C       0x2C   .absSeg19
+.abs_section_2d                    1   N/I       0x2D       0x2D   .absSeg20
+.abs_section_2e                    1   N/I       0x2E       0x2E   .absSeg21
+.abs_section_2f                    1   N/I       0x2F       0x2F   .absSeg22
+.abs_section_34                    1   N/I       0x34       0x34   .absSeg23
+.abs_section_35                    1   N/I       0x35       0x35   .absSeg24
+.abs_section_36                    1   N/I       0x36       0x36   .absSeg25
+.abs_section_37                    1   N/I       0x37       0x37   .absSeg26
+.abs_section_38                    1   N/I       0x38       0x38   .absSeg27
+.abs_section_39                    1   N/I       0x39       0x39   .absSeg28
+.abs_section_3a                    1   N/I       0x3A       0x3A   .absSeg29
+.abs_section_3b                    1   N/I       0x3B       0x3B   .absSeg30
+.abs_section_3c                    1   N/I       0x3C       0x3C   .absSeg31
+.abs_section_3f                    1   N/I       0x3F       0x3F   .absSeg32
+.abs_section_40                    1   N/I       0x40       0x40   .absSeg33
+.abs_section_41                    1   N/I       0x41       0x41   .absSeg34
+.abs_section_42                    1   N/I       0x42       0x42   .absSeg35
+.abs_section_43                    1   N/I       0x43       0x43   .absSeg36
+.abs_section_46                    1   N/I       0x46       0x46   .absSeg37
+.abs_section_47                    1   N/I       0x47       0x47   .absSeg38
+.abs_section_48                    1   N/I       0x48       0x48   .absSeg39
+.abs_section_49                    1   N/I       0x49       0x49   .absSeg40
+.abs_section_4a                    1   N/I       0x4A       0x4A   .absSeg41
+.abs_section_4b                    1   N/I       0x4B       0x4B   .absSeg42
+.abs_section_4c                    1   N/I       0x4C       0x4C   .absSeg43
+.abs_section_4d                    1   N/I       0x4D       0x4D   .absSeg44
+.abs_section_4e                    1   N/I       0x4E       0x4E   .absSeg45
+.abs_section_4f                    1   N/I       0x4F       0x4F   .absSeg46
+.abs_section_60                    1   N/I       0x60       0x60   .absSeg47
+.abs_section_61                    1   N/I       0x61       0x61   .absSeg48
+.abs_section_6c                    1   N/I       0x6C       0x6C   .absSeg49
+.abs_section_6e                    1   N/I       0x6E       0x6E   .absSeg50
+.abs_section_76                    1   N/I       0x76       0x76   .absSeg51
+.abs_section_a0                    1   N/I       0xA0       0xA0   .absSeg52
+.abs_section_a1                    1   N/I       0xA1       0xA1   .absSeg53
+.abs_section_a2                    1   N/I       0xA2       0xA2   .absSeg54
+.abs_section_a3                    1   N/I       0xA3       0xA3   .absSeg55
+.abs_section_a4                    1   N/I       0xA4       0xA4   .absSeg56
+.abs_section_a5                    1   N/I       0xA5       0xA5   .absSeg57
+.abs_section_a6                    1   N/I       0xA6       0xA6   .absSeg58
+.abs_section_a8                    1   N/I       0xA8       0xA8   .absSeg59
+.abs_section_a9                    1   N/I       0xA9       0xA9   .absSeg60
+.abs_section_ca                    1   N/I       0xCA       0xCA   .absSeg61
+.abs_section_cb                    1   N/I       0xCB       0xCB   .absSeg62
+.abs_section_cc                    1   N/I       0xCC       0xCC   .absSeg63
+.abs_section_cd                    1   N/I       0xCD       0xCD   .absSeg64
+.abs_section_ce                    1   N/I       0xCE       0xCE   .absSeg65
+.abs_section_cf                    1   N/I       0xCF       0xCF   .absSeg66
+.abs_section_d2                    1   N/I       0xD2       0xD2   .absSeg67
+.abs_section_d3                    1   N/I       0xD3       0xD3   .absSeg68
+.abs_section_d4                    1   N/I       0xD4       0xD4   .absSeg69
+.abs_section_d5                    1   N/I       0xD5       0xD5   .absSeg70
+.abs_section_d6                    1   N/I       0xD6       0xD6   .absSeg71
+.abs_section_d7                    1   N/I       0xD7       0xD7   .absSeg72
+.abs_section_d8                    1   N/I       0xD8       0xD8   .absSeg73
+.abs_section_d9                    1   N/I       0xD9       0xD9   .absSeg74
+.abs_section_da                    1   N/I       0xDA       0xDA   .absSeg75
+.abs_section_db                    1   N/I       0xDB       0xDB   .absSeg76
+.abs_section_ea                    1   N/I       0xEA       0xEA   .absSeg77
+.abs_section_eb                    1   N/I       0xEB       0xEB   .absSeg78
+.abs_section_ec                    1   N/I       0xEC       0xEC   .absSeg79
+.abs_section_ed                    1   N/I       0xED       0xED   .absSeg80
+.abs_section_ee                    1   N/I       0xEE       0xEE   .absSeg81
+.abs_section_ef                    1   N/I       0xEF       0xEF   .absSeg82
+.abs_section_f0                    1   N/I       0xF0       0xF0   .absSeg83
+.abs_section_f1                    1   N/I       0xF1       0xF1   .absSeg84
+.abs_section_f2                    1   N/I       0xF2       0xF2   .absSeg85
+.abs_section_f3                    1   N/I       0xF3       0xF3   .absSeg86
+.abs_section_f8                    1   N/I       0xF8       0xF8   .absSeg87
+.abs_section_f9                    1   N/I       0xF9       0xF9   .absSeg88
+.abs_section_fa                    1   N/I       0xFA       0xFA   .absSeg89
+.abs_section_fb                    1   N/I       0xFB       0xFB   .absSeg90
+.abs_section_100                   1   N/I      0x100      0x100   .absSeg91
+.abs_section_101                   1   N/I      0x101      0x101   .absSeg92
+.abs_section_102                   1   N/I      0x102      0x102   .absSeg93
+.abs_section_104                   1   N/I      0x104      0x104   .absSeg94
+.abs_section_105                   1   N/I      0x105      0x105   .absSeg95
+.abs_section_106                   1   N/I      0x106      0x106   .absSeg96
+.abs_section_107                   1   N/I      0x107      0x107   .absSeg97
+.abs_section_108                   1   N/I      0x108      0x108   .absSeg98
+.abs_section_109                   1   N/I      0x109      0x109   .absSeg99
+.abs_section_110                   1   N/I      0x110      0x110   .absSeg100
+.abs_section_120                   1   N/I      0x120      0x120   .absSeg101
+.abs_section_140                   1   N/I      0x140      0x140   .absSeg102
+.abs_section_141                   1   N/I      0x141      0x141   .absSeg103
+.abs_section_142                   1   N/I      0x142      0x142   .absSeg104
+.abs_section_143                   1   N/I      0x143      0x143   .absSeg105
+.abs_section_144                   1   N/I      0x144      0x144   .absSeg106
+.abs_section_145                   1   N/I      0x145      0x145   .absSeg107
+.abs_section_146                   1   N/I      0x146      0x146   .absSeg108
+.abs_section_147                   1   N/I      0x147      0x147   .absSeg109
+.abs_section_148                   1   N/I      0x148      0x148   .absSeg110
+.abs_section_149                   1   N/I      0x149      0x149   .absSeg111
+.abs_section_14a                   1   N/I      0x14A      0x14A   .absSeg112
+.abs_section_14b                   1   N/I      0x14B      0x14B   .absSeg113
+.abs_section_14d                   1   N/I      0x14D      0x14D   .absSeg114
+.abs_section_14e                   1   N/I      0x14E      0x14E   .absSeg115
+.abs_section_14f                   1   N/I      0x14F      0x14F   .absSeg116
+.abs_section_150                   1   N/I      0x150      0x150   .absSeg117
+.abs_section_151                   1   N/I      0x151      0x151   .absSeg118
+.abs_section_152                   1   N/I      0x152      0x152   .absSeg119
+.abs_section_153                   1   N/I      0x153      0x153   .absSeg120
+.abs_section_154                   1   N/I      0x154      0x154   .absSeg121
+.abs_section_155                   1   N/I      0x155      0x155   .absSeg122
+.abs_section_156                   1   N/I      0x156      0x156   .absSeg123
+.abs_section_157                   1   N/I      0x157      0x157   .absSeg124
+.abs_section_158                   1   N/I      0x158      0x158   .absSeg125
+.abs_section_159                   1   N/I      0x159      0x159   .absSeg126
+.abs_section_15a                   1   N/I      0x15A      0x15A   .absSeg127
+.abs_section_15b                   1   N/I      0x15B      0x15B   .absSeg128
+.abs_section_15c                   1   N/I      0x15C      0x15C   .absSeg129
+.abs_section_15d                   1   N/I      0x15D      0x15D   .absSeg130
+.abs_section_15e                   1   N/I      0x15E      0x15E   .absSeg131
+.abs_section_15f                   1   N/I      0x15F      0x15F   .absSeg132
+.abs_section_160                   1   N/I      0x160      0x160   .absSeg133
+.abs_section_161                   1   N/I      0x161      0x161   .absSeg134
+.abs_section_162                   1   N/I      0x162      0x162   .absSeg135
+.abs_section_163                   1   N/I      0x163      0x163   .absSeg136
+.abs_section_164                   1   N/I      0x164      0x164   .absSeg137
+.abs_section_165                   1   N/I      0x165      0x165   .absSeg138
+.abs_section_166                   1   N/I      0x166      0x166   .absSeg139
+.abs_section_167                   1   N/I      0x167      0x167   .absSeg140
+.abs_section_168                   1   N/I      0x168      0x168   .absSeg141
+.abs_section_169                   1   N/I      0x169      0x169   .absSeg142
+.abs_section_16a                   1   N/I      0x16A      0x16A   .absSeg143
+.abs_section_16b                   1   N/I      0x16B      0x16B   .absSeg144
+.abs_section_16c                   1   N/I      0x16C      0x16C   .absSeg145
+.abs_section_170                   1   N/I      0x170      0x170   .absSeg146
+.abs_section_171                   1   N/I      0x171      0x171   .absSeg147
+.abs_section_172                   1   N/I      0x172      0x172   .absSeg148
+.abs_section_173                   1   N/I      0x173      0x173   .absSeg149
+.abs_section_174                   1   N/I      0x174      0x174   .absSeg150
+.abs_section_175                   1   N/I      0x175      0x175   .absSeg151
+.abs_section_176                   1   N/I      0x176      0x176   .absSeg152
+.abs_section_177                   1   N/I      0x177      0x177   .absSeg153
+.abs_section_178                   1   N/I      0x178      0x178   .absSeg154
+.abs_section_179                   1   N/I      0x179      0x179   .absSeg155
+.abs_section_17a                   1   N/I      0x17A      0x17A   .absSeg156
+.abs_section_17b                   1   N/I      0x17B      0x17B   .absSeg157
+.abs_section_17c                   1   N/I      0x17C      0x17C   .absSeg158
+.abs_section_17d                   1   N/I      0x17D      0x17D   .absSeg159
+.abs_section_240                   1   N/I      0x240      0x240   .absSeg160
+.abs_section_241                   1   N/I      0x241      0x241   .absSeg161
+.abs_section_242                   1   N/I      0x242      0x242   .absSeg162
+.abs_section_244                   1   N/I      0x244      0x244   .absSeg163
+.abs_section_245                   1   N/I      0x245      0x245   .absSeg164
+.abs_section_248                   1   N/I      0x248      0x248   .absSeg165
+.abs_section_249                   1   N/I      0x249      0x249   .absSeg166
+.abs_section_24a                   1   N/I      0x24A      0x24A   .absSeg167
+.abs_section_24c                   1   N/I      0x24C      0x24C   .absSeg168
+.abs_section_24d                   1   N/I      0x24D      0x24D   .absSeg169
+.abs_section_24e                   1   N/I      0x24E      0x24E   .absSeg170
+.abs_section_24f                   1   N/I      0x24F      0x24F   .absSeg171
+.abs_section_250                   1   N/I      0x250      0x250   .absSeg172
+.abs_section_251                   1   N/I      0x251      0x251   .absSeg173
+.abs_section_252                   1   N/I      0x252      0x252   .absSeg174
+.abs_section_254                   1   N/I      0x254      0x254   .absSeg175
+.abs_section_255                   1   N/I      0x255      0x255   .absSeg176
+.abs_section_256                   1   N/I      0x256      0x256   .absSeg177
+.abs_section_257                   1   N/I      0x257      0x257   .absSeg178
+.abs_section_258                   1   N/I      0x258      0x258   .absSeg179
+.abs_section_259                   1   N/I      0x259      0x259   .absSeg180
+.abs_section_25a                   1   N/I      0x25A      0x25A   .absSeg181
+.abs_section_25c                   1   N/I      0x25C      0x25C   .absSeg182
+.abs_section_25d                   1   N/I      0x25D      0x25D   .absSeg183
+.abs_section_25e                   1   N/I      0x25E      0x25E   .absSeg184
+.abs_section_25f                   1   N/I      0x25F      0x25F   .absSeg185
+.abs_section_268                   1   N/I      0x268      0x268   .absSeg186
+.abs_section_269                   1   N/I      0x269      0x269   .absSeg187
+.abs_section_26a                   1   N/I      0x26A      0x26A   .absSeg188
+.abs_section_26c                   1   N/I      0x26C      0x26C   .absSeg189
+.abs_section_26d                   1   N/I      0x26D      0x26D   .absSeg190
+.abs_section_26e                   1   N/I      0x26E      0x26E   .absSeg191
+.abs_section_26f                   1   N/I      0x26F      0x26F   .absSeg192
+.abs_section_2f1                   1   N/I      0x2F1      0x2F1   .absSeg193
+.abs_section_2f2                   1   N/I      0x2F2      0x2F2   .absSeg194
+.abs_section_2f3                   1   N/I      0x2F3      0x2F3   .absSeg195
+.abs_section_2fa                   1   N/I      0x2FA      0x2FA   .absSeg196
+.abs_section_2fb                   1   N/I      0x2FB      0x2FB   .absSeg197
+.abs_section_0                     2   N/I        0x0        0x1   .absSeg198
+.abs_section_2                     2   N/I        0x2        0x3   .absSeg199
+.abs_section_4                     2   N/I        0x4        0x5   .absSeg200
+.abs_section_6                     2   N/I        0x6        0x7   .absSeg201
+.abs_section_1a                    2   N/I       0x1A       0x1B   .absSeg202
+.abs_section_24                    2   N/I       0x24       0x25   .absSeg203
+.abs_section_44                    2   N/I       0x44       0x45   .absSeg204
+.abs_section_50                    2   N/I       0x50       0x51   .absSeg205
+.abs_section_52                    2   N/I       0x52       0x53   .absSeg206
+.abs_section_54                    2   N/I       0x54       0x55   .absSeg207
+.abs_section_56                    2   N/I       0x56       0x57   .absSeg208
+.abs_section_58                    2   N/I       0x58       0x59   .absSeg209
+.abs_section_5a                    2   N/I       0x5A       0x5B   .absSeg210
+.abs_section_5c                    2   N/I       0x5C       0x5D   .absSeg211
+.abs_section_5e                    2   N/I       0x5E       0x5F   .absSeg212
+.abs_section_62                    2   N/I       0x62       0x63   .absSeg213
+.abs_section_70                    2   N/I       0x70       0x71   .absSeg214
+.abs_section_72                    2   N/I       0x72       0x73   .absSeg215
+.abs_section_74                    2   N/I       0x74       0x75   .absSeg216
+.abs_section_78                    2   N/I       0x78       0x79   .absSeg217
+.abs_section_7a                    2   N/I       0x7A       0x7B   .absSeg218
+.abs_section_7c                    2   N/I       0x7C       0x7D   .absSeg219
+.abs_section_7e                    2   N/I       0x7E       0x7F   .absSeg220
+.abs_section_80                    2   N/I       0x80       0x81   .absSeg221
+.abs_section_82                    2   N/I       0x82       0x83   .absSeg222
+.abs_section_84                    2   N/I       0x84       0x85   .absSeg223
+.abs_section_86                    2   N/I       0x86       0x87   .absSeg224
+.abs_section_88                    2   N/I       0x88       0x89   .absSeg225
+.abs_section_8a                    2   N/I       0x8A       0x8B   .absSeg226
+.abs_section_8c                    2   N/I       0x8C       0x8D   .absSeg227
+.abs_section_8e                    2   N/I       0x8E       0x8F   .absSeg228
+.abs_section_90                    2   N/I       0x90       0x91   .absSeg229
+.abs_section_92                    2   N/I       0x92       0x93   .absSeg230
+.abs_section_94                    2   N/I       0x94       0x95   .absSeg231
+.abs_section_96                    2   N/I       0x96       0x97   .absSeg232
+.abs_section_ac                    2   N/I       0xAC       0xAD   .absSeg233
+.abs_section_ae                    2   N/I       0xAE       0xAF   .absSeg234
+.abs_section_b0                    2   N/I       0xB0       0xB1   .absSeg235
+.abs_section_b2                    2   N/I       0xB2       0xB3   .absSeg236
+.abs_section_b4                    2   N/I       0xB4       0xB5   .absSeg237
+.abs_section_b6                    2   N/I       0xB6       0xB7   .absSeg238
+.abs_section_b8                    2   N/I       0xB8       0xB9   .absSeg239
+.abs_section_ba                    2   N/I       0xBA       0xBB   .absSeg240
+.abs_section_bc                    2   N/I       0xBC       0xBD   .absSeg241
+.abs_section_be                    2   N/I       0xBE       0xBF   .absSeg242
+.abs_section_c0                    2   N/I       0xC0       0xC1   .absSeg243
+.abs_section_c2                    2   N/I       0xC2       0xC3   .absSeg244
+.abs_section_c8                    2   N/I       0xC8       0xC9   .absSeg245
+.abs_section_d0                    2   N/I       0xD0       0xD1   .absSeg246
+.abs_section_dc                    2   N/I       0xDC       0xDD   .absSeg247
+.abs_section_e8                    2   N/I       0xE8       0xE9   .absSeg248
+.abs_section_f4                    2   N/I       0xF4       0xF5   .absSeg249
+.abs_section_fc                    2   N/I       0xFC       0xFD   .absSeg250
+.abs_section_10a                   2   N/I      0x10A      0x10B   .absSeg251
+.abs_section_16e                   2   N/I      0x16E      0x16F   .absSeg252
+.abs_section_17e                   2   N/I      0x17E      0x17F   .absSeg253
+.abs_section_270                   2   N/I      0x270      0x271   .absSeg254
+.abs_section_272                   2   N/I      0x272      0x273   .absSeg255
+.abs_section_274                   2   N/I      0x274      0x275   .absSeg256
+.abs_section_278                   2   N/I      0x278      0x279   .absSeg257
+.abs_section_27a                   2   N/I      0x27A      0x27B   .absSeg258
+.abs_section_27c                   2   N/I      0x27C      0x27D   .absSeg259
+.abs_section_27e                   2   N/I      0x27E      0x27F   .absSeg260
+.abs_section_2f4                   2   N/I      0x2F4      0x2F5   .absSeg261
+.abs_section_2f8                   2   N/I      0x2F8      0x2F9   .absSeg262
+.abs_section_ff80                122     R     0xFF80     0xFFF9   .absSeg263
+.abs_section_fffa                  6     R     0xFFFA     0xFFFF   .absSeg264
+.bss                            2389   R/W     0x20F4     0x2A48   RAM
+.common                          357   R/W     0x2A49     0x2BAD   RAM
+TJA1043_Can_Sel_CODE              13     R    0xEB2D7    0xEB2E3   PAGE_0E
+TJA1043_EN_CODE                   13     R    0xEB2E4    0xEB2F0   PAGE_0E
+.stack                           256   R/W     0x2BAE     0x2CAD   RAM
+
+Summary of section sizes per section type:
+READ_ONLY (R):        3627 (dec:    13863)
+READ_WRITE (R/W):      CAE (dec:     3246)
+NO_INIT (N/I):         148 (dec:      328)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- datapage.c.o --
+- PROCEDURES:
+     _LOAD_FAR_8                               C04C       B      11       2   NON_BANKED  
+     _LOAD_FAR_16                              C057       B      11       6   NON_BANKED  
+- VARIABLES:
+MODULE:                 -- Start12.c.o --
+- PROCEDURES:
+     Init                                     E8000      29      41       2   .text       
+     _Startup                                  C062       B      11       1   NON_BANKED  
+- VARIABLES:
+     _startupData                              C042       6       6       3   .startData  
+- LABELS:
+     __SEG_END_SSTACK                          2CAE       0       0       1               
+MODULE:                 -- STRING.C.o (ansibi.lib) --
+- PROCEDURES:
+     memcpy                                   E8029      24      36      10   .text       
+     memset                                   E804D      18      24       2   .text       
+- VARIABLES:
+MODULE:                 -- rtshc12.c.o (ansibi.lib) --
+- PROCEDURES:
+     _BDIVMODU                                 C06D       A      10       1   NON_BANKED  
+     _LSHL                                     C077      11      17       8   NON_BANKED  
+     _LSHRU                                    C088      11      17       6   NON_BANKED  
+     _LCMP                                     C099      19      25      12   NON_BANKED  
+     _LINC                                     C0B2       5       5       1   NON_BANKED  
+     _ILSEXT                                   C0B7       7       7       3   NON_BANKED  
+     _COPY                                     C0BE       8       8       8   NON_BANKED  
+     _CASE_DIRECT_BYTE                         C0C6       5       5       1   NON_BANKED  
+     _CASE_CHECKED_BYTE                        C0CB      14      20       4   NON_BANKED  
+- VARIABLES:
+MODULE:                 -- Cpu.c.o --
+- PROCEDURES:
+     PE_low_level_init                        E8065      31      49       2   .text       
+     Cpu_Interrupt                             C000       2       2      59   .init       
+     _EntryPoint                               C002      40      64       3   .init       
+- VARIABLES:
+MODULE:                 -- IO_Map.c.o --
+- PROCEDURES:
+- VARIABLES:
+     _PORTE                                       8       1       1       0   .abs_section_8
+     _DDRE                                        9       1       1       0   .abs_section_9
+     _MODE                                        B       1       1       0   .abs_section_b
+     _PUCR                                        C       1       1       0   .abs_section_c
+     _DIRECT                                     11       1       1       1   .abs_section_11
+     _MMCCTL1                                    13       1       1       1   .abs_section_13
+     _PPAGE                                      15       1       1       0   .abs_section_15
+     _ECLKCTL                                    1C       1       1       1   .abs_section_1c
+     _IRQCR                                      1E       1       1       1   .abs_section_1e
+     _DBGC1                                      20       1       1       0   .abs_section_20
+     _DBGSR                                      21       1       1       0   .abs_section_21
+     _DBGTCR                                     22       1       1       0   .abs_section_22
+     _DBGC2                                      23       1       1       0   .abs_section_23
+     _DBGCNT                                     26       1       1       0   .abs_section_26
+     _DBGSCRX                                    27       1       1       0   .abs_section_27
+     _DBGXCTL                                    28       1       1       0   .abs_section_28
+     _DBGXAH                                     29       1       1       0   .abs_section_29
+     _DBGXAM                                     2A       1       1       0   .abs_section_2a
+     _DBGXAL                                     2B       1       1       0   .abs_section_2b
+     _DBGADH                                     2C       1       1       0   .abs_section_2c
+     _DBGADL                                     2D       1       1       0   .abs_section_2d
+     _DBGADHM                                    2E       1       1       0   .abs_section_2e
+     _DBGADLM                                    2F       1       1       0   .abs_section_2f
+     _CPMUSYNR                                   34       1       1       1   .abs_section_34
+     _CPMUREFDIV                                 35       1       1       1   .abs_section_35
+     _CPMUPOSTDIV                                36       1       1       1   .abs_section_36
+     _CPMUFLG                                    37       1       1       3   .abs_section_37
+     _CPMUINT                                    38       1       1       3   .abs_section_38
+     _CPMUCLKS                                   39       1       1       3   .abs_section_39
+     _CPMUPLL                                    3A       1       1       1   .abs_section_3a
+     _CPMURTI                                    3B       1       1       1   .abs_section_3b
+     _CPMUCOP                                    3C       1       1       2   .abs_section_3c
+     _CPMUARMCOP                                 3F       1       1       0   .abs_section_3f
+     _TIOS                                       40       1       1       0   .abs_section_40
+     _CFORC                                      41       1       1       0   .abs_section_41
+     _OC7M                                       42       1       1       0   .abs_section_42
+     _OC7D                                       43       1       1       0   .abs_section_43
+     _TSCR1                                      46       1       1       0   .abs_section_46
+     _TTOV                                       47       1       1       0   .abs_section_47
+     _TCTL1                                      48       1       1       0   .abs_section_48
+     _TCTL2                                      49       1       1       0   .abs_section_49
+     _TCTL3                                      4A       1       1       0   .abs_section_4a
+     _TCTL4                                      4B       1       1       0   .abs_section_4b
+     _TIE                                        4C       1       1       0   .abs_section_4c
+     _TSCR2                                      4D       1       1       0   .abs_section_4d
+     _TFLG1                                      4E       1       1       0   .abs_section_4e
+     _TFLG2                                      4F       1       1       0   .abs_section_4f
+     _PACTL                                      60       1       1       0   .abs_section_60
+     _PAFLG                                      61       1       1       0   .abs_section_61
+     _OCPD                                       6C       1       1       0   .abs_section_6c
+     _PTPSR                                      6E       1       1       0   .abs_section_6e
+     _ATDSTAT0                                   76       1       1       0   .abs_section_76
+     _PWME                                       A0       1       1       0   .abs_section_a0
+     _PWMPOL                                     A1       1       1       0   .abs_section_a1
+     _PWMCLK                                     A2       1       1       0   .abs_section_a2
+     _PWMPRCLK                                   A3       1       1       0   .abs_section_a3
+     _PWMCAE                                     A4       1       1       0   .abs_section_a4
+     _PWMCTL                                     A5       1       1       0   .abs_section_a5
+     _PWMCLKAB                                   A6       1       1       0   .abs_section_a6
+     _PWMSCLA                                    A8       1       1       0   .abs_section_a8
+     _PWMSCLB                                    A9       1       1       0   .abs_section_a9
+     _SCI0ACR2                                   CA       1       1       0   .abs_section_ca
+     _SCI0CR2                                    CB       1       1       0   .abs_section_cb
+     _SCI0SR1                                    CC       1       1       0   .abs_section_cc
+     _SCI0SR2                                    CD       1       1       0   .abs_section_cd
+     _SCI0DRH                                    CE       1       1       0   .abs_section_ce
+     _SCI0DRL                                    CF       1       1       0   .abs_section_cf
+     _SCI1ACR2                                   D2       1       1       0   .abs_section_d2
+     _SCI1CR2                                    D3       1       1       0   .abs_section_d3
+     _SCI1SR1                                    D4       1       1       0   .abs_section_d4
+     _SCI1SR2                                    D5       1       1       0   .abs_section_d5
+     _SCI1DRH                                    D6       1       1       0   .abs_section_d6
+     _SCI1DRL                                    D7       1       1       0   .abs_section_d7
+     _SPI0CR1                                    D8       1       1       0   .abs_section_d8
+     _SPI0CR2                                    D9       1       1       0   .abs_section_d9
+     _SPI0BR                                     DA       1       1       0   .abs_section_da
+     _SPI0SR                                     DB       1       1       0   .abs_section_db
+     _SCI2ACR2                                   EA       1       1       0   .abs_section_ea
+     _SCI2CR2                                    EB       1       1       0   .abs_section_eb
+     _SCI2SR1                                    EC       1       1       0   .abs_section_ec
+     _SCI2SR2                                    ED       1       1       0   .abs_section_ed
+     _SCI2DRH                                    EE       1       1       0   .abs_section_ee
+     _SCI2DRL                                    EF       1       1       0   .abs_section_ef
+     _SPI1CR1                                    F0       1       1       0   .abs_section_f0
+     _SPI1CR2                                    F1       1       1       0   .abs_section_f1
+     _SPI1BR                                     F2       1       1       0   .abs_section_f2
+     _SPI1SR                                     F3       1       1       0   .abs_section_f3
+     _SPI2CR1                                    F8       1       1       0   .abs_section_f8
+     _SPI2CR2                                    F9       1       1       0   .abs_section_f9
+     _SPI2BR                                     FA       1       1       0   .abs_section_fa
+     _SPI2SR                                     FB       1       1       0   .abs_section_fb
+     _FCLKDIV                                   100       1       1       1   .abs_section_100
+     _FSEC                                      101       1       1       0   .abs_section_101
+     _FCCOBIX                                   102       1       1       8   .abs_section_102
+     _FCNFG                                     104       1       1       0   .abs_section_104
+     _FERCNFG                                   105       1       1       0   .abs_section_105
+     _FSTAT                                     106       1       1      20   .abs_section_106
+     _FERSTAT                                   107       1       1       0   .abs_section_107
+     _FPROT                                     108       1       1       0   .abs_section_108
+     _DFPROT                                    109       1       1       0   .abs_section_109
+     _FOPT                                      110       1       1       0   .abs_section_110
+     _IVBR                                      120       1       1       1   .abs_section_120
+     _CANCTL0                                   140       1       1       3   .abs_section_140
+     _CANCTL1                                   141       1       1       3   .abs_section_141
+     _CANBTR0                                   142       1       1       1   .abs_section_142
+     _CANBTR1                                   143       1       1       1   .abs_section_143
+     _CANRFLG                                   144       1       1       2   .abs_section_144
+     _CANRIER                                   145       1       1       1   .abs_section_145
+     _CANTFLG                                   146       1       1       2   .abs_section_146
+     _CANTIER                                   147       1       1       1   .abs_section_147
+     _CANTARQ                                   148       1       1       0   .abs_section_148
+     _CANTAAK                                   149       1       1       0   .abs_section_149
+     _CANTBSEL                                  14A       1       1       4   .abs_section_14a
+     _CANIDAC                                   14B       1       1       1   .abs_section_14b
+     _CANMISC                                   14D       1       1       0   .abs_section_14d
+     _CANRXERR                                  14E       1       1       0   .abs_section_14e
+     _CANTXERR                                  14F       1       1       0   .abs_section_14f
+     _CANIDAR0                                  150       1       1       1   .abs_section_150
+     _CANIDAR1                                  151       1       1       1   .abs_section_151
+     _CANIDAR2                                  152       1       1       1   .abs_section_152
+     _CANIDAR3                                  153       1       1       1   .abs_section_153
+     _CANIDMR0                                  154       1       1       1   .abs_section_154
+     _CANIDMR1                                  155       1       1       1   .abs_section_155
+     _CANIDMR2                                  156       1       1       1   .abs_section_156
+     _CANIDMR3                                  157       1       1       1   .abs_section_157
+     _CANIDAR4                                  158       1       1       1   .abs_section_158
+     _CANIDAR5                                  159       1       1       1   .abs_section_159
+     _CANIDAR6                                  15A       1       1       1   .abs_section_15a
+     _CANIDAR7                                  15B       1       1       1   .abs_section_15b
+     _CANIDMR4                                  15C       1       1       1   .abs_section_15c
+     _CANIDMR5                                  15D       1       1       1   .abs_section_15d
+     _CANIDMR6                                  15E       1       1       1   .abs_section_15e
+     _CANIDMR7                                  15F       1       1       1   .abs_section_15f
+     _CANRXIDR0                                 160       1       1       2   .abs_section_160
+     _CANRXIDR1                                 161       1       1       1   .abs_section_161
+     _CANRXIDR2                                 162       1       1       1   .abs_section_162
+     _CANRXIDR3                                 163       1       1       1   .abs_section_163
+     _CANRXDSR0                                 164       1       1       1   .abs_section_164
+     _CANRXDSR1                                 165       1       1       0   .abs_section_165
+     _CANRXDSR2                                 166       1       1       0   .abs_section_166
+     _CANRXDSR3                                 167       1       1       0   .abs_section_167
+     _CANRXDSR4                                 168       1       1       0   .abs_section_168
+     _CANRXDSR5                                 169       1       1       0   .abs_section_169
+     _CANRXDSR6                                 16A       1       1       0   .abs_section_16a
+     _CANRXDSR7                                 16B       1       1       0   .abs_section_16b
+     _CANRXDLR                                  16C       1       1       2   .abs_section_16c
+     _CANTXIDR0                                 170       1       1       1   .abs_section_170
+     _CANTXIDR1                                 171       1       1       1   .abs_section_171
+     _CANTXIDR2                                 172       1       1       1   .abs_section_172
+     _CANTXIDR3                                 173       1       1       1   .abs_section_173
+     _CANTXDSR0                                 174       1       1       1   .abs_section_174
+     _CANTXDSR1                                 175       1       1       0   .abs_section_175
+     _CANTXDSR2                                 176       1       1       0   .abs_section_176
+     _CANTXDSR3                                 177       1       1       0   .abs_section_177
+     _CANTXDSR4                                 178       1       1       0   .abs_section_178
+     _CANTXDSR5                                 179       1       1       0   .abs_section_179
+     _CANTXDSR6                                 17A       1       1       0   .abs_section_17a
+     _CANTXDSR7                                 17B       1       1       0   .abs_section_17b
+     _CANTXDLR                                  17C       1       1       1   .abs_section_17c
+     _CANTXTBPR                                 17D       1       1       1   .abs_section_17d
+     _PTT                                       240       1       1       3   .abs_section_240
+     _PTIT                                      241       1       1       0   .abs_section_241
+     _DDRT                                      242       1       1       1   .abs_section_242
+     _PERT                                      244       1       1       1   .abs_section_244
+     _PPST                                      245       1       1       0   .abs_section_245
+     _PTS                                       248       1       1       3   .abs_section_248
+     _PTIS                                      249       1       1       0   .abs_section_249
+     _DDRS                                      24A       1       1       1   .abs_section_24a
+     _PERS                                      24C       1       1       0   .abs_section_24c
+     _PPSS                                      24D       1       1       0   .abs_section_24d
+     _WOMS                                      24E       1       1       1   .abs_section_24e
+     _PRR0                                      24F       1       1       0   .abs_section_24f
+     _PTM                                       250       1       1       0   .abs_section_250
+     _PTIM                                      251       1       1       0   .abs_section_251
+     _DDRM                                      252       1       1       0   .abs_section_252
+     _PERM                                      254       1       1       0   .abs_section_254
+     _PPSM                                      255       1       1       0   .abs_section_255
+     _WOMM                                      256       1       1       1   .abs_section_256
+     _PKGCR                                     257       1       1       1   .abs_section_257
+     _PTP                                       258       1       1       0   .abs_section_258
+     _PTIP                                      259       1       1       0   .abs_section_259
+     _DDRP                                      25A       1       1       0   .abs_section_25a
+     _PERP                                      25C       1       1       0   .abs_section_25c
+     _PPSP                                      25D       1       1       0   .abs_section_25d
+     _PIEP                                      25E       1       1       0   .abs_section_25e
+     _PIFP                                      25F       1       1       0   .abs_section_25f
+     _PTJ                                       268       1       1       0   .abs_section_268
+     _PTIJ                                      269       1       1       0   .abs_section_269
+     _DDRJ                                      26A       1       1       0   .abs_section_26a
+     _PERJ                                      26C       1       1       0   .abs_section_26c
+     _PPSJ                                      26D       1       1       0   .abs_section_26d
+     _PIEJ                                      26E       1       1       0   .abs_section_26e
+     _PIFJ                                      26F       1       1       0   .abs_section_26f
+     _CPMULVCTL                                 2F1       1       1       1   .abs_section_2f1
+     _CPMUAPICTL                                2F2       1       1       0   .abs_section_2f2
+     _CPMUACLKTR                                2F3       1       1       0   .abs_section_2f3
+     _CPMUOSC                                   2FA       1       1       1   .abs_section_2fa
+     _CPMUPROT                                  2FB       1       1       4   .abs_section_2fb
+     _PORTAB                                      0       2       2       0   .abs_section_0
+     _DDRAB                                       2       2       2       0   .abs_section_2
+     _PORTCD                                      4       2       2       0   .abs_section_4
+     _DDRCD                                       6       2       2       0   .abs_section_6
+     _PARTID                                     1A       2       2       0   .abs_section_1a
+     _DBGTB                                      24       2       2       0   .abs_section_24
+     _TCNT                                       44       2       2       0   .abs_section_44
+     _TC0                                        50       2       2       0   .abs_section_50
+     _TC1                                        52       2       2       0   .abs_section_52
+     _TC2                                        54       2       2       0   .abs_section_54
+     _TC3                                        56       2       2       0   .abs_section_56
+     _TC4                                        58       2       2       0   .abs_section_58
+     _TC5                                        5A       2       2       0   .abs_section_5a
+     _TC6                                        5C       2       2       0   .abs_section_5c
+     _TC7                                        5E       2       2       0   .abs_section_5e
+     _PACNT                                      62       2       2       0   .abs_section_62
+     _ATDCTL01                                   70       2       2       0   .abs_section_70
+     _ATDCTL23                                   72       2       2       0   .abs_section_72
+     _ATDCTL45                                   74       2       2       0   .abs_section_74
+     _ATDCMPE                                    78       2       2       0   .abs_section_78
+     _ATDSTAT2                                   7A       2       2       0   .abs_section_7a
+     _ATDDIEN                                    7C       2       2       0   .abs_section_7c
+     _ATDCMPHT                                   7E       2       2       0   .abs_section_7e
+     _ATDDR0                                     80       2       2       0   .abs_section_80
+     _ATDDR1                                     82       2       2       0   .abs_section_82
+     _ATDDR2                                     84       2       2       0   .abs_section_84
+     _ATDDR3                                     86       2       2       0   .abs_section_86
+     _ATDDR4                                     88       2       2       0   .abs_section_88
+     _ATDDR5                                     8A       2       2       0   .abs_section_8a
+     _ATDDR6                                     8C       2       2       0   .abs_section_8c
+     _ATDDR7                                     8E       2       2       0   .abs_section_8e
+     _ATDDR8                                     90       2       2       0   .abs_section_90
+     _ATDDR9                                     92       2       2       0   .abs_section_92
+     _ATDDR10                                    94       2       2       0   .abs_section_94
+     _ATDDR11                                    96       2       2       0   .abs_section_96
+     _PWMCNT01                                   AC       2       2       0   .abs_section_ac
+     _PWMCNT23                                   AE       2       2       0   .abs_section_ae
+     _PWMCNT45                                   B0       2       2       0   .abs_section_b0
+     _PWMCNT67                                   B2       2       2       0   .abs_section_b2
+     _PWMPER01                                   B4       2       2       0   .abs_section_b4
+     _PWMPER23                                   B6       2       2       0   .abs_section_b6
+     _PWMPER45                                   B8       2       2       0   .abs_section_b8
+     _PWMPER67                                   BA       2       2       0   .abs_section_ba
+     _PWMDTY01                                   BC       2       2       0   .abs_section_bc
+     _PWMDTY23                                   BE       2       2       0   .abs_section_be
+     _PWMDTY45                                   C0       2       2       0   .abs_section_c0
+     _PWMDTY67                                   C2       2       2       0   .abs_section_c2
+     _SCI0BD                                     C8       2       2       0   .abs_section_c8
+     _SCI1BD                                     D0       2       2       0   .abs_section_d0
+     _SPI0DR                                     DC       2       2       0   .abs_section_dc
+     _SCI2BD                                     E8       2       2       0   .abs_section_e8
+     _SPI1DR                                     F4       2       2       0   .abs_section_f4
+     _SPI2DR                                     FC       2       2       0   .abs_section_fc
+     _FCCOB                                     10A       2       2      11   .abs_section_10a
+     _CANRXTSR                                  16E       2       2       0   .abs_section_16e
+     _CANTXTSR                                  17E       2       2       0   .abs_section_17e
+     _PT01AD                                    270       2       2       0   .abs_section_270
+     _PTI01AD                                   272       2       2       0   .abs_section_272
+     _DDR01AD                                   274       2       2       0   .abs_section_274
+     _PER01AD                                   278       2       2       0   .abs_section_278
+     _PPS01AD                                   27A       2       2       0   .abs_section_27a
+     _PIE01AD                                   27C       2       2       0   .abs_section_27c
+     _PIF01AD                                   27E       2       2       0   .abs_section_27e
+     _CPMUAPIR                                  2F4       2       2       0   .abs_section_2f4
+     _CPMUIRCTRIM                               2F8       2       2       0   .abs_section_2f8
+MODULE:                 -- Vectors.c.o --
+- PROCEDURES:
+- VARIABLES:
+     _InterruptVectorTable                     FF80      7A     122       0   .abs_section_ff80
+     _ResetVectorTable                         FFFA       6       6       0   .abs_section_fffa
+MODULE:                 -- DiagnosticDemo.c.o --
+- PROCEDURES:
+     ForceReset                               E8096      11      17       2   .text       
+     SystemReset                              E80A7      14      20       3   .text       
+     CommulicatonControl                      E80BB       1       1       3   .text       
+     HD10SeedToKeyLevel1                      E80BC       7       7       3   .text       
+     SendFrame                                E80C3      7C     124       3   .text       
+     IoControl_9826                           E813F      2B      43       6   .text       
+     NMGetLimpHome                            E816A       3       3       3   .text       
+     Diagnostic_Init_Config                   E816D     2A4     676       2   .text       
+     main                                     E8411      1A      26       2   .text       
+     Can_Rx_Interrupt                          C0DF      DE     222       6   NON_BANKED  
+     RTI_Interrupt                             C1BD       8       8       1   NON_BANKED  
+- VARIABLES:
+     TestCurrentTemp                           2000       1       1       1   .data       
+     CurrentSpeed                              2001       2       2       1   .data       
+     CurrentVoltage                            2003       1       1       4   .data       
+     IO9826_MixMtrCtrl                         2A49       1       1       4   .common     
+MODULE:                 -- CAN1.c.o --
+- PROCEDURES:
+     CAN1_Init                                E842B      60      96       2   .text       
+- VARIABLES:
+MODULE:                 -- TJA1043_Can_Sel.c.o --
+- PROCEDURES:
+     TJA1043_Can_Sel_PutVal                   EB2D7       D      13       2   TJA1043_Can_Sel_CODE
+- VARIABLES:
+MODULE:                 -- TJA1043_EN.c.o --
+- PROCEDURES:
+     TJA1043_EN_PutVal                        EB2E4       D      13       2   TJA1043_EN_CODE
+- VARIABLES:
+MODULE:                 -- Diagnostic.c.o --
+- PROCEDURES:
+     InitAddSecurityAlgorithm                 E848B      76     118       2   .text       
+     InitSetSessionSupportAndSecurityAccess      E8501      82     130      22   .text       
+     InitAddDID                               E8583      64     100      10   .text       
+     InitAddDTC                               E85E7      47      71       2   .text       
+     InitAddDTCSnapShot                       E862E      2D      45      10   .text       
+     InitSetAgingCounterRecordNumber          E865B       4       4       2   .text       
+     InitSetAgedCounterRecordNumber           E865F       4       4       2   .text       
+     InitSetOccurrenceCounterRecordNumber      E8663       4       4       2   .text       
+     InitSetPendingCounterRecordNumber        E8667       4       4       2   .text       
+     InitSetDTCAvailiableMask                 E866B       4       4       2   .text       
+     InitAddDTCGroup                          E866F      23      35       2   .text       
+     InitSetSysResetParam                     E8692      35      53       2   .text       
+     InitSetCommControlParam                  E86C7      47      71       2   .text       
+     InitSetSessionControlParam               E870E      2A      42       2   .text       
+     InitSetTesterPresentSupress              E8738       6       6       2   .text       
+     InitSetDTCControlSupress                 E873E       8       8       2   .text       
+     Diagnostic_SetNLParam                    E8746      33      51       2   .text       
+     Diagnostic_Init                          E8779      BA     186       2   .text       
+     GenerateSeed                             E8833      40      64       2   .text       
+     GotoSession                              E8873      54      84       4   .text       
+     Service10PosResponse                     E88C7      2B      43       4   .text       
+     Service10Handle                          E88F2      9E     158       2   .text       
+     Service11Handle                          E8990      BC     188       2   .text       
+     Service27Handle                          E8A4C     283     643      24   .text       
+     Service28Handle                          E8CCF      D5     213       2   .text       
+     Service3EHandle                          E8DA4      66     102       2   .text       
+     Service83Handle                          E8E0A       1       1       2   .text       
+     Service84Handle                          E8E0B       1       1       2   .text       
+     Service85Handle                          E8E0C      76     118       2   .text       
+     Service86Handle                          E8E82       1       1       2   .text       
+     Service87Handle                          E8E83       1       1       2   .text       
+     SearchDidNode                            E8E84      2D      45       6   .text       
+     Service22Handle                          E8EB1      E7     231       3   .text       
+     Service23Handle                          E8F98       1       1       2   .text       
+     Service24Handle                          E8F99       1       1       2   .text       
+     Service2AHandle                          E8F9A       1       1       2   .text       
+     Service2CHandle                          E8F9B       1       1       2   .text       
+     Service2EHandle                          E8F9C      B4     180       2   .text       
+     Service3DHandle                          E9050       1       1       2   .text       
+     SearchDTCGroup                           E9051      2F      47       2   .text       
+     Service14Handle                          E9080      5A      90       2   .text       
+     SearchDTCByMaskAndFillResponse           E90DA      65     101       2   .text       
+     FillAllDTCResponse                       E913F      58      88       2   .text       
+     GetDTCNumberByMask                       E9197      2F      47       2   .text       
+     GetDTCNodeByCode                         E91C6      43      67       2   .text       
+     FillDTCSnapshotReponse                   E9209      DF     223       3   .text       
+     Service19Handle                          E92E8     246     582      21   .text       
+     Service2FHandle                          E952E      CC     204       2   .text       
+     Service31Handle                          E95FA       1       1       2   .text       
+     Service34Handle                          E95FB       1       1       2   .text       
+     Service35Handle                          E95FC       1       1       2   .text       
+     Service36Handle                          E95FD       1       1       2   .text       
+     Service37Handle                          E95FE       1       1       2   .text       
+     ServiceNegReponse                        E95FF      2B      43       2   .text       
+     Diagnostic_ServiceHandle                 E962A     159     345      11   .text       
+     Diagnostic_MainProc                      E9783     18D     397       4   .text       
+     Diagnostic_TimeProc                      E9910      80     128       2   .text       
+     SaveSnapShotData                         E9990      4C      76       2   .text       
+     DtcHandle                                E99DC      88     136       2   .text       
+     Diagnostic_DTCProc                       E9A64      5B      91       2   .text       
+     J1939Proc                                E9ABF       1       1       2   .text       
+     Diagnostic_Proc                          E9AC0      15      21       2   .text       
+     Diagnostic_RxFrame                       E9AD5      48      72       2   .text       
+     Diagnostic_1msTimer                      E9B1D       5       5       2   .text       
+     Diagnostic_ClearDTC                      E9B22      67     103       2   .text       
+     Diagnostic_LoadAllDTC                    E9B89      3B      59       2   .text       
+     Diagnostic_LoadSecuriyFaultCounter       E9BC4      80     128       2   .text       
+     Diagnostic_BindingSnapshot               E9C44      4D      77       2   .text       
+     Diagnostic_LoadAllData                   E9C91       D      13       2   .text       
+- VARIABLES:
+     m_SecurityLevel                           2004       2       2       5   .data       
+     P2CanServerMax                            2006       2       2       3   .data       
+     P2ECanServerMax                           2008       2       2       3   .data       
+     ServiceList                               200A      EA     234      19   .data       
+     m_UnlockStep                              20F4       2       2      11   .bss        
+     WaitConfirmBeforeJump                     20F6       1       1       4   .bss        
+     WaitConfirmBeforeErase                    20F7       1       1       2   .bss        
+     SnapShotAdded                             20F8       1       1       7   .bss        
+     AgedCounterRecord                         20F9       1       1       4   .bss        
+     AgingCounterRecord                        20FA       1       1       4   .bss        
+     OccurenceCounterRecord                    20FB       1       1       4   .bss        
+     PendingCounterRecord                      20FC       1       1       4   .bss        
+     WaitConfimBeforeReset                     20FD       1       1       4   .bss        
+     Seed                                      20FE       5       5       7   .bss        
+     key                                       2103       4       4       8   .bss        
+     m_NRC                                     2107       2       2      42   .bss        
+     DiagnosticBuffTX                          2109      C8     200      90   .bss        
+     S3serverTimer                             21D1       5       5       3   .bss        
+     TesterPhyID                               21D6       4       4       4   .bss        
+     TesterFunID                               21DA       4       4       5   .bss        
+     TesterPhyID1                              21DE       4       4       1   .bss        
+     TesterFunID1                              21E2       4       4       1   .bss        
+     EcuID1                                    21E6       4       4       2   .bss        
+     EcuID                                     21EA       4       4       8   .bss        
+     N_Ta                                      21EE       1       1       6   .bss        
+     N_Sa                                      21EF       1       1       6   .bss        
+     SessionSupport                            21F0       1       1       8   .bss        
+     DTCS                                      21F1     299     665      34   .bss        
+     DTCAdded                                  248A       1       1      12   .bss        
+     DIDS                                      248B     460    1120      10   .bss        
+     DIDAdded                                  28EB       1       1       6   .bss        
+     SnapShots                                 28EC      3C      60      18   .bss        
+     DTCGROUPS                                 2928      1E      30       4   .bss        
+     DTCGroupAdded                             2946       1       1       5   .bss        
+     DtcAvailibaleMask                         2947       1       1       8   .bss        
+     DtcTimer                                  2948       5       5       3   .bss        
+     ModuleEEpromStartAddr                     294D       2       2       5   .bss        
+     EEpromSizeForUse                          294F       2       2       1   .bss        
+     EEpromUsed                                2951       2       2      11   .bss        
+     DTCSaved                                  2953       1       1       4   .bss        
+     DM1DTCNumber                              2954       1       1       2   .bss        
+     DTCSavedTimer                             2955       5       5       2   .bss        
+     ResetTypeSupport                          295A       1       1       8   .bss        
+     ResetCallBackFun                          295B       3       3      10   .bss        
+     m_EcuResetType                            295E       2       2       4   .bss        
+     TesterPresentSuppport                     2960       1       1       5   .bss        
+     CommTypeSupport                           2961       1       1      10   .bss        
+     commCallBack                              2962       3       3      10   .bss        
+     UnlockList                                2A4A      45      69      53   .common     
+     m_CurrSessionType                         2A8F       1       1      12   .common     
+     ResponsePending                           2A90       1       1      14   .common     
+     suppressResponse                          2A91       1       1      24   .common     
+     ResponseLength                            2A92       2       2      38   .common     
+     CurrentService                            2A94       1       1      10   .common     
+     EnableDTCDetect                           2A95       1       1       4   .common     
+     HighVoltage                               2A96       1       1       1   .common     
+     SaveDTCInBlock                            2A97       1       1       5   .common     
+MODULE:                 -- DiagnosticTimer.c.o --
+- PROCEDURES:
+     DiagTimer_Set                            E9C9E      1B      27      32   .text       
+     DiagTimer_HasStopped                     E9CB9       B      11       2   .text       
+     DiagTimer_HasExpired                     E9CC4      46      70      16   .text       
+     DiagTimer_GetTickCount                   E9D0A       7       7       4   .text       
+     DiagTimer_ISR_Proc                       E9D11      10      16       2   .text       
+- VARIABLES:
+     SystemTickCount                           2965       4       4      10   .bss        
+MODULE:                 -- J1939TP.c.o --
+- PROCEDURES:
+     J1939TPReceiveData                       E9D21      C3     195       2   .text       
+     TPCMSetParamBAM                          E9DE4       7       7       2   .text       
+- VARIABLES:
+     sendInterface                             2969       3       3       2   .bss        
+     BAMRxState                                2A98       1       1       3   .common     
+     BAMRxLength                               2A99       2       2       6   .common     
+     BAMRxFrameLength                          2A9B       1       1       1   .common     
+     BAMRxReceived                             2A9C       1       1       7   .common     
+     BAMRxBuf                                  2A9D      50      80       1   .common     
+MODULE:                 -- NetworkLayer.c.o --
+- PROCEDURES:
+     NetworkLayer_InitParam                   E9DEB      8D     141       2   .text       
+     NetworkLayer_SetParam                    E9E78      52      82       2   .text       
+     IsRxBuffEmpty                            E9ECA       D      13       2   .text       
+     IsTxBuffEmpty                            E9ED7       D      13       2   .text       
+     IsTxBuffFull                             E9EE4      20      32       2   .text       
+     NetworkLayer_SendSF                      E9F04      81     129       2   .text       
+     NetworkLayer_SendFF                      E9F85      8B     139       2   .text       
+     NetworkLayer_SendCF                      EA010      A9     169       2   .text       
+     NetworkLayer_SendFC                      EA0B9      66     102       4   .text       
+     NetworkLayer_RxSF                        EA11F     129     297       3   .text       
+     NetworkLayer_RxFF                        EA248     106     262       6   .text       
+     NetworkLayer_RxCF                        EA34E      BD     189       2   .text       
+     NetworkLayer_RxFC                        EA40B      AA     170       2   .text       
+     NetworkLayer_RxProc                      EA4B5      81     129       2   .text       
+     NetworkLayer_RxFrame                     EA536     11E     286       2   .text       
+     NetworkLayer_TxFrame                     EA654      7C     124       2   .text       
+     NetworkLayer_TxEnd                       EA6D0       9       9      10   .text       
+     NetworkLayer_TxStart                     EA6D9      19      25       2   .text       
+     NetworkLayer_RxEnd                       EA6F2      12      18      10   .text       
+     NetworkLayer_RxStart                     EA704      21      33       2   .text       
+     NetworkLayer_TxProc                      EA725      34      52       2   .text       
+     NetworkLayer_NotifyToUpperLayer          EA759      29      41       6   .text       
+     N_USData_request                         EA782      41      65       4   .text       
+     N_USData_confirm                         EA7C3      B1     177       6   .text       
+     N_USData_FF_indication                   EA874      3F      63       2   .text       
+     N_USData_indication                      EA8B3     128     296      14   .text       
+     NetworkLayer_MainProc                    EA9DB     282     642      20   .text       
+     NetworkLayer_Proc                        EAC5D       D      13       2   .text       
+     IsIndicationListEmpty                    EAC6A       D      13       2   .text       
+     IsIndicationListFull                     EAC77      22      34       2   .text       
+     PullIndication                           EAC99      28      40       2   .text       
+- VARIABLES:
+     m_NetworkStatus                           296C       2       2      18   .bss        
+     m_N_Result                                296E       2       2      23   .bss        
+     m_DuplexMode                              2970       2       2       4   .bss        
+     m_TimePeriod                              2972      14      20      37   .bss        
+     m_TxStep                                  2986       2       2       6   .bss        
+     m_RxStep                                  2988       2       2       5   .bss        
+     m_AddressFormat                           298A       7       7      51   .bss        
+     CFDataPionter                             2991       2       2       4   .bss        
+     TxParam                                   2993       C      12      31   .bss        
+     RxParam                                   299F       C      12      43   .bss        
+     NetworkDataBufRx                          29AB      64     100       2   .bss        
+     m_PyhReqID                                2A0F       4       4       6   .bss        
+     m_FunReqID                                2A13       4       4       6   .bss        
+     m_ResponseID                              2A17       4       4       4   .bss        
+     m_PyhReqID1                               2A1B       4       4       4   .bss        
+     m_FunReqID1                               2A1F       4       4       4   .bss        
+     m_ResponseID1                             2A23       4       4       2   .bss        
+     m_CurrResponseID                          2A27       4       4       5   .bss        
+     RxDataBuff                                2A2B       7       7      33   .bss        
+     SendTimer                                 2A32       5       5       4   .bss        
+     ReciveTimer                               2A37       5       5       4   .bss        
+     CFRequestTimer                            2A3C       5       5       3   .bss        
+     NetworkSend                               2A41       3       3       5   .bss        
+     IndicationList                            2AED      30      48       2   .common     
+     IndicationInIndex                         2B1D       1       1       8   .common     
+     IndicationOutIndex                        2B1E       1       1       7   .common     
+     RxFrameBuff                               2B1F      45      69       3   .common     
+     RxInIndex                                 2B64       1       1       6   .common     
+     RxOutIndex                                2B65       1       1       6   .common     
+     TxFrameBuff                               2B66      45      69      25   .common     
+     TxInIndex                                 2BAB       1       1      25   .common     
+     TxOutIndex                                2BAC       1       1       8   .common     
+     FrameFillData                             2BAD       1       1       5   .common     
+MODULE:                 -- EEPromDriver.c.o --
+- PROCEDURES:
+     BackupSector                             EACC1      53      83       6   .text       
+     WriteBlock                               EAD14      96     150       6   .text       
+     EraseSectorInternal                      EADAA      3F      63       6   .text       
+     WriteWord                                EADE9      4C      76       4   .text       
+     EEProm_SetByte                           EAE35     174     372       3   .text       
+     EEProm_GetByte                           EAFA9      64     100       2   .text       
+     EEProm_SetWord                           EB00D      D9     217       2   .text       
+     EEProm_SetLong                           EB0E6     106     262       3   .text       
+     Diagnostic_EEProm_Init                   EB1EC       A      10       2   .text       
+     Diagnostic_EEProm_Write                  EB1F6      A0     160      11   .text       
+     Diagnostic_EEProm_Read                   EB296      2A      42      12   .text       
+- VARIABLES:
+     EEPromEnMode                              2A44       1       1       4   .bss        
+     EEBackupArray                             2A45       4       4       9   .bss        
+MODULE:                 -- RTI1.c.o --
+- PROCEDURES:
+     RTI1_Init                                EB2C0      17      23       2   .text       
+- VARIABLES:
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  datapage.c.o                                 0     22      0
+  Start12.c.o                                  0     52      0
+  STRING.C.o (ansibi.lib)                      0     60      0
+  rtshc12.c.o (ansibi.lib)                     0    114      0
+  Cpu.c.o                                      0    115      0
+  IO_Map.c.o                                 328      0      0
+  Vectors.c.o                                  0      0    128
+  DiagnosticDemo.c.o                           5   1147      0
+  CAN1.c.o                                     0     96      0
+  TJA1043_Can_Sel.c.o                          0     13      0
+  TJA1043_EN.c.o                               0     13      0
+  Diagnostic.c.o                            2479   6163      0
+  DiagnosticTimer.c.o                          4    131      0
+  J1939TP.c.o                                 88    202      0
+  NetworkLayer.c.o                           409   3798      0
+  EEPromDriver.c.o                             5   1535      0
+  RTI1.c.o                                     0     23      0
+  other                                      256     10    241
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".text"
+  Init memcpy memset PE_low_level_init ForceReset SystemReset 
+  CommulicatonControl HD10SeedToKeyLevel1 SendFrame IoControl_9826 
+  NMGetLimpHome Diagnostic_Init_Config main CAN1_Init InitAddSecurityAlgorithm 
+  InitSetSessionSupportAndSecurityAccess InitAddDID InitAddDTC 
+  InitAddDTCSnapShot InitSetAgingCounterRecordNumber 
+  InitSetAgedCounterRecordNumber InitSetOccurrenceCounterRecordNumber 
+  InitSetPendingCounterRecordNumber InitSetDTCAvailiableMask InitAddDTCGroup 
+  InitSetSysResetParam InitSetCommControlParam InitSetSessionControlParam 
+  InitSetTesterPresentSupress InitSetDTCControlSupress Diagnostic_SetNLParam 
+  Diagnostic_Init GenerateSeed GotoSession Service10PosResponse Service10Handle 
+  Service11Handle Service27Handle Service28Handle Service3EHandle 
+  Service83Handle Service84Handle Service85Handle Service86Handle 
+  Service87Handle SearchDidNode Service22Handle Service23Handle Service24Handle 
+  Service2AHandle Service2CHandle Service2EHandle Service3DHandle 
+  SearchDTCGroup Service14Handle SearchDTCByMaskAndFillResponse 
+  FillAllDTCResponse GetDTCNumberByMask GetDTCNodeByCode FillDTCSnapshotReponse 
+  Service19Handle Service2FHandle Service31Handle Service34Handle 
+  Service35Handle Service36Handle Service37Handle ServiceNegReponse 
+  Diagnostic_ServiceHandle Diagnostic_MainProc Diagnostic_TimeProc 
+  SaveSnapShotData DtcHandle Diagnostic_DTCProc J1939Proc Diagnostic_Proc 
+  Diagnostic_RxFrame Diagnostic_1msTimer Diagnostic_ClearDTC 
+  Diagnostic_LoadAllDTC Diagnostic_LoadSecuriyFaultCounter 
+  Diagnostic_BindingSnapshot Diagnostic_LoadAllData DiagTimer_Set 
+  DiagTimer_HasStopped DiagTimer_HasExpired DiagTimer_GetTickCount 
+  DiagTimer_ISR_Proc J1939TPReceiveData TPCMSetParamBAM NetworkLayer_InitParam 
+  NetworkLayer_SetParam IsRxBuffEmpty IsTxBuffEmpty IsTxBuffFull 
+  NetworkLayer_SendSF NetworkLayer_SendFF NetworkLayer_SendCF 
+  NetworkLayer_SendFC NetworkLayer_RxSF NetworkLayer_RxFF NetworkLayer_RxCF 
+  NetworkLayer_RxFC NetworkLayer_RxProc NetworkLayer_RxFrame 
+  NetworkLayer_TxFrame NetworkLayer_TxEnd NetworkLayer_TxStart 
+  NetworkLayer_RxEnd NetworkLayer_RxStart NetworkLayer_TxProc 
+  NetworkLayer_NotifyToUpperLayer N_USData_request N_USData_confirm 
+  N_USData_FF_indication N_USData_indication NetworkLayer_MainProc 
+  NetworkLayer_Proc IsIndicationListEmpty IsIndicationListFull PullIndication 
+  BackupSector WriteBlock EraseSectorInternal WriteWord EEProm_SetByte 
+  EEProm_GetByte EEProm_SetWord EEProm_SetLong Diagnostic_EEProm_Init 
+  Diagnostic_EEProm_Write Diagnostic_EEProm_Read RTI1_Init 
+SECTION: ".data"
+  TestCurrentTemp CurrentSpeed CurrentVoltage m_SecurityLevel P2CanServerMax 
+  P2ECanServerMax ServiceList 
+SECTION: ".bss"
+  m_UnlockStep WaitConfirmBeforeJump WaitConfirmBeforeErase SnapShotAdded 
+  AgedCounterRecord AgingCounterRecord OccurenceCounterRecord 
+  PendingCounterRecord WaitConfimBeforeReset Seed key m_NRC DiagnosticBuffTX 
+  S3serverTimer TesterPhyID TesterFunID TesterPhyID1 TesterFunID1 EcuID1 EcuID 
+  N_Ta N_Sa SessionSupport DTCS DTCAdded DIDS DIDAdded SnapShots DTCGROUPS 
+  DTCGroupAdded DtcAvailibaleMask DtcTimer ModuleEEpromStartAddr 
+  EEpromSizeForUse EEpromUsed DTCSaved DM1DTCNumber DTCSavedTimer 
+  ResetTypeSupport ResetCallBackFun m_EcuResetType TesterPresentSuppport 
+  CommTypeSupport commCallBack SystemTickCount sendInterface m_NetworkStatus 
+  m_N_Result m_DuplexMode m_TimePeriod m_TxStep m_RxStep m_AddressFormat 
+  CFDataPionter TxParam RxParam NetworkDataBufRx m_PyhReqID m_FunReqID 
+  m_ResponseID m_PyhReqID1 m_FunReqID1 m_ResponseID1 m_CurrResponseID 
+  RxDataBuff SendTimer ReciveTimer CFRequestTimer NetworkSend EEPromEnMode 
+  EEBackupArray 
+SECTION: ".init"
+  Cpu_Interrupt _EntryPoint 
+SECTION: "NON_BANKED"
+  _LOAD_FAR_8 _LOAD_FAR_16 _Startup _BDIVMODU _LSHL _LSHRU _LCMP _LINC _ILSEXT 
+  _COPY _CASE_DIRECT_BYTE _CASE_CHECKED_BYTE Can_Rx_Interrupt RTI_Interrupt 
+SECTION: ".common"
+  IO9826_MixMtrCtrl UnlockList m_CurrSessionType ResponsePending 
+  suppressResponse ResponseLength CurrentService EnableDTCDetect HighVoltage 
+  SaveDTCInBlock BAMRxState BAMRxLength BAMRxFrameLength BAMRxReceived BAMRxBuf 
+  IndicationList IndicationInIndex IndicationOutIndex RxFrameBuff RxInIndex 
+  RxOutIndex TxFrameBuff TxInIndex TxOutIndex FrameFillData 
+SECTION: "TJA1043_Can_Sel_CODE"
+  TJA1043_Can_Sel_PutVal 
+SECTION: "TJA1043_EN_CODE"
+  TJA1043_EN_PutVal 
+SECTION: ".abs_section_8"
+  _PORTE 
+SECTION: ".abs_section_9"
+  _DDRE 
+SECTION: ".abs_section_b"
+  _MODE 
+SECTION: ".abs_section_c"
+  _PUCR 
+SECTION: ".abs_section_11"
+  _DIRECT 
+SECTION: ".abs_section_13"
+  _MMCCTL1 
+SECTION: ".abs_section_15"
+  _PPAGE 
+SECTION: ".abs_section_1c"
+  _ECLKCTL 
+SECTION: ".abs_section_1e"
+  _IRQCR 
+SECTION: ".abs_section_20"
+  _DBGC1 
+SECTION: ".abs_section_21"
+  _DBGSR 
+SECTION: ".abs_section_22"
+  _DBGTCR 
+SECTION: ".abs_section_23"
+  _DBGC2 
+SECTION: ".abs_section_26"
+  _DBGCNT 
+SECTION: ".abs_section_27"
+  _DBGSCRX 
+SECTION: ".abs_section_28"
+  _DBGXCTL 
+SECTION: ".abs_section_29"
+  _DBGXAH 
+SECTION: ".abs_section_2a"
+  _DBGXAM 
+SECTION: ".abs_section_2b"
+  _DBGXAL 
+SECTION: ".abs_section_2c"
+  _DBGADH 
+SECTION: ".abs_section_2d"
+  _DBGADL 
+SECTION: ".abs_section_2e"
+  _DBGADHM 
+SECTION: ".abs_section_2f"
+  _DBGADLM 
+SECTION: ".abs_section_34"
+  _CPMUSYNR 
+SECTION: ".abs_section_35"
+  _CPMUREFDIV 
+SECTION: ".abs_section_36"
+  _CPMUPOSTDIV 
+SECTION: ".abs_section_37"
+  _CPMUFLG 
+SECTION: ".abs_section_38"
+  _CPMUINT 
+SECTION: ".abs_section_39"
+  _CPMUCLKS 
+SECTION: ".abs_section_3a"
+  _CPMUPLL 
+SECTION: ".abs_section_3b"
+  _CPMURTI 
+SECTION: ".abs_section_3c"
+  _CPMUCOP 
+SECTION: ".abs_section_3f"
+  _CPMUARMCOP 
+SECTION: ".abs_section_40"
+  _TIOS 
+SECTION: ".abs_section_41"
+  _CFORC 
+SECTION: ".abs_section_42"
+  _OC7M 
+SECTION: ".abs_section_43"
+  _OC7D 
+SECTION: ".abs_section_46"
+  _TSCR1 
+SECTION: ".abs_section_47"
+  _TTOV 
+SECTION: ".abs_section_48"
+  _TCTL1 
+SECTION: ".abs_section_49"
+  _TCTL2 
+SECTION: ".abs_section_4a"
+  _TCTL3 
+SECTION: ".abs_section_4b"
+  _TCTL4 
+SECTION: ".abs_section_4c"
+  _TIE 
+SECTION: ".abs_section_4d"
+  _TSCR2 
+SECTION: ".abs_section_4e"
+  _TFLG1 
+SECTION: ".abs_section_4f"
+  _TFLG2 
+SECTION: ".abs_section_60"
+  _PACTL 
+SECTION: ".abs_section_61"
+  _PAFLG 
+SECTION: ".abs_section_6c"
+  _OCPD 
+SECTION: ".abs_section_6e"
+  _PTPSR 
+SECTION: ".abs_section_76"
+  _ATDSTAT0 
+SECTION: ".abs_section_a0"
+  _PWME 
+SECTION: ".abs_section_a1"
+  _PWMPOL 
+SECTION: ".abs_section_a2"
+  _PWMCLK 
+SECTION: ".abs_section_a3"
+  _PWMPRCLK 
+SECTION: ".abs_section_a4"
+  _PWMCAE 
+SECTION: ".abs_section_a5"
+  _PWMCTL 
+SECTION: ".abs_section_a6"
+  _PWMCLKAB 
+SECTION: ".abs_section_a8"
+  _PWMSCLA 
+SECTION: ".abs_section_a9"
+  _PWMSCLB 
+SECTION: ".abs_section_ca"
+  _SCI0ACR2 
+SECTION: ".abs_section_cb"
+  _SCI0CR2 
+SECTION: ".abs_section_cc"
+  _SCI0SR1 
+SECTION: ".abs_section_cd"
+  _SCI0SR2 
+SECTION: ".abs_section_ce"
+  _SCI0DRH 
+SECTION: ".abs_section_cf"
+  _SCI0DRL 
+SECTION: ".abs_section_d2"
+  _SCI1ACR2 
+SECTION: ".abs_section_d3"
+  _SCI1CR2 
+SECTION: ".abs_section_d4"
+  _SCI1SR1 
+SECTION: ".abs_section_d5"
+  _SCI1SR2 
+SECTION: ".abs_section_d6"
+  _SCI1DRH 
+SECTION: ".abs_section_d7"
+  _SCI1DRL 
+SECTION: ".abs_section_d8"
+  _SPI0CR1 
+SECTION: ".abs_section_d9"
+  _SPI0CR2 
+SECTION: ".abs_section_da"
+  _SPI0BR 
+SECTION: ".abs_section_db"
+  _SPI0SR 
+SECTION: ".abs_section_ea"
+  _SCI2ACR2 
+SECTION: ".abs_section_eb"
+  _SCI2CR2 
+SECTION: ".abs_section_ec"
+  _SCI2SR1 
+SECTION: ".abs_section_ed"
+  _SCI2SR2 
+SECTION: ".abs_section_ee"
+  _SCI2DRH 
+SECTION: ".abs_section_ef"
+  _SCI2DRL 
+SECTION: ".abs_section_f0"
+  _SPI1CR1 
+SECTION: ".abs_section_f1"
+  _SPI1CR2 
+SECTION: ".abs_section_f2"
+  _SPI1BR 
+SECTION: ".abs_section_f3"
+  _SPI1SR 
+SECTION: ".abs_section_f8"
+  _SPI2CR1 
+SECTION: ".abs_section_f9"
+  _SPI2CR2 
+SECTION: ".abs_section_fa"
+  _SPI2BR 
+SECTION: ".abs_section_fb"
+  _SPI2SR 
+SECTION: ".abs_section_100"
+  _FCLKDIV 
+SECTION: ".abs_section_101"
+  _FSEC 
+SECTION: ".abs_section_102"
+  _FCCOBIX 
+SECTION: ".abs_section_104"
+  _FCNFG 
+SECTION: ".abs_section_105"
+  _FERCNFG 
+SECTION: ".abs_section_106"
+  _FSTAT 
+SECTION: ".abs_section_107"
+  _FERSTAT 
+SECTION: ".abs_section_108"
+  _FPROT 
+SECTION: ".abs_section_109"
+  _DFPROT 
+SECTION: ".abs_section_110"
+  _FOPT 
+SECTION: ".abs_section_120"
+  _IVBR 
+SECTION: ".abs_section_140"
+  _CANCTL0 
+SECTION: ".abs_section_141"
+  _CANCTL1 
+SECTION: ".abs_section_142"
+  _CANBTR0 
+SECTION: ".abs_section_143"
+  _CANBTR1 
+SECTION: ".abs_section_144"
+  _CANRFLG 
+SECTION: ".abs_section_145"
+  _CANRIER 
+SECTION: ".abs_section_146"
+  _CANTFLG 
+SECTION: ".abs_section_147"
+  _CANTIER 
+SECTION: ".abs_section_148"
+  _CANTARQ 
+SECTION: ".abs_section_149"
+  _CANTAAK 
+SECTION: ".abs_section_14a"
+  _CANTBSEL 
+SECTION: ".abs_section_14b"
+  _CANIDAC 
+SECTION: ".abs_section_14d"
+  _CANMISC 
+SECTION: ".abs_section_14e"
+  _CANRXERR 
+SECTION: ".abs_section_14f"
+  _CANTXERR 
+SECTION: ".abs_section_150"
+  _CANIDAR0 
+SECTION: ".abs_section_151"
+  _CANIDAR1 
+SECTION: ".abs_section_152"
+  _CANIDAR2 
+SECTION: ".abs_section_153"
+  _CANIDAR3 
+SECTION: ".abs_section_154"
+  _CANIDMR0 
+SECTION: ".abs_section_155"
+  _CANIDMR1 
+SECTION: ".abs_section_156"
+  _CANIDMR2 
+SECTION: ".abs_section_157"
+  _CANIDMR3 
+SECTION: ".abs_section_158"
+  _CANIDAR4 
+SECTION: ".abs_section_159"
+  _CANIDAR5 
+SECTION: ".abs_section_15a"
+  _CANIDAR6 
+SECTION: ".abs_section_15b"
+  _CANIDAR7 
+SECTION: ".abs_section_15c"
+  _CANIDMR4 
+SECTION: ".abs_section_15d"
+  _CANIDMR5 
+SECTION: ".abs_section_15e"
+  _CANIDMR6 
+SECTION: ".abs_section_15f"
+  _CANIDMR7 
+SECTION: ".abs_section_160"
+  _CANRXIDR0 
+SECTION: ".abs_section_161"
+  _CANRXIDR1 
+SECTION: ".abs_section_162"
+  _CANRXIDR2 
+SECTION: ".abs_section_163"
+  _CANRXIDR3 
+SECTION: ".abs_section_164"
+  _CANRXDSR0 
+SECTION: ".abs_section_165"
+  _CANRXDSR1 
+SECTION: ".abs_section_166"
+  _CANRXDSR2 
+SECTION: ".abs_section_167"
+  _CANRXDSR3 
+SECTION: ".abs_section_168"
+  _CANRXDSR4 
+SECTION: ".abs_section_169"
+  _CANRXDSR5 
+SECTION: ".abs_section_16a"
+  _CANRXDSR6 
+SECTION: ".abs_section_16b"
+  _CANRXDSR7 
+SECTION: ".abs_section_16c"
+  _CANRXDLR 
+SECTION: ".abs_section_170"
+  _CANTXIDR0 
+SECTION: ".abs_section_171"
+  _CANTXIDR1 
+SECTION: ".abs_section_172"
+  _CANTXIDR2 
+SECTION: ".abs_section_173"
+  _CANTXIDR3 
+SECTION: ".abs_section_174"
+  _CANTXDSR0 
+SECTION: ".abs_section_175"
+  _CANTXDSR1 
+SECTION: ".abs_section_176"
+  _CANTXDSR2 
+SECTION: ".abs_section_177"
+  _CANTXDSR3 
+SECTION: ".abs_section_178"
+  _CANTXDSR4 
+SECTION: ".abs_section_179"
+  _CANTXDSR5 
+SECTION: ".abs_section_17a"
+  _CANTXDSR6 
+SECTION: ".abs_section_17b"
+  _CANTXDSR7 
+SECTION: ".abs_section_17c"
+  _CANTXDLR 
+SECTION: ".abs_section_17d"
+  _CANTXTBPR 
+SECTION: ".abs_section_240"
+  _PTT 
+SECTION: ".abs_section_241"
+  _PTIT 
+SECTION: ".abs_section_242"
+  _DDRT 
+SECTION: ".abs_section_244"
+  _PERT 
+SECTION: ".abs_section_245"
+  _PPST 
+SECTION: ".abs_section_248"
+  _PTS 
+SECTION: ".abs_section_249"
+  _PTIS 
+SECTION: ".abs_section_24a"
+  _DDRS 
+SECTION: ".abs_section_24c"
+  _PERS 
+SECTION: ".abs_section_24d"
+  _PPSS 
+SECTION: ".abs_section_24e"
+  _WOMS 
+SECTION: ".abs_section_24f"
+  _PRR0 
+SECTION: ".abs_section_250"
+  _PTM 
+SECTION: ".abs_section_251"
+  _PTIM 
+SECTION: ".abs_section_252"
+  _DDRM 
+SECTION: ".abs_section_254"
+  _PERM 
+SECTION: ".abs_section_255"
+  _PPSM 
+SECTION: ".abs_section_256"
+  _WOMM 
+SECTION: ".abs_section_257"
+  _PKGCR 
+SECTION: ".abs_section_258"
+  _PTP 
+SECTION: ".abs_section_259"
+  _PTIP 
+SECTION: ".abs_section_25a"
+  _DDRP 
+SECTION: ".abs_section_25c"
+  _PERP 
+SECTION: ".abs_section_25d"
+  _PPSP 
+SECTION: ".abs_section_25e"
+  _PIEP 
+SECTION: ".abs_section_25f"
+  _PIFP 
+SECTION: ".abs_section_268"
+  _PTJ 
+SECTION: ".abs_section_269"
+  _PTIJ 
+SECTION: ".abs_section_26a"
+  _DDRJ 
+SECTION: ".abs_section_26c"
+  _PERJ 
+SECTION: ".abs_section_26d"
+  _PPSJ 
+SECTION: ".abs_section_26e"
+  _PIEJ 
+SECTION: ".abs_section_26f"
+  _PIFJ 
+SECTION: ".abs_section_2f1"
+  _CPMULVCTL 
+SECTION: ".abs_section_2f2"
+  _CPMUAPICTL 
+SECTION: ".abs_section_2f3"
+  _CPMUACLKTR 
+SECTION: ".abs_section_2fa"
+  _CPMUOSC 
+SECTION: ".abs_section_2fb"
+  _CPMUPROT 
+SECTION: ".abs_section_0"
+  _PORTAB 
+SECTION: ".abs_section_2"
+  _DDRAB 
+SECTION: ".abs_section_4"
+  _PORTCD 
+SECTION: ".abs_section_6"
+  _DDRCD 
+SECTION: ".abs_section_1a"
+  _PARTID 
+SECTION: ".abs_section_24"
+  _DBGTB 
+SECTION: ".abs_section_44"
+  _TCNT 
+SECTION: ".abs_section_50"
+  _TC0 
+SECTION: ".abs_section_52"
+  _TC1 
+SECTION: ".abs_section_54"
+  _TC2 
+SECTION: ".abs_section_56"
+  _TC3 
+SECTION: ".abs_section_58"
+  _TC4 
+SECTION: ".abs_section_5a"
+  _TC5 
+SECTION: ".abs_section_5c"
+  _TC6 
+SECTION: ".abs_section_5e"
+  _TC7 
+SECTION: ".abs_section_62"
+  _PACNT 
+SECTION: ".abs_section_70"
+  _ATDCTL01 
+SECTION: ".abs_section_72"
+  _ATDCTL23 
+SECTION: ".abs_section_74"
+  _ATDCTL45 
+SECTION: ".abs_section_78"
+  _ATDCMPE 
+SECTION: ".abs_section_7a"
+  _ATDSTAT2 
+SECTION: ".abs_section_7c"
+  _ATDDIEN 
+SECTION: ".abs_section_7e"
+  _ATDCMPHT 
+SECTION: ".abs_section_80"
+  _ATDDR0 
+SECTION: ".abs_section_82"
+  _ATDDR1 
+SECTION: ".abs_section_84"
+  _ATDDR2 
+SECTION: ".abs_section_86"
+  _ATDDR3 
+SECTION: ".abs_section_88"
+  _ATDDR4 
+SECTION: ".abs_section_8a"
+  _ATDDR5 
+SECTION: ".abs_section_8c"
+  _ATDDR6 
+SECTION: ".abs_section_8e"
+  _ATDDR7 
+SECTION: ".abs_section_90"
+  _ATDDR8 
+SECTION: ".abs_section_92"
+  _ATDDR9 
+SECTION: ".abs_section_94"
+  _ATDDR10 
+SECTION: ".abs_section_96"
+  _ATDDR11 
+SECTION: ".abs_section_ac"
+  _PWMCNT01 
+SECTION: ".abs_section_ae"
+  _PWMCNT23 
+SECTION: ".abs_section_b0"
+  _PWMCNT45 
+SECTION: ".abs_section_b2"
+  _PWMCNT67 
+SECTION: ".abs_section_b4"
+  _PWMPER01 
+SECTION: ".abs_section_b6"
+  _PWMPER23 
+SECTION: ".abs_section_b8"
+  _PWMPER45 
+SECTION: ".abs_section_ba"
+  _PWMPER67 
+SECTION: ".abs_section_bc"
+  _PWMDTY01 
+SECTION: ".abs_section_be"
+  _PWMDTY23 
+SECTION: ".abs_section_c0"
+  _PWMDTY45 
+SECTION: ".abs_section_c2"
+  _PWMDTY67 
+SECTION: ".abs_section_c8"
+  _SCI0BD 
+SECTION: ".abs_section_d0"
+  _SCI1BD 
+SECTION: ".abs_section_dc"
+  _SPI0DR 
+SECTION: ".abs_section_e8"
+  _SCI2BD 
+SECTION: ".abs_section_f4"
+  _SPI1DR 
+SECTION: ".abs_section_fc"
+  _SPI2DR 
+SECTION: ".abs_section_10a"
+  _FCCOB 
+SECTION: ".abs_section_16e"
+  _CANRXTSR 
+SECTION: ".abs_section_17e"
+  _CANTXTSR 
+SECTION: ".abs_section_270"
+  _PT01AD 
+SECTION: ".abs_section_272"
+  _PTI01AD 
+SECTION: ".abs_section_274"
+  _DDR01AD 
+SECTION: ".abs_section_278"
+  _PER01AD 
+SECTION: ".abs_section_27a"
+  _PPS01AD 
+SECTION: ".abs_section_27c"
+  _PIE01AD 
+SECTION: ".abs_section_27e"
+  _PIF01AD 
+SECTION: ".abs_section_2f4"
+  _CPMUAPIR 
+SECTION: ".abs_section_2f8"
+  _CPMUIRCTRIM 
+SECTION: ".abs_section_ff80"
+  _InterruptVectorTable 
+SECTION: ".abs_section_fffa"
+  _ResetVectorTable 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     _PORTAB                                      0       2       2       0   .abs_section_0
+     _DDRAB                                       2       2       2       0   .abs_section_2
+     _PORTCD                                      4       2       2       0   .abs_section_4
+     _DDRCD                                       6       2       2       0   .abs_section_6
+     _PORTE                                       8       1       1       0   .abs_section_8
+     _DDRE                                        9       1       1       0   .abs_section_9
+     _MODE                                        B       1       1       0   .abs_section_b
+     _PUCR                                        C       1       1       0   .abs_section_c
+     _DIRECT                                     11       1       1       1   .abs_section_11
+     _MMCCTL1                                    13       1       1       1   .abs_section_13
+     _PPAGE                                      15       1       1       0   .abs_section_15
+     _PARTID                                     1A       2       2       0   .abs_section_1a
+     _ECLKCTL                                    1C       1       1       1   .abs_section_1c
+     _IRQCR                                      1E       1       1       1   .abs_section_1e
+     _DBGC1                                      20       1       1       0   .abs_section_20
+     _DBGSR                                      21       1       1       0   .abs_section_21
+     _DBGTCR                                     22       1       1       0   .abs_section_22
+     _DBGC2                                      23       1       1       0   .abs_section_23
+     _DBGTB                                      24       2       2       0   .abs_section_24
+     _DBGCNT                                     26       1       1       0   .abs_section_26
+     _DBGSCRX                                    27       1       1       0   .abs_section_27
+     _DBGXCTL                                    28       1       1       0   .abs_section_28
+     _DBGXAH                                     29       1       1       0   .abs_section_29
+     _DBGXAM                                     2A       1       1       0   .abs_section_2a
+     _DBGXAL                                     2B       1       1       0   .abs_section_2b
+     _DBGADH                                     2C       1       1       0   .abs_section_2c
+     _DBGADL                                     2D       1       1       0   .abs_section_2d
+     _DBGADHM                                    2E       1       1       0   .abs_section_2e
+     _DBGADLM                                    2F       1       1       0   .abs_section_2f
+     _CPMUSYNR                                   34       1       1       1   .abs_section_34
+     _CPMUREFDIV                                 35       1       1       1   .abs_section_35
+     _CPMUPOSTDIV                                36       1       1       1   .abs_section_36
+     _CPMUFLG                                    37       1       1       3   .abs_section_37
+     _CPMUINT                                    38       1       1       3   .abs_section_38
+     _CPMUCLKS                                   39       1       1       3   .abs_section_39
+     _CPMUPLL                                    3A       1       1       1   .abs_section_3a
+     _CPMURTI                                    3B       1       1       1   .abs_section_3b
+     _CPMUCOP                                    3C       1       1       2   .abs_section_3c
+     _CPMUARMCOP                                 3F       1       1       0   .abs_section_3f
+     _TIOS                                       40       1       1       0   .abs_section_40
+     _CFORC                                      41       1       1       0   .abs_section_41
+     _OC7M                                       42       1       1       0   .abs_section_42
+     _OC7D                                       43       1       1       0   .abs_section_43
+     _TCNT                                       44       2       2       0   .abs_section_44
+     _TSCR1                                      46       1       1       0   .abs_section_46
+     _TTOV                                       47       1       1       0   .abs_section_47
+     _TCTL1                                      48       1       1       0   .abs_section_48
+     _TCTL2                                      49       1       1       0   .abs_section_49
+     _TCTL3                                      4A       1       1       0   .abs_section_4a
+     _TCTL4                                      4B       1       1       0   .abs_section_4b
+     _TIE                                        4C       1       1       0   .abs_section_4c
+     _TSCR2                                      4D       1       1       0   .abs_section_4d
+     _TFLG1                                      4E       1       1       0   .abs_section_4e
+     _TFLG2                                      4F       1       1       0   .abs_section_4f
+     _TC0                                        50       2       2       0   .abs_section_50
+     _TC1                                        52       2       2       0   .abs_section_52
+     _TC2                                        54       2       2       0   .abs_section_54
+     _TC3                                        56       2       2       0   .abs_section_56
+     _TC4                                        58       2       2       0   .abs_section_58
+     _TC5                                        5A       2       2       0   .abs_section_5a
+     _TC6                                        5C       2       2       0   .abs_section_5c
+     _TC7                                        5E       2       2       0   .abs_section_5e
+     _PACTL                                      60       1       1       0   .abs_section_60
+     _PAFLG                                      61       1       1       0   .abs_section_61
+     _PACNT                                      62       2       2       0   .abs_section_62
+     _OCPD                                       6C       1       1       0   .abs_section_6c
+     _PTPSR                                      6E       1       1       0   .abs_section_6e
+     _ATDCTL01                                   70       2       2       0   .abs_section_70
+     _ATDCTL23                                   72       2       2       0   .abs_section_72
+     _ATDCTL45                                   74       2       2       0   .abs_section_74
+     _ATDSTAT0                                   76       1       1       0   .abs_section_76
+     _ATDCMPE                                    78       2       2       0   .abs_section_78
+     _ATDSTAT2                                   7A       2       2       0   .abs_section_7a
+     _ATDDIEN                                    7C       2       2       0   .abs_section_7c
+     _ATDCMPHT                                   7E       2       2       0   .abs_section_7e
+     _ATDDR0                                     80       2       2       0   .abs_section_80
+     _ATDDR1                                     82       2       2       0   .abs_section_82
+     _ATDDR2                                     84       2       2       0   .abs_section_84
+     _ATDDR3                                     86       2       2       0   .abs_section_86
+     _ATDDR4                                     88       2       2       0   .abs_section_88
+     _ATDDR5                                     8A       2       2       0   .abs_section_8a
+     _ATDDR6                                     8C       2       2       0   .abs_section_8c
+     _ATDDR7                                     8E       2       2       0   .abs_section_8e
+     _ATDDR8                                     90       2       2       0   .abs_section_90
+     _ATDDR9                                     92       2       2       0   .abs_section_92
+     _ATDDR10                                    94       2       2       0   .abs_section_94
+     _ATDDR11                                    96       2       2       0   .abs_section_96
+     _PWME                                       A0       1       1       0   .abs_section_a0
+     _PWMPOL                                     A1       1       1       0   .abs_section_a1
+     _PWMCLK                                     A2       1       1       0   .abs_section_a2
+     _PWMPRCLK                                   A3       1       1       0   .abs_section_a3
+     _PWMCAE                                     A4       1       1       0   .abs_section_a4
+     _PWMCTL                                     A5       1       1       0   .abs_section_a5
+     _PWMCLKAB                                   A6       1       1       0   .abs_section_a6
+     _PWMSCLA                                    A8       1       1       0   .abs_section_a8
+     _PWMSCLB                                    A9       1       1       0   .abs_section_a9
+     _PWMCNT01                                   AC       2       2       0   .abs_section_ac
+     _PWMCNT23                                   AE       2       2       0   .abs_section_ae
+     _PWMCNT45                                   B0       2       2       0   .abs_section_b0
+     _PWMCNT67                                   B2       2       2       0   .abs_section_b2
+     _PWMPER01                                   B4       2       2       0   .abs_section_b4
+     _PWMPER23                                   B6       2       2       0   .abs_section_b6
+     _PWMPER45                                   B8       2       2       0   .abs_section_b8
+     _PWMPER67                                   BA       2       2       0   .abs_section_ba
+     _PWMDTY01                                   BC       2       2       0   .abs_section_bc
+     _PWMDTY23                                   BE       2       2       0   .abs_section_be
+     _PWMDTY45                                   C0       2       2       0   .abs_section_c0
+     _PWMDTY67                                   C2       2       2       0   .abs_section_c2
+     _SCI0BD                                     C8       2       2       0   .abs_section_c8
+     _SCI0ACR2                                   CA       1       1       0   .abs_section_ca
+     _SCI0CR2                                    CB       1       1       0   .abs_section_cb
+     _SCI0SR1                                    CC       1       1       0   .abs_section_cc
+     _SCI0SR2                                    CD       1       1       0   .abs_section_cd
+     _SCI0DRH                                    CE       1       1       0   .abs_section_ce
+     _SCI0DRL                                    CF       1       1       0   .abs_section_cf
+     _SCI1BD                                     D0       2       2       0   .abs_section_d0
+     _SCI1ACR2                                   D2       1       1       0   .abs_section_d2
+     _SCI1CR2                                    D3       1       1       0   .abs_section_d3
+     _SCI1SR1                                    D4       1       1       0   .abs_section_d4
+     _SCI1SR2                                    D5       1       1       0   .abs_section_d5
+     _SCI1DRH                                    D6       1       1       0   .abs_section_d6
+     _SCI1DRL                                    D7       1       1       0   .abs_section_d7
+     _SPI0CR1                                    D8       1       1       0   .abs_section_d8
+     _SPI0CR2                                    D9       1       1       0   .abs_section_d9
+     _SPI0BR                                     DA       1       1       0   .abs_section_da
+     _SPI0SR                                     DB       1       1       0   .abs_section_db
+     _SPI0DR                                     DC       2       2       0   .abs_section_dc
+     _SCI2BD                                     E8       2       2       0   .abs_section_e8
+     _SCI2ACR2                                   EA       1       1       0   .abs_section_ea
+     _SCI2CR2                                    EB       1       1       0   .abs_section_eb
+     _SCI2SR1                                    EC       1       1       0   .abs_section_ec
+     _SCI2SR2                                    ED       1       1       0   .abs_section_ed
+     _SCI2DRH                                    EE       1       1       0   .abs_section_ee
+     _SCI2DRL                                    EF       1       1       0   .abs_section_ef
+     _SPI1CR1                                    F0       1       1       0   .abs_section_f0
+     _SPI1CR2                                    F1       1       1       0   .abs_section_f1
+     _SPI1BR                                     F2       1       1       0   .abs_section_f2
+     _SPI1SR                                     F3       1       1       0   .abs_section_f3
+     _SPI1DR                                     F4       2       2       0   .abs_section_f4
+     _SPI2CR1                                    F8       1       1       0   .abs_section_f8
+     _SPI2CR2                                    F9       1       1       0   .abs_section_f9
+     _SPI2BR                                     FA       1       1       0   .abs_section_fa
+     _SPI2SR                                     FB       1       1       0   .abs_section_fb
+     _SPI2DR                                     FC       2       2       0   .abs_section_fc
+     _FCLKDIV                                   100       1       1       1   .abs_section_100
+     _FSEC                                      101       1       1       0   .abs_section_101
+     _FCCOBIX                                   102       1       1       8   .abs_section_102
+     _FCNFG                                     104       1       1       0   .abs_section_104
+     _FERCNFG                                   105       1       1       0   .abs_section_105
+     _FSTAT                                     106       1       1      20   .abs_section_106
+     _FERSTAT                                   107       1       1       0   .abs_section_107
+     _FPROT                                     108       1       1       0   .abs_section_108
+     _DFPROT                                    109       1       1       0   .abs_section_109
+     _FCCOB                                     10A       2       2      11   .abs_section_10a
+     _FOPT                                      110       1       1       0   .abs_section_110
+     _IVBR                                      120       1       1       1   .abs_section_120
+     _CANCTL0                                   140       1       1       3   .abs_section_140
+     _CANCTL1                                   141       1       1       3   .abs_section_141
+     _CANBTR0                                   142       1       1       1   .abs_section_142
+     _CANBTR1                                   143       1       1       1   .abs_section_143
+     _CANRFLG                                   144       1       1       2   .abs_section_144
+     _CANRIER                                   145       1       1       1   .abs_section_145
+     _CANTFLG                                   146       1       1       2   .abs_section_146
+     _CANTIER                                   147       1       1       1   .abs_section_147
+     _CANTARQ                                   148       1       1       0   .abs_section_148
+     _CANTAAK                                   149       1       1       0   .abs_section_149
+     _CANTBSEL                                  14A       1       1       4   .abs_section_14a
+     _CANIDAC                                   14B       1       1       1   .abs_section_14b
+     _CANMISC                                   14D       1       1       0   .abs_section_14d
+     _CANRXERR                                  14E       1       1       0   .abs_section_14e
+     _CANTXERR                                  14F       1       1       0   .abs_section_14f
+     _CANIDAR0                                  150       1       1       1   .abs_section_150
+     _CANIDAR1                                  151       1       1       1   .abs_section_151
+     _CANIDAR2                                  152       1       1       1   .abs_section_152
+     _CANIDAR3                                  153       1       1       1   .abs_section_153
+     _CANIDMR0                                  154       1       1       1   .abs_section_154
+     _CANIDMR1                                  155       1       1       1   .abs_section_155
+     _CANIDMR2                                  156       1       1       1   .abs_section_156
+     _CANIDMR3                                  157       1       1       1   .abs_section_157
+     _CANIDAR4                                  158       1       1       1   .abs_section_158
+     _CANIDAR5                                  159       1       1       1   .abs_section_159
+     _CANIDAR6                                  15A       1       1       1   .abs_section_15a
+     _CANIDAR7                                  15B       1       1       1   .abs_section_15b
+     _CANIDMR4                                  15C       1       1       1   .abs_section_15c
+     _CANIDMR5                                  15D       1       1       1   .abs_section_15d
+     _CANIDMR6                                  15E       1       1       1   .abs_section_15e
+     _CANIDMR7                                  15F       1       1       1   .abs_section_15f
+     _CANRXIDR0                                 160       1       1       2   .abs_section_160
+     _CANRXIDR1                                 161       1       1       1   .abs_section_161
+     _CANRXIDR2                                 162       1       1       1   .abs_section_162
+     _CANRXIDR3                                 163       1       1       1   .abs_section_163
+     _CANRXDSR0                                 164       1       1       1   .abs_section_164
+     _CANRXDSR1                                 165       1       1       0   .abs_section_165
+     _CANRXDSR2                                 166       1       1       0   .abs_section_166
+     _CANRXDSR3                                 167       1       1       0   .abs_section_167
+     _CANRXDSR4                                 168       1       1       0   .abs_section_168
+     _CANRXDSR5                                 169       1       1       0   .abs_section_169
+     _CANRXDSR6                                 16A       1       1       0   .abs_section_16a
+     _CANRXDSR7                                 16B       1       1       0   .abs_section_16b
+     _CANRXDLR                                  16C       1       1       2   .abs_section_16c
+     _CANRXTSR                                  16E       2       2       0   .abs_section_16e
+     _CANTXIDR0                                 170       1       1       1   .abs_section_170
+     _CANTXIDR1                                 171       1       1       1   .abs_section_171
+     _CANTXIDR2                                 172       1       1       1   .abs_section_172
+     _CANTXIDR3                                 173       1       1       1   .abs_section_173
+     _CANTXDSR0                                 174       1       1       1   .abs_section_174
+     _CANTXDSR1                                 175       1       1       0   .abs_section_175
+     _CANTXDSR2                                 176       1       1       0   .abs_section_176
+     _CANTXDSR3                                 177       1       1       0   .abs_section_177
+     _CANTXDSR4                                 178       1       1       0   .abs_section_178
+     _CANTXDSR5                                 179       1       1       0   .abs_section_179
+     _CANTXDSR6                                 17A       1       1       0   .abs_section_17a
+     _CANTXDSR7                                 17B       1       1       0   .abs_section_17b
+     _CANTXDLR                                  17C       1       1       1   .abs_section_17c
+     _CANTXTBPR                                 17D       1       1       1   .abs_section_17d
+     _CANTXTSR                                  17E       2       2       0   .abs_section_17e
+     _PTT                                       240       1       1       3   .abs_section_240
+     _PTIT                                      241       1       1       0   .abs_section_241
+     _DDRT                                      242       1       1       1   .abs_section_242
+     _PERT                                      244       1       1       1   .abs_section_244
+     _PPST                                      245       1       1       0   .abs_section_245
+     _PTS                                       248       1       1       3   .abs_section_248
+     _PTIS                                      249       1       1       0   .abs_section_249
+     _DDRS                                      24A       1       1       1   .abs_section_24a
+     _PERS                                      24C       1       1       0   .abs_section_24c
+     _PPSS                                      24D       1       1       0   .abs_section_24d
+     _WOMS                                      24E       1       1       1   .abs_section_24e
+     _PRR0                                      24F       1       1       0   .abs_section_24f
+     _PTM                                       250       1       1       0   .abs_section_250
+     _PTIM                                      251       1       1       0   .abs_section_251
+     _DDRM                                      252       1       1       0   .abs_section_252
+     _PERM                                      254       1       1       0   .abs_section_254
+     _PPSM                                      255       1       1       0   .abs_section_255
+     _WOMM                                      256       1       1       1   .abs_section_256
+     _PKGCR                                     257       1       1       1   .abs_section_257
+     _PTP                                       258       1       1       0   .abs_section_258
+     _PTIP                                      259       1       1       0   .abs_section_259
+     _DDRP                                      25A       1       1       0   .abs_section_25a
+     _PERP                                      25C       1       1       0   .abs_section_25c
+     _PPSP                                      25D       1       1       0   .abs_section_25d
+     _PIEP                                      25E       1       1       0   .abs_section_25e
+     _PIFP                                      25F       1       1       0   .abs_section_25f
+     _PTJ                                       268       1       1       0   .abs_section_268
+     _PTIJ                                      269       1       1       0   .abs_section_269
+     _DDRJ                                      26A       1       1       0   .abs_section_26a
+     _PERJ                                      26C       1       1       0   .abs_section_26c
+     _PPSJ                                      26D       1       1       0   .abs_section_26d
+     _PIEJ                                      26E       1       1       0   .abs_section_26e
+     _PIFJ                                      26F       1       1       0   .abs_section_26f
+     _PT01AD                                    270       2       2       0   .abs_section_270
+     _PTI01AD                                   272       2       2       0   .abs_section_272
+     _DDR01AD                                   274       2       2       0   .abs_section_274
+     _PER01AD                                   278       2       2       0   .abs_section_278
+     _PPS01AD                                   27A       2       2       0   .abs_section_27a
+     _PIE01AD                                   27C       2       2       0   .abs_section_27c
+     _PIF01AD                                   27E       2       2       0   .abs_section_27e
+     _CPMULVCTL                                 2F1       1       1       1   .abs_section_2f1
+     _CPMUAPICTL                                2F2       1       1       0   .abs_section_2f2
+     _CPMUACLKTR                                2F3       1       1       0   .abs_section_2f3
+     _CPMUAPIR                                  2F4       2       2       0   .abs_section_2f4
+     _CPMUIRCTRIM                               2F8       2       2       0   .abs_section_2f8
+     _CPMUOSC                                   2FA       1       1       1   .abs_section_2fa
+     _CPMUPROT                                  2FB       1       1       4   .abs_section_2fb
+     TestCurrentTemp                           2000       1       1       1   .data       
+     CurrentSpeed                              2001       2       2       1   .data       
+     CurrentVoltage                            2003       1       1       4   .data       
+     m_SecurityLevel                           2004       2       2       5   .data       
+     P2CanServerMax                            2006       2       2       3   .data       
+     P2ECanServerMax                           2008       2       2       3   .data       
+     ServiceList                               200A      EA     234      19   .data       
+     m_UnlockStep                              20F4       2       2      11   .bss        
+     WaitConfirmBeforeJump                     20F6       1       1       4   .bss        
+     WaitConfirmBeforeErase                    20F7       1       1       2   .bss        
+     SnapShotAdded                             20F8       1       1       7   .bss        
+     AgedCounterRecord                         20F9       1       1       4   .bss        
+     AgingCounterRecord                        20FA       1       1       4   .bss        
+     OccurenceCounterRecord                    20FB       1       1       4   .bss        
+     PendingCounterRecord                      20FC       1       1       4   .bss        
+     WaitConfimBeforeReset                     20FD       1       1       4   .bss        
+     Seed                                      20FE       5       5       7   .bss        
+     key                                       2103       4       4       8   .bss        
+     m_NRC                                     2107       2       2      42   .bss        
+     DiagnosticBuffTX                          2109      C8     200      90   .bss        
+     S3serverTimer                             21D1       5       5       3   .bss        
+     TesterPhyID                               21D6       4       4       4   .bss        
+     TesterFunID                               21DA       4       4       5   .bss        
+     TesterPhyID1                              21DE       4       4       1   .bss        
+     TesterFunID1                              21E2       4       4       1   .bss        
+     EcuID1                                    21E6       4       4       2   .bss        
+     EcuID                                     21EA       4       4       8   .bss        
+     N_Ta                                      21EE       1       1       6   .bss        
+     N_Sa                                      21EF       1       1       6   .bss        
+     SessionSupport                            21F0       1       1       8   .bss        
+     DTCS                                      21F1     299     665      34   .bss        
+     DTCAdded                                  248A       1       1      12   .bss        
+     DIDS                                      248B     460    1120      10   .bss        
+     DIDAdded                                  28EB       1       1       6   .bss        
+     SnapShots                                 28EC      3C      60      18   .bss        
+     DTCGROUPS                                 2928      1E      30       4   .bss        
+     DTCGroupAdded                             2946       1       1       5   .bss        
+     DtcAvailibaleMask                         2947       1       1       8   .bss        
+     DtcTimer                                  2948       5       5       3   .bss        
+     ModuleEEpromStartAddr                     294D       2       2       5   .bss        
+     EEpromSizeForUse                          294F       2       2       1   .bss        
+     EEpromUsed                                2951       2       2      11   .bss        
+     DTCSaved                                  2953       1       1       4   .bss        
+     DM1DTCNumber                              2954       1       1       2   .bss        
+     DTCSavedTimer                             2955       5       5       2   .bss        
+     ResetTypeSupport                          295A       1       1       8   .bss        
+     ResetCallBackFun                          295B       3       3      10   .bss        
+     m_EcuResetType                            295E       2       2       4   .bss        
+     TesterPresentSuppport                     2960       1       1       5   .bss        
+     CommTypeSupport                           2961       1       1      10   .bss        
+     commCallBack                              2962       3       3      10   .bss        
+     SystemTickCount                           2965       4       4      10   .bss        
+     sendInterface                             2969       3       3       2   .bss        
+     m_NetworkStatus                           296C       2       2      18   .bss        
+     m_N_Result                                296E       2       2      23   .bss        
+     m_DuplexMode                              2970       2       2       4   .bss        
+     m_TimePeriod                              2972      14      20      37   .bss        
+     m_TxStep                                  2986       2       2       6   .bss        
+     m_RxStep                                  2988       2       2       5   .bss        
+     m_AddressFormat                           298A       7       7      51   .bss        
+     CFDataPionter                             2991       2       2       4   .bss        
+     TxParam                                   2993       C      12      31   .bss        
+     RxParam                                   299F       C      12      43   .bss        
+     NetworkDataBufRx                          29AB      64     100       2   .bss        
+     m_PyhReqID                                2A0F       4       4       6   .bss        
+     m_FunReqID                                2A13       4       4       6   .bss        
+     m_ResponseID                              2A17       4       4       4   .bss        
+     m_PyhReqID1                               2A1B       4       4       4   .bss        
+     m_FunReqID1                               2A1F       4       4       4   .bss        
+     m_ResponseID1                             2A23       4       4       2   .bss        
+     m_CurrResponseID                          2A27       4       4       5   .bss        
+     RxDataBuff                                2A2B       7       7      33   .bss        
+     SendTimer                                 2A32       5       5       4   .bss        
+     ReciveTimer                               2A37       5       5       4   .bss        
+     CFRequestTimer                            2A3C       5       5       3   .bss        
+     NetworkSend                               2A41       3       3       5   .bss        
+     EEPromEnMode                              2A44       1       1       4   .bss        
+     EEBackupArray                             2A45       4       4       9   .bss        
+     IO9826_MixMtrCtrl                         2A49       1       1       4   .common     
+     UnlockList                                2A4A      45      69      53   .common     
+     m_CurrSessionType                         2A8F       1       1      12   .common     
+     ResponsePending                           2A90       1       1      14   .common     
+     suppressResponse                          2A91       1       1      24   .common     
+     ResponseLength                            2A92       2       2      38   .common     
+     CurrentService                            2A94       1       1      10   .common     
+     EnableDTCDetect                           2A95       1       1       4   .common     
+     HighVoltage                               2A96       1       1       1   .common     
+     SaveDTCInBlock                            2A97       1       1       5   .common     
+     BAMRxState                                2A98       1       1       3   .common     
+     BAMRxLength                               2A99       2       2       6   .common     
+     BAMRxFrameLength                          2A9B       1       1       1   .common     
+     BAMRxReceived                             2A9C       1       1       7   .common     
+     BAMRxBuf                                  2A9D      50      80       1   .common     
+     IndicationList                            2AED      30      48       2   .common     
+     IndicationInIndex                         2B1D       1       1       8   .common     
+     IndicationOutIndex                        2B1E       1       1       7   .common     
+     RxFrameBuff                               2B1F      45      69       3   .common     
+     RxInIndex                                 2B64       1       1       6   .common     
+     RxOutIndex                                2B65       1       1       6   .common     
+     TxFrameBuff                               2B66      45      69      25   .common     
+     TxInIndex                                 2BAB       1       1      25   .common     
+     TxOutIndex                                2BAC       1       1       8   .common     
+     FrameFillData                             2BAD       1       1       5   .common     
+     Cpu_Interrupt                             C000       2       2      59   .init       
+     _EntryPoint                               C002      40      64       3   .init       
+     _LOAD_FAR_8                               C04C       B      11       2   NON_BANKED  
+     _LOAD_FAR_16                              C057       B      11       6   NON_BANKED  
+     _Startup                                  C062       B      11       1   NON_BANKED  
+     _BDIVMODU                                 C06D       A      10       1   NON_BANKED  
+     _LSHL                                     C077      11      17       8   NON_BANKED  
+     _LSHRU                                    C088      11      17       6   NON_BANKED  
+     _LCMP                                     C099      19      25      12   NON_BANKED  
+     _LINC                                     C0B2       5       5       1   NON_BANKED  
+     _ILSEXT                                   C0B7       7       7       3   NON_BANKED  
+     _COPY                                     C0BE       8       8       8   NON_BANKED  
+     _CASE_DIRECT_BYTE                         C0C6       5       5       1   NON_BANKED  
+     _CASE_CHECKED_BYTE                        C0CB      14      20       4   NON_BANKED  
+     Can_Rx_Interrupt                          C0DF      DE     222       6   NON_BANKED  
+     RTI_Interrupt                             C1BD       8       8       1   NON_BANKED  
+     _InterruptVectorTable                     FF80      7A     122       0   .abs_section_ff80
+     _ResetVectorTable                         FFFA       6       6       0   .abs_section_fffa
+     Init                                     E8000      29      41       2   .text       
+     memcpy                                   E8029      24      36      10   .text       
+     memset                                   E804D      18      24       2   .text       
+     PE_low_level_init                        E8065      31      49       2   .text       
+     ForceReset                               E8096      11      17       2   .text       
+     SystemReset                              E80A7      14      20       3   .text       
+     CommulicatonControl                      E80BB       1       1       3   .text       
+     HD10SeedToKeyLevel1                      E80BC       7       7       3   .text       
+     SendFrame                                E80C3      7C     124       3   .text       
+     IoControl_9826                           E813F      2B      43       6   .text       
+     NMGetLimpHome                            E816A       3       3       3   .text       
+     Diagnostic_Init_Config                   E816D     2A4     676       2   .text       
+     main                                     E8411      1A      26       2   .text       
+     CAN1_Init                                E842B      60      96       2   .text       
+     InitAddSecurityAlgorithm                 E848B      76     118       2   .text       
+     InitSetSessionSupportAndSecurityAccess      E8501      82     130      22   .text       
+     InitAddDID                               E8583      64     100      10   .text       
+     InitAddDTC                               E85E7      47      71       2   .text       
+     InitAddDTCSnapShot                       E862E      2D      45      10   .text       
+     InitSetAgingCounterRecordNumber          E865B       4       4       2   .text       
+     InitSetAgedCounterRecordNumber           E865F       4       4       2   .text       
+     InitSetOccurrenceCounterRecordNumber      E8663       4       4       2   .text       
+     InitSetPendingCounterRecordNumber        E8667       4       4       2   .text       
+     InitSetDTCAvailiableMask                 E866B       4       4       2   .text       
+     InitAddDTCGroup                          E866F      23      35       2   .text       
+     InitSetSysResetParam                     E8692      35      53       2   .text       
+     InitSetCommControlParam                  E86C7      47      71       2   .text       
+     InitSetSessionControlParam               E870E      2A      42       2   .text       
+     InitSetTesterPresentSupress              E8738       6       6       2   .text       
+     InitSetDTCControlSupress                 E873E       8       8       2   .text       
+     Diagnostic_SetNLParam                    E8746      33      51       2   .text       
+     Diagnostic_Init                          E8779      BA     186       2   .text       
+     GenerateSeed                             E8833      40      64       2   .text       
+     GotoSession                              E8873      54      84       4   .text       
+     Service10PosResponse                     E88C7      2B      43       4   .text       
+     Service10Handle                          E88F2      9E     158       2   .text       
+     Service11Handle                          E8990      BC     188       2   .text       
+     Service27Handle                          E8A4C     283     643      24   .text       
+     Service28Handle                          E8CCF      D5     213       2   .text       
+     Service3EHandle                          E8DA4      66     102       2   .text       
+     Service83Handle                          E8E0A       1       1       2   .text       
+     Service84Handle                          E8E0B       1       1       2   .text       
+     Service85Handle                          E8E0C      76     118       2   .text       
+     Service86Handle                          E8E82       1       1       2   .text       
+     Service87Handle                          E8E83       1       1       2   .text       
+     SearchDidNode                            E8E84      2D      45       6   .text       
+     Service22Handle                          E8EB1      E7     231       3   .text       
+     Service23Handle                          E8F98       1       1       2   .text       
+     Service24Handle                          E8F99       1       1       2   .text       
+     Service2AHandle                          E8F9A       1       1       2   .text       
+     Service2CHandle                          E8F9B       1       1       2   .text       
+     Service2EHandle                          E8F9C      B4     180       2   .text       
+     Service3DHandle                          E9050       1       1       2   .text       
+     SearchDTCGroup                           E9051      2F      47       2   .text       
+     Service14Handle                          E9080      5A      90       2   .text       
+     SearchDTCByMaskAndFillResponse           E90DA      65     101       2   .text       
+     FillAllDTCResponse                       E913F      58      88       2   .text       
+     GetDTCNumberByMask                       E9197      2F      47       2   .text       
+     GetDTCNodeByCode                         E91C6      43      67       2   .text       
+     FillDTCSnapshotReponse                   E9209      DF     223       3   .text       
+     Service19Handle                          E92E8     246     582      21   .text       
+     Service2FHandle                          E952E      CC     204       2   .text       
+     Service31Handle                          E95FA       1       1       2   .text       
+     Service34Handle                          E95FB       1       1       2   .text       
+     Service35Handle                          E95FC       1       1       2   .text       
+     Service36Handle                          E95FD       1       1       2   .text       
+     Service37Handle                          E95FE       1       1       2   .text       
+     ServiceNegReponse                        E95FF      2B      43       2   .text       
+     Diagnostic_ServiceHandle                 E962A     159     345      11   .text       
+     Diagnostic_MainProc                      E9783     18D     397       4   .text       
+     Diagnostic_TimeProc                      E9910      80     128       2   .text       
+     SaveSnapShotData                         E9990      4C      76       2   .text       
+     DtcHandle                                E99DC      88     136       2   .text       
+     Diagnostic_DTCProc                       E9A64      5B      91       2   .text       
+     J1939Proc                                E9ABF       1       1       2   .text       
+     Diagnostic_Proc                          E9AC0      15      21       2   .text       
+     Diagnostic_RxFrame                       E9AD5      48      72       2   .text       
+     Diagnostic_1msTimer                      E9B1D       5       5       2   .text       
+     Diagnostic_ClearDTC                      E9B22      67     103       2   .text       
+     Diagnostic_LoadAllDTC                    E9B89      3B      59       2   .text       
+     Diagnostic_LoadSecuriyFaultCounter       E9BC4      80     128       2   .text       
+     Diagnostic_BindingSnapshot               E9C44      4D      77       2   .text       
+     Diagnostic_LoadAllData                   E9C91       D      13       2   .text       
+     DiagTimer_Set                            E9C9E      1B      27      32   .text       
+     DiagTimer_HasStopped                     E9CB9       B      11       2   .text       
+     DiagTimer_HasExpired                     E9CC4      46      70      16   .text       
+     DiagTimer_GetTickCount                   E9D0A       7       7       4   .text       
+     DiagTimer_ISR_Proc                       E9D11      10      16       2   .text       
+     J1939TPReceiveData                       E9D21      C3     195       2   .text       
+     TPCMSetParamBAM                          E9DE4       7       7       2   .text       
+     NetworkLayer_InitParam                   E9DEB      8D     141       2   .text       
+     NetworkLayer_SetParam                    E9E78      52      82       2   .text       
+     IsRxBuffEmpty                            E9ECA       D      13       2   .text       
+     IsTxBuffEmpty                            E9ED7       D      13       2   .text       
+     IsTxBuffFull                             E9EE4      20      32       2   .text       
+     NetworkLayer_SendSF                      E9F04      81     129       2   .text       
+     NetworkLayer_SendFF                      E9F85      8B     139       2   .text       
+     NetworkLayer_SendCF                      EA010      A9     169       2   .text       
+     NetworkLayer_SendFC                      EA0B9      66     102       4   .text       
+     NetworkLayer_RxSF                        EA11F     129     297       3   .text       
+     NetworkLayer_RxFF                        EA248     106     262       6   .text       
+     NetworkLayer_RxCF                        EA34E      BD     189       2   .text       
+     NetworkLayer_RxFC                        EA40B      AA     170       2   .text       
+     NetworkLayer_RxProc                      EA4B5      81     129       2   .text       
+     NetworkLayer_RxFrame                     EA536     11E     286       2   .text       
+     NetworkLayer_TxFrame                     EA654      7C     124       2   .text       
+     NetworkLayer_TxEnd                       EA6D0       9       9      10   .text       
+     NetworkLayer_TxStart                     EA6D9      19      25       2   .text       
+     NetworkLayer_RxEnd                       EA6F2      12      18      10   .text       
+     NetworkLayer_RxStart                     EA704      21      33       2   .text       
+     NetworkLayer_TxProc                      EA725      34      52       2   .text       
+     NetworkLayer_NotifyToUpperLayer          EA759      29      41       6   .text       
+     N_USData_request                         EA782      41      65       4   .text       
+     N_USData_confirm                         EA7C3      B1     177       6   .text       
+     N_USData_FF_indication                   EA874      3F      63       2   .text       
+     N_USData_indication                      EA8B3     128     296      14   .text       
+     NetworkLayer_MainProc                    EA9DB     282     642      20   .text       
+     NetworkLayer_Proc                        EAC5D       D      13       2   .text       
+     IsIndicationListEmpty                    EAC6A       D      13       2   .text       
+     IsIndicationListFull                     EAC77      22      34       2   .text       
+     PullIndication                           EAC99      28      40       2   .text       
+     BackupSector                             EACC1      53      83       6   .text       
+     WriteBlock                               EAD14      96     150       6   .text       
+     EraseSectorInternal                      EADAA      3F      63       6   .text       
+     WriteWord                                EADE9      4C      76       4   .text       
+     EEProm_SetByte                           EAE35     174     372       3   .text       
+     EEProm_GetByte                           EAFA9      64     100       2   .text       
+     EEProm_SetWord                           EB00D      D9     217       2   .text       
+     EEProm_SetLong                           EB0E6     106     262       3   .text       
+     Diagnostic_EEProm_Init                   EB1EC       A      10       2   .text       
+     Diagnostic_EEProm_Write                  EB1F6      A0     160      11   .text       
+     Diagnostic_EEProm_Read                   EB296      2A      42      12   .text       
+     RTI1_Init                                EB2C0      17      23       2   .text       
+     TJA1043_Can_Sel_PutVal                   EB2D7       D      13       2   TJA1043_Can_Sel_CODE
+     TJA1043_EN_PutVal                        EB2E4       D      13       2   TJA1043_EN_CODE
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+NOT USED PROCEDURES
+datapage.c.o:
+  _SET_PAGE _LOAD_FAR_24 _LOAD_FAR_32 _STORE_FAR_8 _STORE_FAR_16 _STORE_FAR_24 
+  _STORE_FAR_32 _FAR_COPY_RC _FAR_COPY 
+STRING.C.o (ansibi.lib):
+  strerror memchr memcmp memcpy2 _memcpy_8bitCount memmove 
+  _memset_clear_8bitCount strlen strset strcat strncat strcpy strncpy strcmp 
+  strncmp strchr strrchr strspn strcspn strpbrk strstr strtok strcoll strxfrm 
+rtshc12.c.o (ansibi.lib):
+  _BSHL _BSHRS _BSHRU _BDIVMODS _ISHL _ISHRU _ISHRS _LSHRS _LADD _LSUB _LAND 
+  _LOR _LXOR _LCMP_P _LCMP_PP _LNEG _LCOM _LDEC _LMUL _LMULU16x32 _LMULS16x32 
+  _lDivMod _LDIVU _NEG_P _LDIVS _LMODU _LMODS _CASE_DIRECT _CASE_CHECKED 
+  _CASE_SEARCH _CASE_SEARCH_BYTE _CASE_SEARCH_8 _CASE_SEARCH_8_BYTE _FCALL 
+  _FPCMP 
+Diagnostic.c.o:
+  InitSetCanDriverVersionDID InitSetCanNMVersionDID 
+  InitSetCanDiagnosticVersionDID InitSetCanDataBaseVersionDID 
+  InitSetCurrentSessionDID Diagnostic_Set2ndReqAndResID Diagnostic_DelInit 
+  Diagnostic_SaveAllDTC Diagnostic_DTCDefaultValue Diagnostic_ConfigVIN 
+DiagnosticTimer.c.o:
+  DiagTimer_Init DiagTimer_Stop DiagTimer_WaitExpired DiagTimer_DelayMs 
+  DiagTimer_DelayUs 
+J1939TP.c.o:
+  J1939TPGetReceiveData TPCMRequestBAM TPCMDTProc 
+NetworkLayer.c.o:
+  NetworkLayer_SetSecondID IsRxBuffFull N_ChangeParameter_request 
+  N_ChangeParameter_confirm 
+EEPromDriver.c.o:
+  EEProm_SetHigh EEProm_SetSlow 
+NOT USED VARIABLES
+STRING.C.o (ansibi.lib):
+  STRING..1 next.2 
+rtshc12.c.o (ansibi.lib):
+  _PowOfTwo_8 _PowOfTwo_16 _PowOfTwo_32 errno 
+Cpu.c.o:
+  CCR_reg 
+DiagnosticDemo.c.o:
+  TestF180Data 
+Diagnostic.c.o:
+  DriverVersion NMVersion DiagnosticVersion DatabaseVersion m_BlockIndex 
+  ProgramAddress ProgramLength ProgramLengthComplete IsUpdating retLen 
+  J1939BufTX J1939Timer LowVoltage 
+J1939TP.c.o:
+  sendBuf DTIndex TotalFrameLength dataBuf DTTimer BAMTimer 
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+------- ROM-ADDRESS: 0xC1C5 ---- SIZE       4 ---
+Filling bytes inserted
+ 00EB2000
+------- ROM-ADDRESS: 0xC1C9 ---- RAM-ADDRESS: 0x2000 ---- SIZE       1 ---
+Name of initialized Object : TestCurrentTemp
+ 40
+------- ROM-ADDRESS: 0xC1CA ---- RAM-ADDRESS: 0x2001 ---- SIZE       2 ---
+Name of initialized Object : CurrentSpeed
+ 0895
+------- ROM-ADDRESS: 0xC1CC ---- RAM-ADDRESS: 0x2003 ---- SIZE       1 ---
+Name of initialized Object : CurrentVoltage
+ 87
+------- ROM-ADDRESS: 0xC1CD ---- SIZE       1 ---
+Filling bytes inserted
+ 00
+------- ROM-ADDRESS: 0xC1CE ---- RAM-ADDRESS: 0x2005 ---- SIZE       1 ---
+Name of initialized Object : m_SecurityLevel:1
+ 07
+------- ROM-ADDRESS: 0xC1CF ---- SIZE       1 ---
+Filling bytes inserted
+ 00
+------- ROM-ADDRESS: 0xC1D0 ---- RAM-ADDRESS: 0x2007 ---- SIZE       1 ---
+Name of initialized Object : P2CanServerMax:1
+ 32
+------- ROM-ADDRESS: 0xC1D1 ---- RAM-ADDRESS: 0x2008 ---- SIZE       2 ---
+Name of initialized Object : P2ECanServerMax
+ 01F4
+------- ROM-ADDRESS: 0xC1D3 ---- SIZE       2 ---
+Filling bytes inserted
+ 0000
+------- ROM-ADDRESS: 0xC1D5 ---- RAM-ADDRESS: 0x200C ---- SIZE     223 ---
+Name of initialized Object : ServiceList:2
+ 1077777788 F20E000011 7007778990
+ 0E00002770 07008A4C0E 0000280007
+ 708CCF0E00 003E777777 8DA40E0000
+ 830000008E 0A0E000084 0000008E0B
+ 0E00008500 07708E0C0E 0000860000
+ 008E820E00 0087000000 8E830E0000
+ 220707008E B10E000023 0000008F98
+ 0E00002400 00008F990E 00002A0000
+ 008F9A0E00 002C000000 8F9B0E0000
+ 3D00000090 500E00002E 1000008F9C
+ 0E00001407 777090800E 0000190707
+ 0092E80E00 002F000100 952E0E0000
+ 3110010095 FA0E000034 10000095FB
+ 0E00003500 000095FC0E 0000361000
+ 0095FD0E00 0037100000 95FE0E
+------- ROM-ADDRESS: 0xC2B4 ---- SIZE       2 ---
+Filling bytes inserted
+ 0000
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+ServiceList               USES Service10Handle Service11Handle Service27Handle 
+                                Service28Handle Service3EHandle Service83Handle 
+                                Service84Handle Service85Handle Service86Handle 
+                                Service87Handle Service22Handle Service23Handle 
+                                Service24Handle Service2AHandle Service2CHandle 
+                                Service3DHandle Service2EHandle Service14Handle 
+                                Service19Handle Service2FHandle Service31Handle 
+                                Service34Handle Service35Handle Service36Handle 
+                                Service37Handle 
+_EntryPoint               USES _MMCCTL1 _PKGCR _DIRECT _IVBR _ECLKCTL 
+                                _CPMUPROT _CPMUCLKS _CPMUREFDIV _CPMUSYNR _CPMUPOSTDIV 
+                                _CPMUOSC _CPMUPLL _CPMUFLG _CPMUCOP _Startup 
+_Startup                  USES __SEG_END_SSTACK Init main 
+Can_Rx_Interrupt          USES _CANRFLG Can_Rx_Interrupt _CANRXIDR1 _CANRXIDR2 
+                                _CANRXIDR3 _CANRXDLR _CANRXIDR0 _CANRXDSR0 
+                                Diagnostic_RxFrame _LSHL 
+RTI_Interrupt             USES _CPMUFLG Diagnostic_1msTimer 
+_InterruptVectorTable     USES Cpu_Interrupt Can_Rx_Interrupt RTI_Interrupt 
+_ResetVectorTable         USES _EntryPoint 
+Init                      USES _startupData 
+PE_low_level_init         USES _WOMM _PTS _WOMS _DDRS _PTT _PERT _DDRT 
+                                _CPMUINT _CPMULVCTL _IRQCR CAN1_Init RTI1_Init 
+SystemReset               USES ForceReset 
+SendFrame                 USES _CANTFLG _CANTBSEL _CANTXIDR0 _LSHRU _CANTXIDR1 
+                                _CANTXIDR2 _CANTXIDR3 _CANTXDSR0 _CANTXDLR _CANTXTBPR 
+IoControl_9826            USES IO9826_MixMtrCtrl 
+Diagnostic_Init_Config    USES SendFrame Diagnostic_Init 
+                                InitSetSessionSupportAndSecurityAccess InitSetSessionControlParam HD10SeedToKeyLevel1 
+                                InitAddSecurityAlgorithm InitSetTesterPresentSupress SystemReset 
+                                InitSetSysResetParam CommulicatonControl InitSetCommControlParam 
+                                InitSetDTCControlSupress InitAddDID TestCurrentTemp IO9826_MixMtrCtrl 
+                                IoControl_9826 InitSetDTCAvailiableMask NMGetLimpHome 
+                                InitAddDTC InitAddDTCGroup CurrentSpeed 
+                                InitAddDTCSnapShot CurrentVoltage InitSetAgingCounterRecordNumber 
+                                InitSetAgedCounterRecordNumber InitSetOccurrenceCounterRecordNumber 
+                                InitSetPendingCounterRecordNumber Diagnostic_LoadAllData Diagnostic_SetNLParam 
+main                      USES PE_low_level_init TJA1043_Can_Sel_PutVal 
+                                TJA1043_EN_PutVal Diagnostic_Init_Config Diagnostic_Proc 
+CAN1_Init                 USES _CANCTL0 _CANCTL1 _CANBTR1 _CANBTR0 _CANIDAC 
+                                _CANIDAR0 _CANIDAR1 _CANIDAR2 _CANIDAR3 _CANIDAR4 
+                                _CANIDAR5 _CANIDAR6 _CANIDAR7 _CANIDMR0 _CANIDMR1 
+                                _CANIDMR2 _CANIDMR3 _CANIDMR4 _CANIDMR5 _CANIDMR6 
+                                _CANIDMR7 _CANRIER _CANTIER 
+InitAddSecurityAlgorithm  USES UnlockList ModuleEEpromStartAddr EEpromUsed 
+InitSetSessionSupportAndSecurityAccess USES ServiceList 
+InitAddDID                USES DIDAdded DIDS ModuleEEpromStartAddr EEpromUsed 
+InitAddDTC                USES DTCAdded DTCS ModuleEEpromStartAddr EEpromUsed 
+InitAddDTCSnapShot        USES SnapShotAdded SnapShots 
+InitSetAgingCounterRecordNumber USES AgingCounterRecord 
+InitSetAgedCounterRecordNumber USES AgedCounterRecord 
+InitSetOccurrenceCounterRecordNumber USES OccurenceCounterRecord 
+InitSetPendingCounterRecordNumber USES PendingCounterRecord 
+InitSetDTCAvailiableMask  USES DtcAvailibaleMask 
+InitAddDTCGroup           USES DTCGroupAdded DTCGROUPS 
+InitSetSysResetParam      USES ResetTypeSupport ResetCallBackFun 
+InitSetCommControlParam   USES CommTypeSupport commCallBack 
+InitSetSessionControlParam USES SessionSupport 
+InitSetTesterPresentSupress USES TesterPresentSuppport 
+InitSetDTCControlSupress  USES TesterPresentSuppport 
+Diagnostic_SetNLParam     USES N_Sa N_Ta NetworkLayer_SetParam 
+Diagnostic_Init           USES TesterPhyID EcuID TesterFunID N_Ta N_Sa 
+                                NetworkLayer_InitParam TPCMSetParamBAM P2CanServerMax P2ECanServerMax 
+                                EnableDTCDetect SaveDTCInBlock DM1DTCNumber HighVoltage 
+                                ResponsePending m_CurrSessionType WaitConfirmBeforeJump 
+                                WaitConfimBeforeReset SessionSupport DTCAdded DIDAdded DTCGroupAdded 
+                                ResetTypeSupport ResetCallBackFun CommTypeSupport commCallBack 
+                                ModuleEEpromStartAddr EEpromSizeForUse EEpromUsed UnlockList memset 
+                                Diagnostic_EEProm_Init 
+GenerateSeed              USES DiagTimer_GetTickCount _LSHRU 
+GotoSession               USES S3serverTimer DiagTimer_Set commCallBack 
+                                EnableDTCDetect m_CurrSessionType m_SecurityLevel m_UnlockStep 
+                                WaitConfirmBeforeJump 
+Service10PosResponse      USES DiagnosticBuffTX P2CanServerMax P2ECanServerMax 
+                                ResponseLength 
+Service10Handle           USES m_NRC SessionSupport _CASE_CHECKED_BYTE 
+                                m_CurrSessionType ResponsePending suppressResponse 
+                                Service10PosResponse GotoSession 
+Service11Handle           USES m_NRC ResetTypeSupport m_EcuResetType 
+                                _CASE_CHECKED_BYTE ResponsePending suppressResponse 
+                                CurrentService DiagnosticBuffTX ResponseLength 
+                                WaitConfimBeforeReset ResetCallBackFun 
+Service27Handle           USES Service27Handle UnlockList m_CurrSessionType 
+                                m_UnlockStep m_SecurityLevel DiagnosticBuffTX Seed 
+                                GenerateSeed ResponseLength key Diagnostic_EEProm_Read 
+                                DiagTimer_Set Diagnostic_EEProm_Write m_NRC ResponsePending 
+                                suppressResponse 
+Service28Handle           USES m_NRC CommTypeSupport _CASE_CHECKED_BYTE 
+                                ResponsePending suppressResponse commCallBack CurrentService 
+                                DiagnosticBuffTX ResponseLength 
+Service3EHandle           USES m_NRC TesterPresentSuppport CurrentService 
+                                DiagnosticBuffTX ResponseLength ResponsePending 
+                                suppressResponse 
+Service85Handle           USES m_NRC TesterPresentSuppport ResponsePending 
+                                suppressResponse EnableDTCDetect CurrentService 
+                                DiagnosticBuffTX ResponseLength 
+SearchDidNode             USES DIDS DIDAdded 
+Service22Handle           USES m_NRC SearchDidNode DiagnosticBuffTX 
+                                Service22Handle memcpy Diagnostic_EEProm_Read ResponsePending 
+                                suppressResponse ResponseLength 
+Service2EHandle           USES m_NRC SearchDidNode Diagnostic_EEProm_Write 
+                                memcpy DiagnosticBuffTX ResponseLength 
+                                ResponsePending suppressResponse 
+SearchDTCGroup            USES DTCGROUPS DTCGroupAdded 
+Service14Handle           USES m_NRC suppressResponse _ILSEXT SearchDTCGroup 
+                                CurrentService DiagnosticBuffTX ResponseLength 
+                                Diagnostic_ClearDTC 
+SearchDTCByMaskAndFillResponse USES DTCS DtcAvailibaleMask ResponseLength 
+                                DiagnosticBuffTX DTCAdded 
+FillAllDTCResponse        USES DTCS ResponseLength DiagnosticBuffTX 
+                                DtcAvailibaleMask DTCAdded 
+GetDTCNumberByMask        USES DTCS DtcAvailibaleMask DTCAdded 
+GetDTCNodeByCode          USES DTCS _LCMP DTCAdded 
+FillDTCSnapshotReponse    USES ResponseLength SnapShots FillDTCSnapshotReponse 
+                                SnapShotAdded DiagnosticBuffTX Diagnostic_EEProm_Read 
+Service19Handle           USES m_NRC _CASE_DIRECT_BYTE GetDTCNumberByMask 
+                                DiagnosticBuffTX Service19Handle ResponseLength 
+                                SearchDTCByMaskAndFillResponse DtcAvailibaleMask FillDTCSnapshotReponse 
+                                CurrentService AgingCounterRecord AgedCounterRecord 
+                                OccurenceCounterRecord PendingCounterRecord FillAllDTCResponse 
+                                ResponsePending suppressResponse GetDTCNodeByCode 
+Service2FHandle           USES m_NRC SearchDidNode DiagnosticBuffTX 
+                                ResponsePending suppressResponse ResponseLength 
+ServiceNegReponse         USES DiagnosticBuffTX N_Sa N_Ta N_USData_request 
+Diagnostic_ServiceHandle  USES CurrentService ServiceList suppressResponse 
+                                m_CurrSessionType Diagnostic_ServiceHandle m_NRC m_SecurityLevel 
+Diagnostic_MainProc       USES IsIndicationListEmpty Diagnostic_MainProc 
+                                PullIndication _ILSEXT TesterPhyID TesterFunID EcuID N_Ta 
+                                N_Sa TesterPhyID1 TesterFunID1 EcuID1 
+                                Diagnostic_ServiceHandle m_NRC ResponsePending suppressResponse 
+                                DiagnosticBuffTX ResponseLength N_USData_request CurrentService 
+                                ServiceNegReponse m_CurrSessionType S3serverTimer 
+                                WaitConfirmBeforeJump WaitConfirmBeforeErase WaitConfimBeforeReset 
+                                ResetCallBackFun m_EcuResetType SaveDTCInBlock DTCSavedTimer 
+                                DiagTimer_HasExpired DTCSaved DTCAdded DTCS Diagnostic_EEProm_Write 
+                                DiagTimer_Set 
+Diagnostic_TimeProc       USES m_CurrSessionType S3serverTimer 
+                                DiagTimer_HasExpired GotoSession m_UnlockStep UnlockList 
+                                Diagnostic_EEProm_Read ResponsePending WaitConfirmBeforeJump 
+                                Service10PosResponse 
+SaveSnapShotData          USES DiagnosticBuffTX SnapShots memcpy SnapShotAdded 
+                                Diagnostic_EEProm_Write 
+DtcHandle                 USES SaveSnapShotData 
+Diagnostic_DTCProc        USES EnableDTCDetect DiagTimer_GetTickCount _LCMP 
+                                DtcTimer DiagTimer_HasStopped DiagTimer_HasExpired 
+                                DM1DTCNumber DTCS DtcHandle DTCAdded DiagTimer_Set 
+Diagnostic_Proc           USES J1939Proc NetworkLayer_Proc Diagnostic_MainProc 
+                                Diagnostic_TimeProc Diagnostic_DTCProc 
+Diagnostic_RxFrame        USES NetworkLayer_RxFrame J1939TPReceiveData 
+Diagnostic_1msTimer       USES DiagTimer_ISR_Proc 
+Diagnostic_ClearDTC       USES DTCS _LCMP SaveDTCInBlock DTCSaved DTCAdded 
+Diagnostic_LoadAllDTC     USES DTCS Diagnostic_EEProm_Read DTCAdded 
+Diagnostic_LoadSecuriyFaultCounter USES UnlockList Diagnostic_EEProm_Read 
+                                m_UnlockStep DiagTimer_Set Diagnostic_EEProm_Write 
+Diagnostic_BindingSnapshot USES SnapShots SnapShotAdded ModuleEEpromStartAddr 
+                                EEpromUsed DTCS 
+Diagnostic_LoadAllData    USES Diagnostic_LoadAllDTC 
+                                Diagnostic_LoadSecuriyFaultCounter Diagnostic_BindingSnapshot 
+DiagTimer_Set             USES SystemTickCount 
+DiagTimer_HasExpired      USES SystemTickCount _LCMP 
+DiagTimer_GetTickCount    USES SystemTickCount 
+DiagTimer_ISR_Proc        USES SystemTickCount _LINC 
+J1939TPReceiveData        USES BAMRxLength BAMRxFrameLength BAMRxState 
+                                BAMRxReceived _BDIVMODU BAMRxBuf memcpy 
+TPCMSetParamBAM           USES sendInterface 
+NetworkLayer_InitParam    USES FrameFillData m_PyhReqID m_FunReqID 
+                                m_ResponseID RxInIndex RxOutIndex TxInIndex TxOutIndex 
+                                IndicationInIndex IndicationOutIndex m_TimePeriod TxParam 
+                                RxParam m_DuplexMode NetworkSend 
+NetworkLayer_SetParam     USES m_TimePeriod m_DuplexMode RxParam 
+                                m_AddressFormat FrameFillData 
+IsRxBuffEmpty             USES RxInIndex RxOutIndex 
+IsTxBuffEmpty             USES TxInIndex TxOutIndex 
+IsTxBuffFull              USES TxInIndex TxOutIndex 
+NetworkLayer_SendSF       USES IsTxBuffFull FrameFillData TxInIndex 
+                                TxFrameBuff 
+NetworkLayer_SendFF       USES TxInIndex TxFrameBuff TxParam CFDataPionter 
+NetworkLayer_SendCF       USES TxParam TxInIndex TxFrameBuff CFDataPionter 
+                                FrameFillData 
+NetworkLayer_SendFC       USES TxInIndex TxFrameBuff RxParam FrameFillData 
+NetworkLayer_RxSF         USES NetworkLayer_RxSF m_DuplexMode m_NetworkStatus 
+                                m_N_Result RxDataBuff N_USData_indication 
+NetworkLayer_RxFF         USES RxDataBuff m_DuplexMode m_NetworkStatus 
+                                NetworkLayer_RxFF RxParam N_USData_FF_indication m_N_Result 
+                                N_USData_indication NetworkLayer_SendFC 
+NetworkLayer_RxCF         USES m_NetworkStatus RxParam m_N_Result RxDataBuff 
+                                N_USData_indication 
+NetworkLayer_RxFC         USES m_NetworkStatus TxParam m_N_Result 
+                                m_AddressFormat N_USData_indication m_TimePeriod 
+                                N_USData_confirm 
+NetworkLayer_RxProc       USES IsRxBuffEmpty RxOutIndex RxFrameBuff 
+                                NetworkLayer_RxSF NetworkLayer_RxFF NetworkLayer_RxCF 
+                                NetworkLayer_RxFC m_N_Result _COPY 
+NetworkLayer_RxFrame      USES m_PyhReqID m_FunReqID m_PyhReqID1 m_FunReqID1 
+                                RxInIndex RxFrameBuff _COPY m_ResponseID 
+                                m_CurrResponseID m_ResponseID1 
+NetworkLayer_TxFrame      USES NetworkSend m_CurrResponseID m_N_Result 
+                                m_AddressFormat N_USData_confirm 
+NetworkLayer_TxEnd        USES m_TxStep m_NetworkStatus 
+NetworkLayer_TxStart      USES SendTimer m_TimePeriod DiagTimer_Set 
+                                m_NetworkStatus m_TxStep 
+NetworkLayer_RxEnd        USES m_RxStep m_NetworkStatus RxParam 
+NetworkLayer_RxStart      USES ReciveTimer m_TimePeriod DiagTimer_Set 
+                                m_NetworkStatus m_RxStep RxParam 
+NetworkLayer_TxProc       USES IsTxBuffEmpty TxOutIndex TxFrameBuff _COPY 
+                                NetworkLayer_TxFrame 
+NetworkLayer_NotifyToUpperLayer USES IsIndicationListFull IndicationInIndex 
+                                IndicationList _COPY 
+N_USData_request          USES m_AddressFormat NetworkLayer_SendSF 
+                                NetworkLayer_SendFF NetworkLayer_TxStart 
+N_USData_confirm          USES m_TimePeriod TxParam m_RxStep _COPY 
+                                NetworkLayer_NotifyToUpperLayer 
+N_USData_FF_indication    USES _COPY NetworkLayer_NotifyToUpperLayer 
+N_USData_indication       USES m_TxStep TxParam m_NetworkStatus m_TimePeriod 
+                                SendTimer DiagTimer_Set NetworkLayer_TxEnd RxParam 
+                                N_USData_indication NetworkDataBufRx NetworkLayer_RxEnd 
+                                NetworkLayer_RxStart m_N_Result _COPY 
+                                NetworkLayer_NotifyToUpperLayer 
+NetworkLayer_MainProc     USES m_NetworkStatus m_TxStep m_TimePeriod 
+                                NetworkLayer_MainProc NetworkLayer_TxEnd m_N_Result m_AddressFormat 
+                                CFRequestTimer DiagTimer_Set DiagTimer_HasExpired 
+                                NetworkLayer_SendCF TxParam _ILSEXT m_RxStep NetworkLayer_SendFC 
+                                ReciveTimer NetworkLayer_RxEnd N_USData_indication RxParam 
+                                N_USData_confirm SendTimer 
+NetworkLayer_Proc         USES NetworkLayer_RxProc NetworkLayer_TxProc 
+                                NetworkLayer_MainProc 
+IsIndicationListEmpty     USES IndicationInIndex IndicationOutIndex 
+IsIndicationListFull      USES IndicationInIndex IndicationOutIndex 
+PullIndication            USES IndicationOutIndex IndicationList _COPY 
+BackupSector              USES _LSHL _LOAD_FAR_16 EEBackupArray 
+WriteBlock                USES _FSTAT _FCCOBIX _FCCOB 
+EraseSectorInternal       USES _FSTAT _FCCOBIX _FCCOB 
+WriteWord                 USES _FSTAT _FCCOBIX _FCCOB 
+EEProm_SetByte            USES EEPromEnMode _LCMP _FSTAT EEProm_SetByte _LSHL 
+                                _LOAD_FAR_16 _LOAD_FAR_8 WriteWord BackupSector 
+                                EEBackupArray EraseSectorInternal WriteBlock 
+EEProm_GetByte            USES _LCMP _FSTAT _LSHL _LOAD_FAR_8 
+EEProm_SetWord            USES EEPromEnMode _LCMP _FSTAT _LSHL _LOAD_FAR_16 
+                                WriteWord BackupSector EEBackupArray EraseSectorInternal 
+                                WriteBlock 
+EEProm_SetLong            USES EEPromEnMode _LCMP _FSTAT EEProm_SetLong _LSHL 
+                                _LOAD_FAR_16 BackupSector EEBackupArray EraseSectorInternal 
+                                WriteBlock 
+Diagnostic_EEProm_Init    USES _FCLKDIV EEPromEnMode 
+Diagnostic_EEProm_Write   USES Diagnostic_EEProm_Write EEProm_SetLong 
+                                EEProm_SetWord EEProm_SetByte 
+Diagnostic_EEProm_Read    USES EEProm_GetByte 
+RTI1_Init                 USES _CPMUINT _CPMUFLG _CPMUPROT _CPMUCLKS _CPMURTI 
+TJA1043_Can_Sel_PutVal    USES _PTS 
+TJA1043_EN_PutVal         USES _PTT 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |  | 
+ |  +- PE_low_level_init   
+ |  |  | 
+ |  |  +- CAN1_Init           
+ |  |  |    
+ |  |  +- RTI1_Init           
+ |  |       
+ |  +- TJA1043_Can_Sel_PutVal
+ |  |    
+ |  +- TJA1043_EN_PutVal   
+ |  |    
+ |  +- Diagnostic_Init_Config
+ |  |  | 
+ |  |  +- SendFrame           
+ |  |  |  | 
+ |  |  |  +- _LSHRU              
+ |  |  |       
+ |  |  +- Diagnostic_Init     
+ |  |  |  | 
+ |  |  |  +- NetworkLayer_InitParam
+ |  |  |  |    
+ |  |  |  +- TPCMSetParamBAM     
+ |  |  |  |    
+ |  |  |  +- memset              
+ |  |  |  |    
+ |  |  |  +- Diagnostic_EEProm_Init
+ |  |  |       
+ |  |  +- InitSetSessionSupportAndSecurityAccess
+ |  |  |  | 
+ |  |  |  +- ServiceList         
+ |  |  |     | 
+ |  |  |     +- Service10Handle     
+ |  |  |     |  | 
+ |  |  |     |  +- _CASE_CHECKED_BYTE  
+ |  |  |     |  |    
+ |  |  |     |  +- Service10PosResponse
+ |  |  |     |  |    
+ |  |  |     |  +- GotoSession         
+ |  |  |     |     | 
+ |  |  |     |     +- DiagTimer_Set       
+ |  |  |     |          
+ |  |  |     +- Service11Handle     
+ |  |  |     |  | 
+ |  |  |     |  +- _CASE_CHECKED_BYTE   (see above)
+ |  |  |     |     
+ |  |  |     +- Service27Handle     
+ |  |  |     |  | 
+ |  |  |     |  +- GenerateSeed        
+ |  |  |     |  |  | 
+ |  |  |     |  |  +- DiagTimer_GetTickCount
+ |  |  |     |  |  |    
+ |  |  |     |  |  +- _LSHRU               (see above)
+ |  |  |     |  |     
+ |  |  |     |  +- Diagnostic_EEProm_Read
+ |  |  |     |  |  | 
+ |  |  |     |  |  +- EEProm_GetByte      
+ |  |  |     |  |     | 
+ |  |  |     |  |     +- _LCMP               
+ |  |  |     |  |     |    
+ |  |  |     |  |     +- _LSHL               
+ |  |  |     |  |     |    
+ |  |  |     |  |     +- _LOAD_FAR_8         
+ |  |  |     |  |          
+ |  |  |     |  +- DiagTimer_Set        (see above)
+ |  |  |     |  |  
+ |  |  |     |  +- Diagnostic_EEProm_Write
+ |  |  |     |     | 
+ |  |  |     |     +- EEProm_SetLong      
+ |  |  |     |     |  | 
+ |  |  |     |     |  +- _LCMP                (see above)
+ |  |  |     |     |  |  
+ |  |  |     |     |  +- _LSHL                (see above)
+ |  |  |     |     |  |  
+ |  |  |     |     |  +- _LOAD_FAR_16        
+ |  |  |     |     |  |    
+ |  |  |     |     |  +- BackupSector        
+ |  |  |     |     |  |  | 
+ |  |  |     |     |  |  +- _LSHL                (see above)
+ |  |  |     |     |  |  |  
+ |  |  |     |     |  |  +- _LOAD_FAR_16         (see above)
+ |  |  |     |     |  |     
+ |  |  |     |     |  +- EraseSectorInternal 
+ |  |  |     |     |  |    
+ |  |  |     |     |  +- WriteBlock          
+ |  |  |     |     |       
+ |  |  |     |     +- EEProm_SetWord      
+ |  |  |     |     |  | 
+ |  |  |     |     |  +- _LCMP                (see above)
+ |  |  |     |     |  |  
+ |  |  |     |     |  +- _LSHL                (see above)
+ |  |  |     |     |  |  
+ |  |  |     |     |  +- _LOAD_FAR_16         (see above)
+ |  |  |     |     |  |  
+ |  |  |     |     |  +- WriteWord           
+ |  |  |     |     |  |    
+ |  |  |     |     |  +- BackupSector         (see above)
+ |  |  |     |     |  |  
+ |  |  |     |     |  +- EraseSectorInternal  (see above)
+ |  |  |     |     |  |  
+ |  |  |     |     |  +- WriteBlock           (see above)
+ |  |  |     |     |     
+ |  |  |     |     +- EEProm_SetByte      
+ |  |  |     |        | 
+ |  |  |     |        +- _LCMP                (see above)
+ |  |  |     |        |  
+ |  |  |     |        +- _LSHL                (see above)
+ |  |  |     |        |  
+ |  |  |     |        +- _LOAD_FAR_16         (see above)
+ |  |  |     |        |  
+ |  |  |     |        +- _LOAD_FAR_8          (see above)
+ |  |  |     |        |  
+ |  |  |     |        +- WriteWord            (see above)
+ |  |  |     |        |  
+ |  |  |     |        +- BackupSector         (see above)
+ |  |  |     |        |  
+ |  |  |     |        +- EraseSectorInternal  (see above)
+ |  |  |     |        |  
+ |  |  |     |        +- WriteBlock           (see above)
+ |  |  |     |           
+ |  |  |     +- Service28Handle     
+ |  |  |     |  | 
+ |  |  |     |  +- _CASE_CHECKED_BYTE   (see above)
+ |  |  |     |     
+ |  |  |     +- Service3EHandle     
+ |  |  |     |    
+ |  |  |     +- Service83Handle     
+ |  |  |     |    
+ |  |  |     +- Service84Handle     
+ |  |  |     |    
+ |  |  |     +- Service85Handle     
+ |  |  |     |    
+ |  |  |     +- Service86Handle     
+ |  |  |     |    
+ |  |  |     +- Service87Handle     
+ |  |  |     |    
+ |  |  |     +- Service22Handle     
+ |  |  |     |  | 
+ |  |  |     |  +- SearchDidNode       
+ |  |  |     |  |    
+ |  |  |     |  +- memcpy              
+ |  |  |     |  |    
+ |  |  |     |  +- Diagnostic_EEProm_Read (see above)
+ |  |  |     |     
+ |  |  |     +- Service23Handle     
+ |  |  |     |    
+ |  |  |     +- Service24Handle     
+ |  |  |     |    
+ |  |  |     +- Service2AHandle     
+ |  |  |     |    
+ |  |  |     +- Service2CHandle     
+ |  |  |     |    
+ |  |  |     +- Service3DHandle     
+ |  |  |     |    
+ |  |  |     +- Service2EHandle     
+ |  |  |     |  | 
+ |  |  |     |  +- SearchDidNode        (see above)
+ |  |  |     |  |  
+ |  |  |     |  +- Diagnostic_EEProm_Write (see above)
+ |  |  |     |  |  
+ |  |  |     |  +- memcpy               (see above)
+ |  |  |     |     
+ |  |  |     +- Service14Handle     
+ |  |  |     |  | 
+ |  |  |     |  +- _ILSEXT             
+ |  |  |     |  |    
+ |  |  |     |  +- SearchDTCGroup      
+ |  |  |     |  |    
+ |  |  |     |  +- Diagnostic_ClearDTC 
+ |  |  |     |     | 
+ |  |  |     |     +- _LCMP                (see above)
+ |  |  |     |        
+ |  |  |     +- Service19Handle     
+ |  |  |     |  | 
+ |  |  |     |  +- _CASE_DIRECT_BYTE   
+ |  |  |     |  |    
+ |  |  |     |  +- GetDTCNumberByMask  
+ |  |  |     |  |    
+ |  |  |     |  +- SearchDTCByMaskAndFillResponse
+ |  |  |     |  |    
+ |  |  |     |  +- FillDTCSnapshotReponse
+ |  |  |     |  |  | 
+ |  |  |     |  |  +- Diagnostic_EEProm_Read (see above)
+ |  |  |     |  |     
+ |  |  |     |  +- FillAllDTCResponse  
+ |  |  |     |  |    
+ |  |  |     |  +- GetDTCNodeByCode    
+ |  |  |     |     | 
+ |  |  |     |     +- _LCMP                (see above)
+ |  |  |     |        
+ |  |  |     +- Service2FHandle     
+ |  |  |     |  | 
+ |  |  |     |  +- SearchDidNode        (see above)
+ |  |  |     |     
+ |  |  |     +- Service31Handle     
+ |  |  |     |    
+ |  |  |     +- Service34Handle     
+ |  |  |     |    
+ |  |  |     +- Service35Handle     
+ |  |  |     |    
+ |  |  |     +- Service36Handle     
+ |  |  |     |    
+ |  |  |     +- Service37Handle     
+ |  |  |          
+ |  |  +- InitSetSessionControlParam
+ |  |  |    
+ |  |  +- HD10SeedToKeyLevel1 
+ |  |  |    
+ |  |  +- InitAddSecurityAlgorithm
+ |  |  |    
+ |  |  +- InitSetTesterPresentSupress
+ |  |  |    
+ |  |  +- SystemReset         
+ |  |  |  | 
+ |  |  |  +- ForceReset          
+ |  |  |       
+ |  |  +- InitSetSysResetParam
+ |  |  |    
+ |  |  +- CommulicatonControl 
+ |  |  |    
+ |  |  +- InitSetCommControlParam
+ |  |  |    
+ |  |  +- InitSetDTCControlSupress
+ |  |  |    
+ |  |  +- InitAddDID          
+ |  |  |    
+ |  |  +- IoControl_9826      
+ |  |  |    
+ |  |  +- InitSetDTCAvailiableMask
+ |  |  |    
+ |  |  +- NMGetLimpHome       
+ |  |  |    
+ |  |  +- InitAddDTC          
+ |  |  |    
+ |  |  +- InitAddDTCGroup     
+ |  |  |    
+ |  |  +- InitAddDTCSnapShot  
+ |  |  |    
+ |  |  +- InitSetAgingCounterRecordNumber
+ |  |  |    
+ |  |  +- InitSetAgedCounterRecordNumber
+ |  |  |    
+ |  |  +- InitSetOccurrenceCounterRecordNumber
+ |  |  |    
+ |  |  +- InitSetPendingCounterRecordNumber
+ |  |  |    
+ |  |  +- Diagnostic_LoadAllData
+ |  |  |  | 
+ |  |  |  +- Diagnostic_LoadAllDTC
+ |  |  |  |  | 
+ |  |  |  |  +- Diagnostic_EEProm_Read (see above)
+ |  |  |  |     
+ |  |  |  +- Diagnostic_LoadSecuriyFaultCounter
+ |  |  |  |  | 
+ |  |  |  |  +- Diagnostic_EEProm_Read (see above)
+ |  |  |  |  |  
+ |  |  |  |  +- DiagTimer_Set        (see above)
+ |  |  |  |  |  
+ |  |  |  |  +- Diagnostic_EEProm_Write (see above)
+ |  |  |  |     
+ |  |  |  +- Diagnostic_BindingSnapshot
+ |  |  |       
+ |  |  +- Diagnostic_SetNLParam
+ |  |     | 
+ |  |     +- NetworkLayer_SetParam
+ |  |          
+ |  +- Diagnostic_Proc     
+ |     | 
+ |     +- J1939Proc           
+ |     |    
+ |     +- NetworkLayer_Proc   
+ |     |  | 
+ |     |  +- NetworkLayer_RxProc 
+ |     |  |  | 
+ |     |  |  +- IsRxBuffEmpty       
+ |     |  |  |    
+ |     |  |  +- NetworkLayer_RxSF   
+ |     |  |  |  | 
+ |     |  |  |  +- N_USData_indication 
+ |     |  |  |     | 
+ |     |  |  |     +- DiagTimer_Set        (see above)
+ |     |  |  |     |  
+ |     |  |  |     +- NetworkLayer_TxEnd  
+ |     |  |  |     |    
+ |     |  |  |     +- NetworkLayer_RxEnd  
+ |     |  |  |     |    
+ |     |  |  |     +- NetworkLayer_RxStart
+ |     |  |  |     |  | 
+ |     |  |  |     |  +- DiagTimer_Set        (see above)
+ |     |  |  |     |     
+ |     |  |  |     +- _COPY               
+ |     |  |  |     |    
+ |     |  |  |     +- NetworkLayer_NotifyToUpperLayer
+ |     |  |  |        | 
+ |     |  |  |        +- IsIndicationListFull
+ |     |  |  |        |    
+ |     |  |  |        +- _COPY                (see above)
+ |     |  |  |           
+ |     |  |  +- NetworkLayer_RxFF   
+ |     |  |  |  | 
+ |     |  |  |  +- N_USData_FF_indication
+ |     |  |  |  |  | 
+ |     |  |  |  |  +- _COPY                (see above)
+ |     |  |  |  |  |  
+ |     |  |  |  |  +- NetworkLayer_NotifyToUpperLayer (see above)
+ |     |  |  |  |     
+ |     |  |  |  +- N_USData_indication  (see above)
+ |     |  |  |  |  
+ |     |  |  |  +- NetworkLayer_SendFC 
+ |     |  |  |       
+ |     |  |  +- NetworkLayer_RxCF   
+ |     |  |  |  | 
+ |     |  |  |  +- N_USData_indication  (see above)
+ |     |  |  |     
+ |     |  |  +- NetworkLayer_RxFC   
+ |     |  |  |  | 
+ |     |  |  |  +- N_USData_indication  (see above)
+ |     |  |  |  |  
+ |     |  |  |  +- N_USData_confirm    
+ |     |  |  |     | 
+ |     |  |  |     +- _COPY                (see above)
+ |     |  |  |     |  
+ |     |  |  |     +- NetworkLayer_NotifyToUpperLayer (see above)
+ |     |  |  |        
+ |     |  |  +- _COPY                (see above)
+ |     |  |     
+ |     |  +- NetworkLayer_TxProc 
+ |     |  |  | 
+ |     |  |  +- IsTxBuffEmpty       
+ |     |  |  |    
+ |     |  |  +- _COPY                (see above)
+ |     |  |  |  
+ |     |  |  +- NetworkLayer_TxFrame
+ |     |  |     | 
+ |     |  |     +- N_USData_confirm     (see above)
+ |     |  |        
+ |     |  +- NetworkLayer_MainProc
+ |     |     | 
+ |     |     +- NetworkLayer_TxEnd   (see above)
+ |     |     |  
+ |     |     +- DiagTimer_Set        (see above)
+ |     |     |  
+ |     |     +- DiagTimer_HasExpired
+ |     |     |  | 
+ |     |     |  +- _LCMP                (see above)
+ |     |     |     
+ |     |     +- NetworkLayer_SendCF 
+ |     |     |    
+ |     |     +- _ILSEXT              (see above)
+ |     |     |  
+ |     |     +- NetworkLayer_SendFC  (see above)
+ |     |     |  
+ |     |     +- NetworkLayer_RxEnd   (see above)
+ |     |     |  
+ |     |     +- N_USData_indication  (see above)
+ |     |     |  
+ |     |     +- N_USData_confirm     (see above)
+ |     |        
+ |     +- Diagnostic_MainProc 
+ |     |  | 
+ |     |  +- IsIndicationListEmpty
+ |     |  |    
+ |     |  +- PullIndication      
+ |     |  |  | 
+ |     |  |  +- _COPY                (see above)
+ |     |  |     
+ |     |  +- _ILSEXT              (see above)
+ |     |  |  
+ |     |  +- Diagnostic_ServiceHandle
+ |     |  |  | 
+ |     |  |  +- ServiceList          (see above)
+ |     |  |     
+ |     |  +- N_USData_request    
+ |     |  |  | 
+ |     |  |  +- NetworkLayer_SendSF 
+ |     |  |  |  | 
+ |     |  |  |  +- IsTxBuffFull        
+ |     |  |  |       
+ |     |  |  +- NetworkLayer_SendFF 
+ |     |  |  |    
+ |     |  |  +- NetworkLayer_TxStart
+ |     |  |     | 
+ |     |  |     +- DiagTimer_Set        (see above)
+ |     |  |        
+ |     |  +- ServiceNegReponse   
+ |     |  |  | 
+ |     |  |  +- N_USData_request     (see above)
+ |     |  |     
+ |     |  +- DiagTimer_HasExpired (see above)
+ |     |  |  
+ |     |  +- Diagnostic_EEProm_Write (see above)
+ |     |  |  
+ |     |  +- DiagTimer_Set        (see above)
+ |     |     
+ |     +- Diagnostic_TimeProc 
+ |     |  | 
+ |     |  +- DiagTimer_HasExpired (see above)
+ |     |  |  
+ |     |  +- GotoSession          (see above)
+ |     |  |  
+ |     |  +- Diagnostic_EEProm_Read (see above)
+ |     |  |  
+ |     |  +- Service10PosResponse (see above)
+ |     |     
+ |     +- Diagnostic_DTCProc  
+ |        | 
+ |        +- DiagTimer_GetTickCount (see above)
+ |        |  
+ |        +- _LCMP                (see above)
+ |        |  
+ |        +- DiagTimer_HasStopped
+ |        |    
+ |        +- DiagTimer_HasExpired (see above)
+ |        |  
+ |        +- DtcHandle           
+ |        |  | 
+ |        |  +- SaveSnapShotData    
+ |        |     | 
+ |        |     +- memcpy               (see above)
+ |        |     |  
+ |        |     +- Diagnostic_EEProm_Write (see above)
+ |        |        
+ |        +- DiagTimer_Set        (see above)
+ |           
+ +- _EntryPoint         
+    | 
+    +- _Startup            
+       | 
+       +- Init                
+       |    
+       +- main                 (see above)
+          
+ _InterruptVectorTable
+ | 
+ +- Cpu_Interrupt       
+ |    
+ +- Can_Rx_Interrupt    
+ |  | 
+ |  +- Diagnostic_RxFrame  
+ |  |  | 
+ |  |  +- NetworkLayer_RxFrame
+ |  |  |  | 
+ |  |  |  +- _COPY                (see above)
+ |  |  |     
+ |  |  +- J1939TPReceiveData  
+ |  |     | 
+ |  |     +- _BDIVMODU           
+ |  |     |    
+ |  |     +- memcpy               (see above)
+ |  |        
+ |  +- _LSHL                (see above)
+ |     
+ +- RTI_Interrupt       
+    | 
+    +- Diagnostic_1msTimer 
+       | 
+       +- DiagTimer_ISR_Proc  
+          | 
+          +- _LINC               
+               
+ _ResetVectorTable   
+ | 
+ +- _EntryPoint          (see above)
+    
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 9
+Total size of all blocks to be downloaded: 13863
+
