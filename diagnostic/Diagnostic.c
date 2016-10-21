@@ -75,6 +75,7 @@ typedef enum{
 	ECU_DEFAULT_SESSION = 1,
 	ECU_PAOGRAM_SESSION = 2,
 	ECU_EXTENED_SESSION = 3,
+	ECU_FACTORY_SESSION = 0x71,//供应商session，用于下线配置
 }SessionType;
 
 typedef enum{
@@ -152,7 +153,9 @@ typedef struct _DtcNode{
 	DTCLevel dtcLevel;
 	J1939DTC DM1Code;
 	#endif
+	#if USE_MALLOC
 	struct _DtcNode* next;
+	#endif
 }DTCNode;
 
 typedef struct _DidNode{
@@ -163,7 +166,10 @@ typedef struct _DidNode{
 	DIDType didType;
 	ReadWriteAttr RWAttr;
 	uint16_t EEpromAddr;
+	bool SupportWriteInFactoryMode;
+	#if USE_MALLOC
 	struct _DidNode* next;
+	#endif
 }DIDNode;
 
 typedef struct _GroupNode{
@@ -244,10 +250,10 @@ DTCNode* GetDTCNodeByCode(uint32_t dtcCode);
 
 /* Private variables ---------------------------------------------------------*/
 
-/*========================about security acces================================*/
-const char DriverVersion[] = {1,0,0};
+/*========================diagnositc version================================*/
+const char DriverVersion[] = {1,0,1};
 const char NMVersion[] = {0,0,0};
-const char DiagnosticVersion[] = {1,0,0};
+const char DiagnosticVersion[] = {1,0,1};
 const char DatabaseVersion[] = {0,0};
 /*========================about security acces================================*/
 
@@ -452,6 +458,35 @@ bool InitAddSecurityAlgorithm(SecurityLevel level, SecurityFun AlgoritthmFun,byt
 	return FALSE;
 }
 
+uint32_t FactorySecuritySeedToKey(uint32_t seed)
+{
+	uint8_t i;
+	uint32_t xor = 0x52756959;// asscii "RuiY"
+	uint32_t key;
+
+	key = seed ^ xor;
+
+	for (i=0; i < 32; i++)
+	{
+		if (key & 0x80000000)
+		{
+			key = key << 1;
+			key = key ^ xor;
+		}
+		else 
+		{
+			key = key << 1; 
+		}
+	}
+
+	return key;
+}
+
+void InitFactorySecuriyAlgorithm(void)
+{
+	InitAddSecurityAlgorithm(LEVEL_FOUR,FactorySecuritySeedToKey,0x71,0x72, NULL ,3 , 10000, SUB_FACTORY,4);
+}
+
 bool InitSetSessionSupportAndSecurityAccess(bool support ,uint8_t service,uint8_t PHYDefaultSession_Security,	uint8_t PHYProgramSeesion_Security,	uint8_t PHYExtendedSession_Security,	uint8_t FUNDefaultSession_Security,	uint8_t FUNProgramSeesion_Security,	uint8_t FUNExtendedSession_Security)
 {
 	uint8_t i;
@@ -476,7 +511,7 @@ bool InitSetSessionSupportAndSecurityAccess(bool support ,uint8_t service,uint8_
 	return FALSE;
 }
 
-void InitAddDID(uint16_t DID , uint8_t DataLength , uint8_t* DataPointer , DIDType DidType , IoControl ControlFun , ReadWriteAttr RWAttr)
+void InitAddDID(uint16_t DID , uint8_t DataLength , uint8_t* DataPointer , DIDType DidType , IoControl ControlFun , ReadWriteAttr RWAttr,uint16_t EEaddr, bool SupportWriteInFactoryMode)
 {
 	#if USE_MALLOC
 	DIDNode* didNode = (DIDNode*)malloc(sizeof(DIDNode));
@@ -517,10 +552,18 @@ void InitAddDID(uint16_t DID , uint8_t DataLength , uint8_t* DataPointer , DIDTy
 		DIDS[DIDAdded].Callback = ControlFun;
 		DIDS[DIDAdded].didType = DidType;
 		DIDS[DIDAdded].RWAttr = RWAttr;
-		if(RWAttr == READWRITE && DidType == EEPROM_DID)
+		DIDS[DIDAdded].SupportWriteInFactoryMode = SupportWriteInFactoryMode;
+		if(DidType == EEPROM_DID)
 		{
-			DIDS[DIDAdded].dataPointer = (byte*)(ModuleEEpromStartAddr + EEpromUsed);
-			EEpromUsed += DataLength;
+			if(EEaddr == 0)
+			{
+				DIDS[DIDAdded].EEpromAddr = ModuleEEpromStartAddr + EEpromUsed;
+				EEpromUsed += DataLength;
+			}
+			else
+			{
+				DIDS[DIDAdded].EEpromAddr = EEaddr;
+			}
 		}
 		else
 		{
@@ -694,27 +737,27 @@ void InitSetDTCControlSupress(bool supressPosResponse)
 
 void InitSetCanDriverVersionDID(uint16_t m_DID)
 {
-	InitAddDID(m_DID,3 , DriverVersion ,   	REALTIME_DID , NULL , READONLY);
+	InitAddDID(m_DID,3 , DriverVersion , REALTIME_DID , NULL , READONLY , 0 , FALSE);
 }
 
 void InitSetCanNMVersionDID(uint16_t m_DID)
 {
-	InitAddDID(m_DID,3 , NMVersion ,   		REALTIME_DID , NULL , READONLY);
+	InitAddDID(m_DID,3 , NMVersion , REALTIME_DID , NULL , READONLY , 0 , FALSE);
 }
 
 void InitSetCanDiagnosticVersionDID(uint16_t m_DID)
 {
-	InitAddDID(m_DID,3 , DiagnosticVersion ,   	REALTIME_DID , NULL , READONLY);
+	InitAddDID(m_DID,3 , DiagnosticVersion , REALTIME_DID , NULL , READONLY , 0 , FALSE);
 }
 
 void InitSetCanDataBaseVersionDID(uint16_t m_DID)
 {
-	InitAddDID(m_DID,2 , DatabaseVersion ,   	REALTIME_DID , NULL , READONLY);
+	InitAddDID(m_DID,2 , DatabaseVersion , REALTIME_DID , NULL , READONLY , 0 , FALSE);
 }
 
 void InitSetCurrentSessionDID(uint16_t m_DID)
 {
-	InitAddDID(m_DID,1 , &m_CurrSessionType ,      REALTIME_DID , NULL , READONLY);
+	InitAddDID(m_DID,1 , &m_CurrSessionType , REALTIME_DID , NULL , READONLY , 0 , FALSE);
 }
 
 
@@ -892,6 +935,23 @@ void Service10Handle(uint8_t N_TAType, uint16_t length, uint8_t *MessageData)
 					}
 				}
 				break;
+			case ECU_FACTORY_SESSION:
+				if(N_TAType == PHYSICAL)
+				{
+					if(m_CurrSessionType == ECU_EXTENED_SESSION)
+					{
+						
+					}
+					else
+					{
+						m_NRC = SFNS;
+					}
+				}
+				else
+				{
+					m_NRC = SFNS;
+				}
+				break;
 			default:
 				m_NRC = SFNS; /* NRC 0x12: sub-functionNotSupported *///
 		}
@@ -1058,6 +1118,17 @@ void Service27Handle(uint8_t N_TAType, uint16_t length, uint8_t *MessageData)
 				else if(m_CurrSessionType == ECU_EXTENED_SESSION)
 				{
 					if(UnlockList[index].subFunctionSupported & SUB_EXTENDED)
+					{
+						subFunctionSupInSession = TRUE;
+					}
+					else
+					{
+						subFunctionSupInSession = FALSE;
+					}
+				}
+				else if(m_CurrSessionType == ECU_FACTORY_SESSION)
+				{
+					if(UnlockList[index].subFunctionSupported & SUB_FACTORY)
 					{
 						subFunctionSupInSession = TRUE;
 					}
@@ -1501,16 +1572,16 @@ void Service22Handle(uint8_t N_TAType, uint16_t length, uint8_t *MessageData)
 		{
 			if(didNode->RWAttr == WRITEONLY)
 			{
-				m_NRC = ROOR;//this DID maybe supported by 22 service but not supported by 2E service
+				m_NRC = ROOR;//this DID maybe supported by 2E service but not supported by 22 service
 			}
 			else
 			{
 				DiagnosticBuffTX[0] = 0x62;
 				DiagnosticBuffTX[1] = *(MessageData + 1);
 				DiagnosticBuffTX[2] = *(MessageData + 2);
-				if(didNode->RWAttr == READWRITE && didNode->didType == EEPROM_DID)
+				if(didNode->didType == EEPROM_DID)
 				{
-					Diagnostic_EEProm_Read((uint32_t)didNode->dataPointer , didNode->dataLength , DiagnosticBuffTX+3);
+					Diagnostic_EEProm_Read(didNode->EEpromAddr , didNode->dataLength , DiagnosticBuffTX+3);
 				}
 				else
 				{
@@ -1572,30 +1643,80 @@ void Service2EHandle(uint8_t N_TAType, uint16_t length, uint8_t *MessageData)
 		{
 			m_NRC = ROOR;//mabe a IO Control DID
 		}
-		else if(didNode->RWAttr == READONLY)
-		{
-			m_NRC = ROOR;//this DID maybe supported by 22 service but not supported by 2E service
-		}
-		else
+		else if(didNode->didType == REALTIME_DID)
 		{
 			if(didNode->dataLength + 3 == length)
 			{
-				if(didNode->RWAttr == READWRITE && didNode->didType == EEPROM_DID)
+				if(m_CurrSessionType != ECU_FACTORY_SESSION)
 				{
-					Diagnostic_EEProm_Write((uint32_t)(didNode->dataPointer) , didNode->dataLength , MessageData + 3);
+					memcpy(didNode->dataPointer , MessageData + 3, didNode->dataLength);
+					DiagnosticBuffTX[0] = 0x6E;
+					DiagnosticBuffTX[1] = *(MessageData + 1);
+					DiagnosticBuffTX[2] = *(MessageData + 2);
+					ResponseLength = 3;
 				}
 				else
 				{
-					memcpy(didNode->dataPointer , MessageData + 3, didNode->dataLength);
+					m_NRC = ROOR;//fatcory mode not support realtime DID write
 				}
-				DiagnosticBuffTX[0] = 0x6E;
-				DiagnosticBuffTX[1] = *(MessageData + 1);
-				DiagnosticBuffTX[2] = *(MessageData + 2);
-				ResponseLength = 3;
 			}
 			else
 			{
 				m_NRC = IMLOIF;
+			}
+		}
+		else if(didNode->didType == EEPROM_DID)
+		{
+			if(didNode->RWAttr == READONLY)
+			{
+				if(didNode->SupportWriteInFactoryMode == TRUE && m_CurrSessionType == ECU_FACTORY_SESSION)
+				{
+					if(m_SecurityLevel == LEVEL_FOUR)
+					{
+						if(didNode->dataLength + 3 == length)
+						{
+							Diagnostic_EEProm_Write(didNode->EEpromAddr, didNode->dataLength , MessageData + 3);
+							DiagnosticBuffTX[0] = 0x6E;
+							DiagnosticBuffTX[1] = *(MessageData + 1);
+							DiagnosticBuffTX[2] = *(MessageData + 2);
+							ResponseLength = 3;
+						}
+						else
+						{
+							m_NRC = IMLOIF;
+						}
+					}
+					else
+					{
+						m_NRC = SAD;
+					}
+				}
+				else
+				{
+					m_NRC = ROOR;//this DID maybe supported by 22 service but not supported by 2E service
+				}
+			}
+			else 
+			{
+				if(didNode->dataLength + 3 == length)
+				{
+					if(m_CurrSessionType == ECU_FACTORY_SESSION)
+					{
+						m_NRC = ROOR;
+					}
+					else
+					{
+						Diagnostic_EEProm_Write(didNode->EEpromAddr, didNode->dataLength , MessageData + 3);
+						DiagnosticBuffTX[0] = 0x6E;
+						DiagnosticBuffTX[1] = *(MessageData + 1);
+						DiagnosticBuffTX[2] = *(MessageData + 2);
+						ResponseLength = 3;
+					}
+				}
+				else
+				{
+					m_NRC = IMLOIF;
+				}
 			}
 		}
 	}
@@ -2578,12 +2699,26 @@ void Diagnostic_ServiceHandle(uint8_t N_SA , uint8_t N_TA , uint8_t N_TAtype , u
 					if((ServiceList[ServiceIndex].PHYProgramSeesion_Security & m_SecurityLevel) == m_SecurityLevel)
 					{
 						ServiceList[ServiceIndex].serviceHandle(N_TAtype,length,MessageData);
-						//LastService = ServiceList[ServiceIndex];
 					}
 					else
 					{
 						m_NRC = SAD;//ServiceNegReponse(ServiceName,SAD);
 					}
+				}
+			}
+			else if(ECU_FACTORY_SESSION == m_CurrSessionType)
+			{
+				if(ServiceList[ServiceIndex].serviceName== SESSION_CONTROL
+					|| ServiceList[ServiceIndex].serviceName== SECURITY_ACCESS
+					|| ServiceList[ServiceIndex].serviceName== READ_DATA_BY_ID
+					|| ServiceList[ServiceIndex].serviceName== WRITE_DATA_BY_ID
+					|| ServiceList[ServiceIndex].serviceName== RESET_ECU)
+				{
+					ServiceList[ServiceIndex].serviceHandle(N_TAtype,length,MessageData);
+				}
+				else
+				{
+					m_NRC = SNSIAS;
 				}
 			}
 		}
@@ -2645,6 +2780,10 @@ void Diagnostic_ServiceHandle(uint8_t N_SA , uint8_t N_TA , uint8_t N_TAtype , u
 						m_NRC = SAD;//ServiceNegReponse(ServiceName,SAD);
 					}
 				}
+			}
+			else if(ECU_FACTORY_SESSION == m_CurrSessionType)
+			{
+				m_NRC = SNS;
 			}
 		}
 	}

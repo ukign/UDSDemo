@@ -7,6 +7,7 @@ typedef enum{
 	LEVEL_ONE = 1,
 	LEVEL_TWO = 2,
 	LEVEL_THREE = 4,
+	LEVEL_FOUR = 8,
 	LEVEL_UNSUPPORT = 0,
 }SecurityLevel;
 
@@ -61,6 +62,7 @@ typedef enum{
 	SUB_DEFAULT = 1,//sub function supported in default session
 	SUB_PROGRAM = 2,//sub function supported in program session
 	SUB_EXTENDED = 4,////sub function supported in extedned session
+	SUB_FACTORY = 8,//sub funcion supported in factory session,
 	SUB_ALL = 7,//sub function supported in both of three session
 }SubFunSuppInSession;
 
@@ -75,7 +77,7 @@ typedef uint32_t (*SecurityFun)(uint32_t);
 typedef DTCTestResult (*DetectFun)(void);
 typedef void (*ResetCallBack)(EcuResetType);
 typedef void (*CommCallBack)(CommulicationType , communicationParam);
-typedef uint8_t (*SendCANFun)(uint32_t ID, uint8_t *array, uint8_t length, uint8_t priority);
+typedef uint8_t (*SendCANFun)(uint32_t ID, uint8_t *array, uint8_t length, uint8_t priority, uint8_t rtr, uint8_t ide);
 
 #define   USE_MALLOC			0
 #define	USE_J1939_DTC		0
@@ -93,8 +95,9 @@ void Diagnostic_DelInit(void);
 void Diagnostic_RxFrame(uint32_t ID,uint8_t* data,uint8_t IDE,uint8_t DLC,uint8_t RTR);
 void Diagnostic_1msTimer(void);
 bool InitAddSecurityAlgorithm(SecurityLevel level, SecurityFun AlgoritthmFun,byte SeedSubFunctionNum,byte KeySubFunctionNum , uint8_t* FaultCounter,uint8_t FaultLimitCounter , uint32_t UnlockFailedDelayTimeMS,SubFunSuppInSession SubFuntioncSupportedInSession,uint8_t KeySize);
+void InitFactorySecuriyAlgorithm(void);
 bool InitSetSessionSupportAndSecurityAccess(bool support ,uint8_t service,uint8_t PHYDefaultSession_Security,	uint8_t PHYProgramSeesion_Security,	uint8_t PHYExtendedSession_Security,	uint8_t FUNDefaultSession_Security,	uint8_t FUNProgramSeesion_Security,	uint8_t FUNExtendedSession_Security);
-void InitAddDID(uint16_t DID , uint8_t DataLength , uint8_t* DataPointer , DIDType DidType , IoControl ControlFun , ReadWriteAttr RWAttr);
+void InitAddDID(uint16_t DID , uint8_t DataLength , uint8_t* DataPointer , DIDType DidType , IoControl ControlFun , ReadWriteAttr RWAttr,uint16_t EEaddr, bool SupportWriteInFactoryMode);
 #if USE_J1939_DTC
 void Diagnostic_DM1MsgEnable(bool dm1en);
 bool InitAddDTC(uint32_t DTCCode,DetectFun MonitorFun,byte DectecPeroid, byte ValidTimes,DTCLevel dtcLevel,uint32_t spn, uint8_t fmi);

@@ -773,7 +773,7 @@ static  void NetworkLayer_TxFrame(NetworkFrame txFrame)
 	TxDataBuff[7] = txFrame.CanData.data7;
 	if(NetworkSend != NULL)
 	{
-		NetworkSend(m_CurrResponseID,TxDataBuff,8,0);
+		NetworkSend(m_CurrResponseID,TxDataBuff,8,0,0,0);
 		m_N_Result = N_OK;
 	}
 	else
