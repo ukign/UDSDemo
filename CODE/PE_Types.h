@@ -6,7 +6,7 @@
 **     Component : PE_Types
 **     Version   : Driver 01.14
 **     Compiler  : CodeWarrior HC12 C Compiler
-**     Date/Time : 2016/9/1, 9:16
+**     Date/Time : 2016/10/13, 13:48
 **     Abstract  :
 **         PE_Types.h - contains definitions of basic types,
 **         register access macros and hardware specific macros
@@ -15,7 +15,7 @@
 **     Contents  :
 **         No public methods
 **
-**     Copyright : 1997 - 2010 Freescale Semiconductor, Inc. All Rights Reserved.
+**     Copyright : 1997 - 2011 Freescale Semiconductor, Inc. All Rights Reserved.
 **     
 **     http      : www.freescale.com
 **     mail      : support@freescale.com
@@ -131,13 +131,13 @@ typedef uint8_t TPE_ErrCode;
 /* Bit group peripheral register access macros */
 #define testReg16BitGroup(RegName, GroupName)                   (RegName & RegName##_##GroupName##_##MASK)
 #define getReg16BitGroupVal(RegName, GroupName)                 ((RegName & RegName##_##GroupName##_##MASK) >> RegName##_##GroupName##_##BITNUM)
-#define setReg16BitGroupVal(RegName, GroupName, GroupVal)       (RegName = (RegName & ~(word)RegName##_##GroupName##_##MASK) | (((word)GroupVal) << RegName##_##GroupName##_##BITNUM))
-#define seqClrSetReg16BitGroupVal(RegName,GroupName,GroupVal)   ((RegName &= ~(~(((word)GroupVal) << RegName##_##GroupName##_##BITNUM) & RegName##_##GroupName##_##MASK)),\
-                                                                (RegName |= (((word)GroupVal) << RegName##_##GroupName##_##BITNUM) & RegName##_##GroupName##_##MASK) )
-#define seqSetClrReg16BitGroupVal(RegName,GroupName,GroupVal)   ((RegName |= (((word)GroupVal) << RegName##_##GroupName##_##BITNUM) & RegName##_##GroupName##_##MASK),\
-                                                                (RegName &= ~(~(((word)GroupVal) << RegName##_##GroupName##_##BITNUM) & RegName##_##GroupName##_##MASK)) )
+#define setReg16BitGroupVal(RegName, GroupName, GroupVal)       (RegName = (RegName & ~(word)RegName##_##GroupName##_##MASK) | (((word)(GroupVal)) << RegName##_##GroupName##_##BITNUM))
+#define seqClrSetReg16BitGroupVal(RegName,GroupName,GroupVal)   ((RegName &= ~(~(((word)(GroupVal)) << RegName##_##GroupName##_##BITNUM) & RegName##_##GroupName##_##MASK)),\
+                                                                (RegName |= (((word)(GroupVal)) << RegName##_##GroupName##_##BITNUM) & RegName##_##GroupName##_##MASK) )
+#define seqSetClrReg16BitGroupVal(RegName,GroupName,GroupVal)   ((RegName |= (((word)(GroupVal)) << RegName##_##GroupName##_##BITNUM) & RegName##_##GroupName##_##MASK),\
+                                                                (RegName &= ~(~(((word)(GroupVal)) << RegName##_##GroupName##_##BITNUM) & RegName##_##GroupName##_##MASK)) )
 #define seqResetSetReg16BitGroupVal(RegName,GroupName,GroupVal) ((RegName &= ~(word)RegName##_##GroupName##_##MASK),\
-                                                                (RegName |= (((word)GroupVal) << RegName##_##GroupName##_##BITNUM) & RegName##_##GroupName##_##MASK) )
+                                                                (RegName |= (((word)(GroupVal)) << RegName##_##GroupName##_##BITNUM) & RegName##_##GroupName##_##MASK) )
 
 /*****************************************************************/
 /* Uniform multiplatform peripheral access macros - 8 bit access */
@@ -157,24 +157,24 @@ typedef uint8_t TPE_ErrCode;
 #define setReg8Bits(RegName, SetMask)                            (RegName |= (byte)(SetMask))
 #define invertReg8Bits(RegName, InvMask)                         (RegName ^= (byte)(InvMask))
 #define clrSetReg8Bits(RegName, ClrMask, SetMask)                (RegName = (RegName & ((byte)(~(byte)(ClrMask)))) | (byte)(SetMask))
-#define seqClrSetReg8Bits(RegName, BitsMask, BitsVal)            ((RegName &= (byte)~((byte)~((byte)BitsVal) & ((byte)BitsMask))),\
-                                                                 (RegName |= ((byte)BitsVal) & ((byte)BitsMask)) )
+#define seqClrSetReg8Bits(RegName, BitsMask, BitsVal)            ((RegName &= (byte)~((byte)~((byte)(BitsVal)) & ((byte)(BitsMask)))),\
+                                                                 (RegName |= ((byte)(BitsVal)) & ((byte)(BitsMask))) )
 #define seqSetClrReg8Bits(RegName, BitsMask, BitsVal)            ((RegName |= (byte)(BitsVal) & (byte)(BitsMask)),\
-                                                                 (RegName &= (byte)~((byte)~((byte)BitsVal) & (byte)(BitsMask))) )
-#define seqResetSetReg8Bits(RegName, BitsMask, BitsVal)          ((RegName &= (byte)~((byte)BitsMask)),\
+                                                                 (RegName &= (byte)~((byte)~((byte)(BitsVal)) & (byte)(BitsMask))) )
+#define seqResetSetReg8Bits(RegName, BitsMask, BitsVal)          ((RegName &= (byte)~((byte)(BitsMask))),\
                                                                  (RegName |= (byte)(BitsVal) & (byte)(BitsMask)) )
 #define clrReg8BitsByOne(RegName, ClrMask, BitsMask)             (RegName &= (byte)(ClrMask) & (byte)(BitsMask))
 
 /* Bit group peripheral register access macros */
 #define testReg8BitGroup(RegName, GroupName)                     (RegName & RegName##_##GroupName##_##MASK)
 #define getReg8BitGroupVal(RegName, GroupName)                   ((RegName & RegName##_##GroupName##_##MASK) >> RegName##_##GroupName##_##BITNUM)
-#define setReg8BitGroupVal(RegName, GroupName, GroupVal)         (RegName = (RegName & (byte)~(byte)RegName##_##GroupName##_##MASK) | (byte)(((byte)GroupVal) << RegName##_##GroupName##_##BITNUM))
-#define seqClrSetReg8BitGroupVal(RegName,GroupName,GroupVal)     ((RegName &= (byte)~((byte)~(byte)(((byte)GroupVal) << RegName##_##GroupName##_##BITNUM) & (byte)RegName##_##GroupName##_##MASK)),\
-                                                                 (RegName |= (byte)(((byte)GroupVal) << RegName##_##GroupName##_##BITNUM) & (byte)RegName##_##GroupName##_##MASK) )
-#define seqSetClrReg8BitGroupVal(RegName,GroupName,GroupVal)     ((RegName |= (byte)(((byte)GroupVal) << RegName##_##GroupName##_##BITNUM) & (byte)RegName##_##GroupName##_##MASK),\
-                                                                 (RegName &= (byte)~((byte)~(byte)(((byte)GroupVal) << RegName##_##GroupName##_##BITNUM) & (byte)RegName##_##GroupName##_##MASK)) )
+#define setReg8BitGroupVal(RegName, GroupName, GroupVal)         (RegName = (RegName & (byte)~(byte)RegName##_##GroupName##_##MASK) | (byte)(((byte)(GroupVal)) << RegName##_##GroupName##_##BITNUM))
+#define seqClrSetReg8BitGroupVal(RegName,GroupName,GroupVal)     ((RegName &= (byte)~((byte)~(byte)(((byte)(GroupVal)) << RegName##_##GroupName##_##BITNUM) & (byte)RegName##_##GroupName##_##MASK)),\
+                                                                 (RegName |= (byte)(((byte)(GroupVal)) << RegName##_##GroupName##_##BITNUM) & (byte)RegName##_##GroupName##_##MASK) )
+#define seqSetClrReg8BitGroupVal(RegName,GroupName,GroupVal)     ((RegName |= (byte)(((byte)(GroupVal)) << RegName##_##GroupName##_##BITNUM) & (byte)RegName##_##GroupName##_##MASK),\
+                                                                 (RegName &= (byte)~((byte)~(byte)(((byte)(GroupVal)) << RegName##_##GroupName##_##BITNUM) & (byte)RegName##_##GroupName##_##MASK)) )
 #define seqResetSetReg8BitGroupVal(RegName,GroupName,GroupVal)   ((RegName &= (byte)~(byte)RegName##_##GroupName##_##MASK),\
-                                                                 (RegName |= (byte)(((byte)GroupVal) << RegName##_##GroupName##_##BITNUM) & RegName##_##GroupName##_##MASK) )
+                                                                 (RegName |= (byte)(((byte)(GroupVal)) << RegName##_##GroupName##_##BITNUM) & RegName##_##GroupName##_##MASK) )
 /* register access macros */
 
 #define in16(var,l,h)  (var = ((word)(l)) | (((word)(h)) << 8))
@@ -185,21 +185,21 @@ typedef uint8_t TPE_ErrCode;
 /*lint -restore  +esym(961,19.12) +esym(961,19.13) Enable MISRA rule (19.12,19.13) checking. */
 
 #define __DI() \
-/*lint -save  -e950 -esym(960,14.3) Disable MISRA rule (1.1,14.3) checking. */\
+/*lint -save  -e950 Disable MISRA rule (1.1) checking. */\
                 { __asm(sei); }      /* Disable global interrupts  */ \
-/*lint -restore  +esym(961,14.3) Enable MISRA rule (1.1,14.3) checking. */
+/*lint -restore Enable MISRA rule (1.1) checking. */
 #define __EI() \
-/*lint -save  -e950 -esym(960,14.3) Disable MISRA rule (1.1,14.3) checking. */\
+/*lint -save  -e950 Disable MISRA rule (1.1) checking. */\
                 { __asm(cli); }      /* Enable global interrupts */ \
-/*lint -restore  +esym(961,14.3) Enable MISRA rule (1.1,14.3) checking. */
+/*lint -restore Enable MISRA rule (1.1) checking. */
 #define EnterCritical() \
-/*lint -save  -e950 -esym(960,14.3) Disable MISRA rule (1.1,14.3) checking. */\
+/*lint -save  -e950 Disable MISRA rule (1.1) checking. */\
     { __asm(pshc); __asm(sei); __asm(movb 1,SP+,CCR_reg); } /* This macro is used by Processor Expert. It saves CCR register and disable global interrupts. */ \
-/*lint -restore  +esym(961,14.3) Enable MISRA rule (1.1,14.3) checking. */
+/*lint -restore Enable MISRA rule (1.1) checking. */
 #define ExitCritical() \
-/*lint -save  -e950 -esym(960,14.3) Disable MISRA rule (1.1,14.3) checking. */\
+/*lint -save  -e950 Disable MISRA rule (1.1) checking. */\
     { __asm(movb CCR_reg, 1,-SP); __asm(pulc); } /* This macro is used by Processor Expert. It restores CCR register saved in SaveStatusReg(). */ \
-/*lint -restore  +esym(961,14.3) Enable MISRA rule (1.1,14.3) checking. */
+/*lint -restore Enable MISRA rule (1.1) checking. */
 /* obsolete definition for backward compatibility */
 #define SaveStatusReg()     EnterCritical()
 #define RestoreStatusReg()  ExitCritical()
@@ -232,7 +232,7 @@ typedef union {
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 3.02 [04.44]
+**     This file was created by Processor Expert 3.05 [04.46]
 **     for the Freescale HCS12 series of microcontrollers.
 **
 ** ###################################################################

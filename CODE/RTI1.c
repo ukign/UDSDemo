@@ -4,9 +4,9 @@
 **     Project   : DiagnosticDemo
 **     Processor : MC9S12G128VLH
 **     Component : Init_RTI
-**     Version   : Component 01.097, Driver 02.02, CPU db: 3.00.002
+**     Version   : Component 01.097, Driver 02.02, CPU db: 3.00.017
 **     Compiler  : CodeWarrior HC12 C Compiler
-**     Date/Time : 2016/9/1, 11:06
+**     Date/Time : 2016/10/13, 13:48
 **     Abstract  :
 **          This file implements the RTI (RTIfree)
 **          module initialization according to the Peripheral Initialization
@@ -39,7 +39,7 @@
 **     Contents  :
 **         Init - void RTI1_Init(void);
 **
-**     Copyright : 1997 - 2010 Freescale Semiconductor, Inc. All Rights Reserved.
+**     Copyright : 1997 - 2011 Freescale Semiconductor, Inc. All Rights Reserved.
 **     
 **     http      : www.freescale.com
 **     mail      : support@freescale.com
@@ -112,7 +112,7 @@ void RTI1_Init(void)
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 3.02 [04.44]
+**     This file was created by Processor Expert 3.05 [04.46]
 **     for the Freescale HCS12 series of microcontrollers.
 **
 ** ###################################################################

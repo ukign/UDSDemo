@@ -4,9 +4,9 @@
 **     Project   : DiagnosticDemo
 **     Processor : MC9S12G128VLH
 **     Component : BitIO
-**     Version   : Component 02.075, Driver 03.15, CPU db: 3.00.002
+**     Version   : Component 02.075, Driver 03.16, CPU db: 3.00.017
 **     Compiler  : CodeWarrior HC12 C Compiler
-**     Date/Time : 2016/9/1, 10:31
+**     Date/Time : 2016/10/13, 13:48
 **     Abstract  :
 **         This component "BitIO" implements an one-bit input/output.
 **         It uses one bit/pin of a port.
@@ -40,7 +40,7 @@
 **         ClrVal - void TJA1043_Can_Sel_ClrVal(void);
 **         SetVal - void TJA1043_Can_Sel_SetVal(void);
 **
-**     Copyright : 1997 - 2010 Freescale Semiconductor, Inc. All Rights Reserved.
+**     Copyright : 1997 - 2011 Freescale Semiconductor, Inc. All Rights Reserved.
 **     
 **     http      : www.freescale.com
 **     mail      : support@freescale.com
@@ -143,7 +143,7 @@ void TJA1043_Can_Sel_SetVal(void)
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 3.02 [04.44]
+**     This file was created by Processor Expert 3.05 [04.46]
 **     for the Freescale HCS12 series of microcontrollers.
 **
 ** ###################################################################

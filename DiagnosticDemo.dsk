@@ -1,8 +1,8 @@
 [Version]
-PE_DesktopFileVersion=1092
+PE_DesktopFileVersion=1094
 
 [Desktop]
-StartupPrj=D:\workspace\ukign\DiagnosticDemo\DiagnosticDemo.pe
+StartupPrj=D:\workspace\ukign\UDS\DiagnosticDemo.pe
 
 [PE_IDE_PlugIn]
 
@@ -11,7 +11,7 @@ StartupPrj=D:\workspace\ukign\DiagnosticDemo\DiagnosticDemo.pe
 [AppPanel]
 Status=hiden
 WindowState=NORMAL
-Rect=[200|288|310|496]
+Rect=[125|213|310|496]
 
 [CpuPanel]
 Status=hiden
@@ -41,7 +41,7 @@ BF_BA_AllQuestions=Yes
 [ObjInspector]
 Status=Visible
 WindowState=NORMAL
-Rect=[75|151|997|616]
+Rect=[-26|141|997|616]
 ObjInspectorDockedWithPrphInit=No
 ColWidth01=342
 ColWidth02=664
@@ -91,7 +91,7 @@ FindScope=FROM_CURSOR
 FindHistory=0
 ReplaceHistory=0
 OpenFilesCount=0
-SelFile=D:\workspace\ukign\DiagnosticDemo\diagnostic\Diagnostic.c
+SelFile=D:\workspace\ukign\UDS\CODE\DiagnosticDemo.c
 SelLine=-1
 FileHistory=8
 HistoryItem1=TestProjects\AsynchroSlave\HWTest\main.C

@@ -6,7 +6,7 @@
 **     Component : IO_Map
 **     Version   : Driver 01.08
 **     Compiler  : CodeWarrior HC12 C Compiler
-**     Date/Time : 2016/9/1, 9:16
+**     Date/Time : 2016/10/13, 13:48
 **     Abstract  :
 **         IO_Map.h - implements an IO device's mapping. 
 **         This module contains symbol definitions of all peripheral 
@@ -16,7 +16,7 @@
 **     Contents  :
 **         No public methods
 **
-**     Copyright : 1997 - 2010 Freescale Semiconductor, Inc. All Rights Reserved.
+**     Copyright : 1997 - 2011 Freescale Semiconductor, Inc. All Rights Reserved.
 **     
 **     http      : www.freescale.com
 **     mail      : support@freescale.com
@@ -30,8 +30,8 @@
 
 #define REG_BASE 0x00000000            /* Base address for the I/O register block */
 /*lint -save  -e950 -esym(960,18.4) -e46 Disable MISRA rule (1.1,18.4,6.4) checking. */
-/* Based on CPU DB MC9S12G128_64, version 3.00.002 (RegistersPrg V2.32) */
-/* DataSheet : MC9S12GRMV1 Rev. 0.29 April 20, 2010 */
+/* Based on CPU DB MC9S12G128_64, version 3.00.016 (RegistersPrg V2.32) */
+/* DataSheet : MC9S12GRMV1 Rev. 1.02 June 7, 2011 */
 
 #include "PE_Types.h"
 
@@ -3280,7 +3280,7 @@ typedef union {
         byte ETRIGE      :1;                                       /* External Trigger Mode enable */
         byte ETRIGP      :1;                                       /* External Trigger Polarity */
         byte ETRIGLE     :1;                                       /* External Trigger Level/Edge control */
-        byte ICLKSTP     :1;                                       /* Internal Clock in Stop Mode Bit */
+        byte             :1; 
         byte AFFC        :1;                                       /* ATD Fast Conversion Complete Flag Clear */
         byte             :1; 
       } Bits;
@@ -3291,7 +3291,6 @@ typedef union {
     #define ATDCTL2_ETRIGE              _ATDCTL23.Overlap_STR.ATDCTL2STR.Bits.ETRIGE
     #define ATDCTL2_ETRIGP              _ATDCTL23.Overlap_STR.ATDCTL2STR.Bits.ETRIGP
     #define ATDCTL2_ETRIGLE             _ATDCTL23.Overlap_STR.ATDCTL2STR.Bits.ETRIGLE
-    #define ATDCTL2_ICLKSTP             _ATDCTL23.Overlap_STR.ATDCTL2STR.Bits.ICLKSTP
     #define ATDCTL2_AFFC                _ATDCTL23.Overlap_STR.ATDCTL2STR.Bits.AFFC
     
     #define ATDCTL2_ACMPIE_MASK         0x01U
@@ -3299,7 +3298,6 @@ typedef union {
     #define ATDCTL2_ETRIGE_MASK         0x04U
     #define ATDCTL2_ETRIGP_MASK         0x08U
     #define ATDCTL2_ETRIGLE_MASK        0x10U
-    #define ATDCTL2_ICLKSTP_MASK        0x20U
     #define ATDCTL2_AFFC_MASK           0x40U
     
 
@@ -3364,7 +3362,7 @@ typedef union {
     word ETRIGE      :1;                                       /* External Trigger Mode enable */
     word ETRIGP      :1;                                       /* External Trigger Polarity */
     word ETRIGLE     :1;                                       /* External Trigger Level/Edge control */
-    word ICLKSTP     :1;                                       /* Internal Clock in Stop Mode Bit */
+    word             :1; 
     word AFFC        :1;                                       /* ATD Fast Conversion Complete Flag Clear */
     word             :1; 
   } Bits;
@@ -3401,7 +3399,6 @@ extern volatile ATDCTL23STR _ATDCTL23 @(REG_BASE + 0x00000072UL);
 #define ATDCTL23_ETRIGE                 _ATDCTL23.Bits.ETRIGE
 #define ATDCTL23_ETRIGP                 _ATDCTL23.Bits.ETRIGP
 #define ATDCTL23_ETRIGLE                _ATDCTL23.Bits.ETRIGLE
-#define ATDCTL23_ICLKSTP                _ATDCTL23.Bits.ICLKSTP
 #define ATDCTL23_AFFC                   _ATDCTL23.Bits.AFFC
 #define ATDCTL23_FRZ                    _ATDCTL23.MergedBits.grpFRZ
 
@@ -3418,7 +3415,6 @@ extern volatile ATDCTL23STR _ATDCTL23 @(REG_BASE + 0x00000072UL);
 #define ATDCTL23_ETRIGE_MASK            0x0400U
 #define ATDCTL23_ETRIGP_MASK            0x0800U
 #define ATDCTL23_ETRIGLE_MASK           0x1000U
-#define ATDCTL23_ICLKSTP_MASK           0x2000U
 #define ATDCTL23_AFFC_MASK              0x4000U
 #define ATDCTL23_FRZ_MASK               0x03U
 #define ATDCTL23_FRZ_BITNUM             0x00U
@@ -13970,44 +13966,23 @@ extern volatile CPMUIRCTRIMSTR _CPMUIRCTRIM @(REG_BASE + 0x000002F8UL);
 typedef union {
   byte Byte;
   struct {
-    byte OSCFILT0    :1;                                       /* Oscillator Filter Bits, bit 0 */
-    byte OSCFILT1    :1;                                       /* Oscillator Filter Bits, bit 1 */
-    byte OSCFILT2    :1;                                       /* Oscillator Filter Bits, bit 2 */
-    byte OSCFILT3    :1;                                       /* Oscillator Filter Bits, bit 3 */
-    byte OSCFILT4    :1;                                       /* Oscillator Filter Bits, bit 4 */
+    byte             :1; 
+    byte             :1; 
+    byte             :1; 
+    byte             :1; 
+    byte             :1; 
     byte OSCPINS_EN  :1;                                       /* Oscillator Pins EXTAL and XTAL Enable Bit */
-    byte OSCBW       :1;                                       /* Oscillator Filter Bandwidth Bit */
+    byte             :1; 
     byte OSCE        :1;                                       /* Oscillator Enable Bit */
   } Bits;
-  struct {
-    byte grpOSCFILT :5;
-    byte         :1;
-    byte         :1;
-    byte         :1;
-  } MergedBits;
 } CPMUOSCSTR;
 extern volatile CPMUOSCSTR _CPMUOSC @(REG_BASE + 0x000002FAUL);
 #define CPMUOSC                         _CPMUOSC.Byte
-#define CPMUOSC_OSCFILT0                _CPMUOSC.Bits.OSCFILT0
-#define CPMUOSC_OSCFILT1                _CPMUOSC.Bits.OSCFILT1
-#define CPMUOSC_OSCFILT2                _CPMUOSC.Bits.OSCFILT2
-#define CPMUOSC_OSCFILT3                _CPMUOSC.Bits.OSCFILT3
-#define CPMUOSC_OSCFILT4                _CPMUOSC.Bits.OSCFILT4
 #define CPMUOSC_OSCPINS_EN              _CPMUOSC.Bits.OSCPINS_EN
-#define CPMUOSC_OSCBW                   _CPMUOSC.Bits.OSCBW
 #define CPMUOSC_OSCE                    _CPMUOSC.Bits.OSCE
-#define CPMUOSC_OSCFILT                 _CPMUOSC.MergedBits.grpOSCFILT
 
-#define CPMUOSC_OSCFILT0_MASK           0x01U
-#define CPMUOSC_OSCFILT1_MASK           0x02U
-#define CPMUOSC_OSCFILT2_MASK           0x04U
-#define CPMUOSC_OSCFILT3_MASK           0x08U
-#define CPMUOSC_OSCFILT4_MASK           0x10U
 #define CPMUOSC_OSCPINS_EN_MASK         0x20U
-#define CPMUOSC_OSCBW_MASK              0x40U
 #define CPMUOSC_OSCE_MASK               0x80U
-#define CPMUOSC_OSCFILT_MASK            0x1FU
-#define CPMUOSC_OSCFILT_BITNUM          0x00U
 
 
 /*** CPMUPROT - S12CPMUV1 Protection Register; 0x000002FB ***/
@@ -14466,7 +14441,7 @@ extern volatile NVFSECSTR _NVFSEC @(0x0000FF0F);
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 3.02 [04.44]
+**     This file was created by Processor Expert 3.05 [04.46]
 **     for the Freescale HCS12 series of microcontrollers.
 **
 ** ###################################################################

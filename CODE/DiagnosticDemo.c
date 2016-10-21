@@ -80,7 +80,7 @@ uint32_t HD10SeedToKeyLevel1(uint32_t seed)
 	return 0x12345678;//针对某一个请求的安全算法
 }
 
-byte SendFrame(VUINT32 ID, byte *array, byte length, byte priority) 
+byte SendFrame(VUINT32 ID, byte *array, byte length, byte priority , uint8_t rtr ,uint8_t ide) 
 {
 	byte i;
 
@@ -90,10 +90,18 @@ byte SendFrame(VUINT32 ID, byte *array, byte length, byte priority)
 		return 0;  
 	}
 
-	*((VUINT8 *) (&CANTXIDR0)) = (ID >> 21); 
-	*((VUINT8 *) (&CANTXIDR1)) = 0x18 | (((ID >>13) & 0xE0) |  ((ID >> 15) & 0x07)); 
-	*((VUINT8 *) (&CANTXIDR2)) = (ID >> 7); 
-	*((VUINT8 *) (&CANTXIDR3)) = 0xFE & ((ID << 1) & 0xFE); 
+	if(ide == 1)//extend frame
+	{
+		*((VUINT8 *) (&CANTXIDR0)) = (ID >> 21); 
+		*((VUINT8 *) (&CANTXIDR1)) = 0x18 | (((ID >>13) & 0xE0) |  ((ID >> 15) & 0x07)); 
+		*((VUINT8 *) (&CANTXIDR2)) = (ID >> 7); 
+		*((VUINT8 *) (&CANTXIDR3)) = ((ID << 1) & 0xFE) | (rtr & 0x01); 
+	}
+	else//standard frame
+	{
+		*((VUINT8 *) (&CANTXIDR0)) = (ID >> 3); 
+		*((VUINT8 *) (&CANTXIDR1)) = ((ID << 5) & 0xE0) | ((rtr & 0x01) << 4) | ((ide & 0x01) << 3); 
+	}
 
 	for (i=0;i<length;i++)
 	{
@@ -231,7 +239,7 @@ void Diagnostic_Init_Config(void)
 	//********************************** service 27*****************************************//
     
 	InitAddSecurityAlgorithm(LEVEL_ONE,HD10SeedToKeyLevel1,0x01,0x02, NULL ,3 , 10000, SUB_PROGRAM | SUB_EXTENDED,4);
-	//InitAddSecurityAlgorithm(LEVEL_TWO,HD10SeedToKeyLevel2,0x03,0x04, NULL ,3 , 10000, SUB_EXTENDED);
+	InitFactorySecuriyAlgorithm();
 	//InitAddSecurityAlgorithm(LEVEL_THREE,HD10SeedToKey,0x07,0x08, NULL ,3 , 10000, SUB_PROGRAM);
 	InitSetSessionSupportAndSecurityAccess(TRUE,0x27,LEVEL_UNSUPPORT,LEVEL_ZERO,LEVEL_ZERO,LEVEL_UNSUPPORT,LEVEL_UNSUPPORT,LEVEL_UNSUPPORT);
 	 
@@ -255,12 +263,12 @@ void Diagnostic_Init_Config(void)
 	InitSetDTCControlSupress(TRUE);
 	  //********************************** service 22  2E  2F*****************************************//
 
-	InitAddDID(0xF180, 2 , NULL ,  EEPROM_DID , NULL , READONLY);//只能读的DID,存储在EEPROM中，可在下线配置时写
-	InitAddDID(0xF190, 17, NULL , EEPROM_DID , NULL , READWRITE);//可读写的DID，存储在EEPROM中
-	InitAddDID(0x9816,1 , &TestCurrentTemp , REALTIME_DID , NULL , READONLY);//只读DID，实时数据(如报文数据等)。
-	InitAddDID(0x9823,1 , &IO9826_MixMtrCtrl , IO_DID , IoControl_9826 , READWRITE);//可读写的IO DID，既可以通过22服务读取，也可以通过2F服务控制
-	InitAddDID(0x9826,1 , NULL , IO_DID , IoControl_9826 , WRITEONLY);//只能通过2F控制的IO DID。
-	#if 0
+	InitAddDID(0xF180, 2 , NULL ,  EEPROM_DID , NULL , READONLY , 0 ,TRUE);//只能读的DID,存储在EEPROM中，可在下线配置时写
+	InitAddDID(0xF190, 17, NULL , EEPROM_DID , NULL , READWRITE , 0 , FALSE);//可读写的DID，存储在EEPROM中
+	InitAddDID(0x9816,1 , &TestCurrentTemp , REALTIME_DID , NULL , READONLY , 0 ,FALSE);//只读DID，实时数据(如报文数据等)。
+	InitAddDID(0x9823,1 , &IO9826_MixMtrCtrl , IO_DID , IoControl_9826 , READWRITE , 0 ,FALSE);//可读写的IO DID，既可以通过22服务读取，也可以通过2F服务控制
+	InitAddDID(0x9826,1 , NULL , IO_DID , IoControl_9826 , WRITEONLY , 0 , FALSE);//只能通过2F控制的IO DID。
+	#if 1
 	InitSetCanDriverVersionDID(0x0A01);
 	InitSetCanNMVersionDID(0x0A02);
 	InitSetCanDiagnosticVersionDID(0x0A03);

@@ -6,7 +6,7 @@
 **     Component : PE_Const
 **     Version   : Driver 01.01
 **     Compiler  : CodeWarrior HC12 C Compiler
-**     Date/Time : 2016/9/1, 9:16
+**     Date/Time : 2016/10/13, 13:48
 **     Abstract  :
 **         This component "PE_Const" contains internal definitions
 **         of the constants.
@@ -14,7 +14,7 @@
 **     Contents  :
 **         No public methods
 **
-**     Copyright : 1997 - 2010 Freescale Semiconductor, Inc. All Rights Reserved.
+**     Copyright : 1997 - 2011 Freescale Semiconductor, Inc. All Rights Reserved.
 **     
 **     http      : www.freescale.com
 **     mail      : support@freescale.com
@@ -40,7 +40,7 @@
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 3.02 [04.44]
+**     This file was created by Processor Expert 3.05 [04.46]
 **     for the Freescale HCS12 series of microcontrollers.
 **
 ** ###################################################################

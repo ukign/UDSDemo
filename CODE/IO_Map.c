@@ -6,7 +6,7 @@
 **     Component : IO_Map
 **     Version   : Driver 01.08
 **     Compiler  : CodeWarrior HC12 C Compiler
-**     Date/Time : 2016/9/1, 9:16
+**     Date/Time : 2016/10/13, 13:48
 **     Abstract  :
 **         IO_Map.h - implements an IO device's mapping. 
 **         This module contains symbol definitions of all peripheral 
@@ -16,13 +16,13 @@
 **     Contents  :
 **         No public methods
 **
-**     Copyright : 1997 - 2010 Freescale Semiconductor, Inc. All Rights Reserved.
+**     Copyright : 1997 - 2011 Freescale Semiconductor, Inc. All Rights Reserved.
 **     
 **     http      : www.freescale.com
 **     mail      : support@freescale.com
 ** ###################################################################*/
-/* Based on CPU DB MC9S12G128_64, version 3.00.002 (RegistersPrg V2.32) */
-/* DataSheet : MC9S12GRMV1 Rev. 0.29 April 20, 2010 */
+/* Based on CPU DB MC9S12G128_64, version 3.00.016 (RegistersPrg V2.32) */
+/* DataSheet : MC9S12GRMV1 Rev. 1.02 June 7, 2011 */
 
 #include "PE_Types.h"
 #include "IO_Map.h"
@@ -312,7 +312,7 @@ volatile CPMUIRCTRIMSTR _CPMUIRCTRIM;                      /* S12CPMU IRC1M Trim
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 3.02 [04.44]
+**     This file was created by Processor Expert 3.05 [04.46]
 **     for the Freescale HCS12 series of microcontrollers.
 **
 ** ###################################################################

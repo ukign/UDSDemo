@@ -1,5 +1,5 @@
 
-PROGRAM "D:\workspace\ukign\DiagnosticDemo\bin\Project.abs"
+PROGRAM "D:\workspace\ukign\UDS\bin\Project.abs"
 
 *********************************************************************************************
 TARGET SECTION
@@ -37,8 +37,8 @@ Entry point: 0xC002 (_EntryPoint)
 _startupData is allocated at 0xC042 and uses 6 Bytes
 extern struct _tagStartup {
   unsigned nofZeroOut     1
-  _Range   pZeroOut       0x2000     2990
-  _Copy    *toCopyDownBeg 0xC1C5
+  _Range   pZeroOut       0x2000     2850
+  _Copy    *toCopyDownBeg 0xC1D0
 } _startupData;
 
 *********************************************************************************************
@@ -47,9 +47,10 @@ Section Name                    Size  Type     From       To       Segment
 ---------------------------------------------------------------------------------------------
 .init                             66     R     0xC000     0xC041   ROM_C000
 .startData                        10     R     0xC042     0xC04B   ROM_C000
-NON_BANKED                       377     R     0xC04C     0xC1C4   ROM_C000
-.copy                            241     R     0xC1C5     0xC2B5   ROM_C000
-.text                          13015     R    0xE8000    0xEB2D6   PAGE_0E
+.rodata                           11     R     0xC04C     0xC056   ROM_C000
+NON_BANKED                       377     R     0xC057     0xC1CF   ROM_C000
+.copy                            241     R     0xC1D0     0xC2C0   ROM_C000
+.text                          13658     R    0xE8000    0xEB559   PAGE_0E
 .data                            244   R/W     0x2000     0x20F3   RAM
 .abs_section_8                     1   N/I        0x8        0x8   .absSeg0
 .abs_section_9                     1   N/I        0x9        0x9   .absSeg1
@@ -316,15 +317,15 @@ NON_BANKED                       377     R     0xC04C     0xC1C4   ROM_C000
 .abs_section_2f8                   2   N/I      0x2F8      0x2F9   .absSeg262
 .abs_section_ff80                122     R     0xFF80     0xFFF9   .absSeg263
 .abs_section_fffa                  6     R     0xFFFA     0xFFFF   .absSeg264
-.bss                            2389   R/W     0x20F4     0x2A48   RAM
-.common                          357   R/W     0x2A49     0x2BAD   RAM
-TJA1043_Can_Sel_CODE              13     R    0xEB2D7    0xEB2E3   PAGE_0E
-TJA1043_EN_CODE                   13     R    0xEB2E4    0xEB2F0   PAGE_0E
-.stack                           256   R/W     0x2BAE     0x2CAD   RAM
+.bss                            2249   R/W     0x20F4     0x29BC   RAM
+.common                          357   R/W     0x29BD     0x2B21   RAM
+TJA1043_Can_Sel_CODE              13     R    0xEB55A    0xEB566   PAGE_0E
+TJA1043_EN_CODE                   13     R    0xEB567    0xEB573   PAGE_0E
+.stack                           256   R/W     0x2B22     0x2C21   RAM
 
 Summary of section sizes per section type:
-READ_ONLY (R):        3627 (dec:    13863)
-READ_WRITE (R/W):      CAE (dec:     3246)
+READ_ONLY (R):        38B5 (dec:    14517)
+READ_WRITE (R/W):      C22 (dec:     3106)
 NO_INIT (N/I):         148 (dec:      328)
 
 *********************************************************************************************
@@ -338,33 +339,33 @@ OBJECT-ALLOCATION SECTION
 ---------------------------------------------------------------------------------------------
 MODULE:                 -- datapage.c.o --
 - PROCEDURES:
-     _LOAD_FAR_8                               C04C       B      11       2   NON_BANKED  
-     _LOAD_FAR_16                              C057       B      11       6   NON_BANKED  
+     _LOAD_FAR_8                               C057       B      11       2   NON_BANKED  
+     _LOAD_FAR_16                              C062       B      11       6   NON_BANKED  
 - VARIABLES:
 MODULE:                 -- Start12.c.o --
 - PROCEDURES:
      Init                                     E8000      29      41       2   .text       
-     _Startup                                  C062       B      11       1   NON_BANKED  
+     _Startup                                  C06D       B      11       1   NON_BANKED  
 - VARIABLES:
      _startupData                              C042       6       6       3   .startData  
 - LABELS:
-     __SEG_END_SSTACK                          2CAE       0       0       1               
+     __SEG_END_SSTACK                          2C22       0       0       1               
 MODULE:                 -- STRING.C.o (ansibi.lib) --
 - PROCEDURES:
-     memcpy                                   E8029      24      36      10   .text       
+     memcpy                                   E8029      24      36       8   .text       
      memset                                   E804D      18      24       2   .text       
 - VARIABLES:
 MODULE:                 -- rtshc12.c.o (ansibi.lib) --
 - PROCEDURES:
-     _BDIVMODU                                 C06D       A      10       1   NON_BANKED  
-     _LSHL                                     C077      11      17       8   NON_BANKED  
-     _LSHRU                                    C088      11      17       6   NON_BANKED  
-     _LCMP                                     C099      19      25      12   NON_BANKED  
-     _LINC                                     C0B2       5       5       1   NON_BANKED  
-     _ILSEXT                                   C0B7       7       7       3   NON_BANKED  
-     _COPY                                     C0BE       8       8       8   NON_BANKED  
-     _CASE_DIRECT_BYTE                         C0C6       5       5       1   NON_BANKED  
-     _CASE_CHECKED_BYTE                        C0CB      14      20       4   NON_BANKED  
+     _BDIVMODU                                 C078       A      10       1   NON_BANKED  
+     _LSHL                                     C082      11      17       8   NON_BANKED  
+     _LSHRU                                    C093      11      17       7   NON_BANKED  
+     _LCMP                                     C0A4      19      25      12   NON_BANKED  
+     _LINC                                     C0BD       5       5       1   NON_BANKED  
+     _ILSEXT                                   C0C2       7       7       3   NON_BANKED  
+     _COPY                                     C0C9       8       8       8   NON_BANKED  
+     _CASE_DIRECT_BYTE                         C0D1       5       5       2   NON_BANKED  
+     _CASE_CHECKED_BYTE                        C0D6      14      20       3   NON_BANKED  
 - VARIABLES:
 MODULE:                 -- Cpu.c.o --
 - PROCEDURES:
@@ -481,9 +482,9 @@ MODULE:                 -- IO_Map.c.o --
      _CANCTL1                                   141       1       1       3   .abs_section_141
      _CANBTR0                                   142       1       1       1   .abs_section_142
      _CANBTR1                                   143       1       1       1   .abs_section_143
-     _CANRFLG                                   144       1       1       2   .abs_section_144
+     _CANRFLG                                   144       1       1       3   .abs_section_144
      _CANRIER                                   145       1       1       1   .abs_section_145
-     _CANTFLG                                   146       1       1       2   .abs_section_146
+     _CANTFLG                                   146       1       1       3   .abs_section_146
      _CANTIER                                   147       1       1       1   .abs_section_147
      _CANTARQ                                   148       1       1       0   .abs_section_148
      _CANTAAK                                   149       1       1       0   .abs_section_149
@@ -521,8 +522,8 @@ MODULE:                 -- IO_Map.c.o --
      _CANRXDSR6                                 16A       1       1       0   .abs_section_16a
      _CANRXDSR7                                 16B       1       1       0   .abs_section_16b
      _CANRXDLR                                  16C       1       1       2   .abs_section_16c
-     _CANTXIDR0                                 170       1       1       1   .abs_section_170
-     _CANTXIDR1                                 171       1       1       1   .abs_section_171
+     _CANTXIDR0                                 170       1       1       2   .abs_section_170
+     _CANTXIDR1                                 171       1       1       2   .abs_section_171
      _CANTXIDR2                                 172       1       1       1   .abs_section_172
      _CANTXIDR3                                 173       1       1       1   .abs_section_173
      _CANTXDSR0                                 174       1       1       1   .abs_section_174
@@ -649,106 +650,117 @@ MODULE:                 -- DiagnosticDemo.c.o --
      SystemReset                              E80A7      14      20       3   .text       
      CommulicatonControl                      E80BB       1       1       3   .text       
      HD10SeedToKeyLevel1                      E80BC       7       7       3   .text       
-     SendFrame                                E80C3      7C     124       3   .text       
-     IoControl_9826                           E813F      2B      43       6   .text       
-     NMGetLimpHome                            E816A       3       3       3   .text       
-     Diagnostic_Init_Config                   E816D     2A4     676       2   .text       
-     main                                     E8411      1A      26       2   .text       
-     Can_Rx_Interrupt                          C0DF      DE     222       6   NON_BANKED  
-     RTI_Interrupt                             C1BD       8       8       1   NON_BANKED  
+     SendFrame                                E80C3      B3     179       4   .text       
+     IoControl_9826                           E8176      2B      43       6   .text       
+     NMGetLimpHome                            E81A1       3       3       3   .text       
+     Diagnostic_Init_Config                   E81A4     2DE     734       2   .text       
+     main                                     E8482      1A      26       2   .text       
+     Can_Rx_Interrupt                          C0EA      DE     222       6   NON_BANKED  
+     RTI_Interrupt                             C1C8       8       8       1   NON_BANKED  
 - VARIABLES:
      TestCurrentTemp                           2000       1       1       1   .data       
      CurrentSpeed                              2001       2       2       1   .data       
      CurrentVoltage                            2003       1       1       4   .data       
-     IO9826_MixMtrCtrl                         2A49       1       1       4   .common     
+     IO9826_MixMtrCtrl                         29BD       1       1       4   .common     
 MODULE:                 -- CAN1.c.o --
 - PROCEDURES:
-     CAN1_Init                                E842B      60      96       2   .text       
+     CAN1_Init                                E849C      68     104       2   .text       
 - VARIABLES:
 MODULE:                 -- TJA1043_Can_Sel.c.o --
 - PROCEDURES:
-     TJA1043_Can_Sel_PutVal                   EB2D7       D      13       2   TJA1043_Can_Sel_CODE
+     TJA1043_Can_Sel_PutVal                   EB55A       D      13       2   TJA1043_Can_Sel_CODE
 - VARIABLES:
 MODULE:                 -- TJA1043_EN.c.o --
 - PROCEDURES:
-     TJA1043_EN_PutVal                        EB2E4       D      13       2   TJA1043_EN_CODE
+     TJA1043_EN_PutVal                        EB567       D      13       2   TJA1043_EN_CODE
 - VARIABLES:
 MODULE:                 -- Diagnostic.c.o --
 - PROCEDURES:
-     InitAddSecurityAlgorithm                 E848B      76     118       2   .text       
-     InitSetSessionSupportAndSecurityAccess      E8501      82     130      22   .text       
-     InitAddDID                               E8583      64     100      10   .text       
-     InitAddDTC                               E85E7      47      71       2   .text       
-     InitAddDTCSnapShot                       E862E      2D      45      10   .text       
-     InitSetAgingCounterRecordNumber          E865B       4       4       2   .text       
-     InitSetAgedCounterRecordNumber           E865F       4       4       2   .text       
-     InitSetOccurrenceCounterRecordNumber      E8663       4       4       2   .text       
-     InitSetPendingCounterRecordNumber        E8667       4       4       2   .text       
-     InitSetDTCAvailiableMask                 E866B       4       4       2   .text       
-     InitAddDTCGroup                          E866F      23      35       2   .text       
-     InitSetSysResetParam                     E8692      35      53       2   .text       
-     InitSetCommControlParam                  E86C7      47      71       2   .text       
-     InitSetSessionControlParam               E870E      2A      42       2   .text       
-     InitSetTesterPresentSupress              E8738       6       6       2   .text       
-     InitSetDTCControlSupress                 E873E       8       8       2   .text       
-     Diagnostic_SetNLParam                    E8746      33      51       2   .text       
-     Diagnostic_Init                          E8779      BA     186       2   .text       
-     GenerateSeed                             E8833      40      64       2   .text       
-     GotoSession                              E8873      54      84       4   .text       
-     Service10PosResponse                     E88C7      2B      43       4   .text       
-     Service10Handle                          E88F2      9E     158       2   .text       
-     Service11Handle                          E8990      BC     188       2   .text       
-     Service27Handle                          E8A4C     283     643      24   .text       
-     Service28Handle                          E8CCF      D5     213       2   .text       
-     Service3EHandle                          E8DA4      66     102       2   .text       
-     Service83Handle                          E8E0A       1       1       2   .text       
-     Service84Handle                          E8E0B       1       1       2   .text       
-     Service85Handle                          E8E0C      76     118       2   .text       
-     Service86Handle                          E8E82       1       1       2   .text       
-     Service87Handle                          E8E83       1       1       2   .text       
-     SearchDidNode                            E8E84      2D      45       6   .text       
-     Service22Handle                          E8EB1      E7     231       3   .text       
-     Service23Handle                          E8F98       1       1       2   .text       
-     Service24Handle                          E8F99       1       1       2   .text       
-     Service2AHandle                          E8F9A       1       1       2   .text       
-     Service2CHandle                          E8F9B       1       1       2   .text       
-     Service2EHandle                          E8F9C      B4     180       2   .text       
-     Service3DHandle                          E9050       1       1       2   .text       
-     SearchDTCGroup                           E9051      2F      47       2   .text       
-     Service14Handle                          E9080      5A      90       2   .text       
-     SearchDTCByMaskAndFillResponse           E90DA      65     101       2   .text       
-     FillAllDTCResponse                       E913F      58      88       2   .text       
-     GetDTCNumberByMask                       E9197      2F      47       2   .text       
-     GetDTCNodeByCode                         E91C6      43      67       2   .text       
-     FillDTCSnapshotReponse                   E9209      DF     223       3   .text       
-     Service19Handle                          E92E8     246     582      21   .text       
-     Service2FHandle                          E952E      CC     204       2   .text       
-     Service31Handle                          E95FA       1       1       2   .text       
-     Service34Handle                          E95FB       1       1       2   .text       
-     Service35Handle                          E95FC       1       1       2   .text       
-     Service36Handle                          E95FD       1       1       2   .text       
-     Service37Handle                          E95FE       1       1       2   .text       
-     ServiceNegReponse                        E95FF      2B      43       2   .text       
-     Diagnostic_ServiceHandle                 E962A     159     345      11   .text       
-     Diagnostic_MainProc                      E9783     18D     397       4   .text       
-     Diagnostic_TimeProc                      E9910      80     128       2   .text       
-     SaveSnapShotData                         E9990      4C      76       2   .text       
-     DtcHandle                                E99DC      88     136       2   .text       
-     Diagnostic_DTCProc                       E9A64      5B      91       2   .text       
-     J1939Proc                                E9ABF       1       1       2   .text       
-     Diagnostic_Proc                          E9AC0      15      21       2   .text       
-     Diagnostic_RxFrame                       E9AD5      48      72       2   .text       
-     Diagnostic_1msTimer                      E9B1D       5       5       2   .text       
-     Diagnostic_ClearDTC                      E9B22      67     103       2   .text       
-     Diagnostic_LoadAllDTC                    E9B89      3B      59       2   .text       
-     Diagnostic_LoadSecuriyFaultCounter       E9BC4      80     128       2   .text       
-     Diagnostic_BindingSnapshot               E9C44      4D      77       2   .text       
-     Diagnostic_LoadAllData                   E9C91       D      13       2   .text       
+     InitAddSecurityAlgorithm                 E8504      76     118       4   .text       
+     FactorySecuritySeedToKey                 E857A      56      86       3   .text       
+     InitFactorySecuriyAlgorithm              E85D0      29      41       2   .text       
+     InitSetSessionSupportAndSecurityAccess      E85F9      82     130      22   .text       
+     InitAddDID                               E867B      68     104      20   .text       
+     InitAddDTC                               E86E3      47      71       2   .text       
+     InitAddDTCSnapShot                       E872A      2D      45      10   .text       
+     InitSetAgingCounterRecordNumber          E8757       4       4       2   .text       
+     InitSetAgedCounterRecordNumber           E875B       4       4       2   .text       
+     InitSetOccurrenceCounterRecordNumber      E875F       4       4       2   .text       
+     InitSetPendingCounterRecordNumber        E8763       4       4       2   .text       
+     InitSetDTCAvailiableMask                 E8767       4       4       2   .text       
+     InitAddDTCGroup                          E876B      23      35       2   .text       
+     InitSetSysResetParam                     E878E      35      53       2   .text       
+     InitSetCommControlParam                  E87C3      47      71       2   .text       
+     InitSetSessionControlParam               E880A      2A      42       2   .text       
+     InitSetTesterPresentSupress              E8834       6       6       2   .text       
+     InitSetDTCControlSupress                 E883A       8       8       2   .text       
+     InitSetCanDriverVersionDID               E8842      1A      26       2   .text       
+     InitSetCanNMVersionDID                   E885C      1A      26       2   .text       
+     InitSetCanDiagnosticVersionDID           E8876      1A      26       2   .text       
+     InitSetCanDataBaseVersionDID             E8890      1A      26       2   .text       
+     InitSetCurrentSessionDID                 E88AA      1A      26       2   .text       
+     Diagnostic_SetNLParam                    E88C4      33      51       2   .text       
+     Diagnostic_Init                          E88F7      BA     186       2   .text       
+     GenerateSeed                             E89B1      40      64       2   .text       
+     GotoSession                              E89F1      54      84       4   .text       
+     Service10PosResponse                     E8A45      2B      43       4   .text       
+     Service10Handle                          E8A70      BB     187       2   .text       
+     Service11Handle                          E8B2B      BC     188       2   .text       
+     Service27Handle                          E8BE7     299     665      25   .text       
+     Service28Handle                          E8E80      D5     213       2   .text       
+     Service3EHandle                          E8F55      66     102       2   .text       
+     Service83Handle                          E8FBB       1       1       2   .text       
+     Service84Handle                          E8FBC       1       1       2   .text       
+     Service85Handle                          E8FBD      76     118       2   .text       
+     Service86Handle                          E9033       1       1       2   .text       
+     Service87Handle                          E9034       1       1       2   .text       
+     SearchDidNode                            E9035      2D      45       6   .text       
+     Service22Handle                          E9062      D6     214       2   .text       
+     Service23Handle                          E9138       1       1       2   .text       
+     Service24Handle                          E9139       1       1       2   .text       
+     Service2AHandle                          E913A       1       1       2   .text       
+     Service2CHandle                          E913B       1       1       2   .text       
+     Service2EHandle                          E913C     120     288       6   .text       
+     Service3DHandle                          E925C       1       1       2   .text       
+     SearchDTCGroup                           E925D      2F      47       2   .text       
+     Service14Handle                          E928C      5A      90       2   .text       
+     SearchDTCByMaskAndFillResponse           E92E6      65     101       2   .text       
+     FillAllDTCResponse                       E934B      58      88       2   .text       
+     GetDTCNumberByMask                       E93A3      2F      47       2   .text       
+     GetDTCNodeByCode                         E93D2      43      67       2   .text       
+     FillDTCSnapshotReponse                   E9415      DF     223       3   .text       
+     Service19Handle                          E94F4     246     582      21   .text       
+     Service2FHandle                          E973A      CC     204       2   .text       
+     Service31Handle                          E9806       1       1       2   .text       
+     Service34Handle                          E9807       1       1       2   .text       
+     Service35Handle                          E9808       1       1       2   .text       
+     Service36Handle                          E9809       1       1       2   .text       
+     Service37Handle                          E980A       1       1       2   .text       
+     ServiceNegReponse                        E980B      2B      43       2   .text       
+     Diagnostic_ServiceHandle                 E9836     1CE     462      18   .text       
+     Diagnostic_MainProc                      E9A04     18D     397       4   .text       
+     Diagnostic_TimeProc                      E9B91      80     128       2   .text       
+     SaveSnapShotData                         E9C11      4C      76       2   .text       
+     DtcHandle                                E9C5D      88     136       2   .text       
+     Diagnostic_DTCProc                       E9CE5      5B      91       2   .text       
+     J1939Proc                                E9D40       1       1       2   .text       
+     Diagnostic_Proc                          E9D41      15      21       2   .text       
+     Diagnostic_RxFrame                       E9D56      48      72       2   .text       
+     Diagnostic_1msTimer                      E9D9E       5       5       2   .text       
+     Diagnostic_ClearDTC                      E9DA3      67     103       2   .text       
+     Diagnostic_LoadAllDTC                    E9E0A      3B      59       2   .text       
+     Diagnostic_LoadSecuriyFaultCounter       E9E45      80     128       2   .text       
+     Diagnostic_BindingSnapshot               E9EC5      4D      77       2   .text       
+     Diagnostic_LoadAllData                   E9F12       D      13       2   .text       
 - VARIABLES:
-     m_SecurityLevel                           2004       2       2       5   .data       
+     DriverVersion                             C04C       3       3       1   .rodata     
+     NMVersion                                 C04F       3       3       1   .rodata     
+     DiagnosticVersion                         C052       3       3       1   .rodata     
+     DatabaseVersion                           C055       2       2       1   .rodata     
+     m_SecurityLevel                           2004       2       2       6   .data       
      P2CanServerMax                            2006       2       2       3   .data       
      P2ECanServerMax                           2008       2       2       3   .data       
-     ServiceList                               200A      EA     234      19   .data       
+     ServiceList                               200A      EA     234      20   .data       
      m_UnlockStep                              20F4       2       2      11   .bss        
      WaitConfirmBeforeJump                     20F6       1       1       4   .bss        
      WaitConfirmBeforeErase                    20F7       1       1       2   .bss        
@@ -760,8 +772,8 @@ MODULE:                 -- Diagnostic.c.o --
      WaitConfimBeforeReset                     20FD       1       1       4   .bss        
      Seed                                      20FE       5       5       7   .bss        
      key                                       2103       4       4       8   .bss        
-     m_NRC                                     2107       2       2      42   .bss        
-     DiagnosticBuffTX                          2109      C8     200      90   .bss        
+     m_NRC                                     2107       2       2      41   .bss        
+     DiagnosticBuffTX                          2109      C8     200      91   .bss        
      S3serverTimer                             21D1       5       5       3   .bss        
      TesterPhyID                               21D6       4       4       4   .bss        
      TesterFunID                               21DA       4       4       5   .bss        
@@ -772,142 +784,142 @@ MODULE:                 -- Diagnostic.c.o --
      N_Ta                                      21EE       1       1       6   .bss        
      N_Sa                                      21EF       1       1       6   .bss        
      SessionSupport                            21F0       1       1       8   .bss        
-     DTCS                                      21F1     299     665      34   .bss        
-     DTCAdded                                  248A       1       1      12   .bss        
-     DIDS                                      248B     460    1120      10   .bss        
-     DIDAdded                                  28EB       1       1       6   .bss        
-     SnapShots                                 28EC      3C      60      18   .bss        
-     DTCGROUPS                                 2928      1E      30       4   .bss        
-     DTCGroupAdded                             2946       1       1       5   .bss        
-     DtcAvailibaleMask                         2947       1       1       8   .bss        
-     DtcTimer                                  2948       5       5       3   .bss        
-     ModuleEEpromStartAddr                     294D       2       2       5   .bss        
-     EEpromSizeForUse                          294F       2       2       1   .bss        
-     EEpromUsed                                2951       2       2      11   .bss        
-     DTCSaved                                  2953       1       1       4   .bss        
-     DM1DTCNumber                              2954       1       1       2   .bss        
-     DTCSavedTimer                             2955       5       5       2   .bss        
-     ResetTypeSupport                          295A       1       1       8   .bss        
-     ResetCallBackFun                          295B       3       3      10   .bss        
-     m_EcuResetType                            295E       2       2       4   .bss        
-     TesterPresentSuppport                     2960       1       1       5   .bss        
-     CommTypeSupport                           2961       1       1      10   .bss        
-     commCallBack                              2962       3       3      10   .bss        
-     UnlockList                                2A4A      45      69      53   .common     
-     m_CurrSessionType                         2A8F       1       1      12   .common     
-     ResponsePending                           2A90       1       1      14   .common     
-     suppressResponse                          2A91       1       1      24   .common     
-     ResponseLength                            2A92       2       2      38   .common     
-     CurrentService                            2A94       1       1      10   .common     
-     EnableDTCDetect                           2A95       1       1       4   .common     
-     HighVoltage                               2A96       1       1       1   .common     
-     SaveDTCInBlock                            2A97       1       1       5   .common     
+     DTCS                                      21F1     253     595      34   .bss        
+     DTCAdded                                  2444       1       1      12   .bss        
+     DIDS                                      2445     41A    1050      12   .bss        
+     DIDAdded                                  285F       1       1       5   .bss        
+     SnapShots                                 2860      3C      60      18   .bss        
+     DTCGROUPS                                 289C      1E      30       4   .bss        
+     DTCGroupAdded                             28BA       1       1       5   .bss        
+     DtcAvailibaleMask                         28BB       1       1       8   .bss        
+     DtcTimer                                  28BC       5       5       3   .bss        
+     ModuleEEpromStartAddr                     28C1       2       2       5   .bss        
+     EEpromSizeForUse                          28C3       2       2       1   .bss        
+     EEpromUsed                                28C5       2       2      11   .bss        
+     DTCSaved                                  28C7       1       1       4   .bss        
+     DM1DTCNumber                              28C8       1       1       2   .bss        
+     DTCSavedTimer                             28C9       5       5       2   .bss        
+     ResetTypeSupport                          28CE       1       1       8   .bss        
+     ResetCallBackFun                          28CF       3       3      10   .bss        
+     m_EcuResetType                            28D2       2       2       4   .bss        
+     TesterPresentSuppport                     28D4       1       1       5   .bss        
+     CommTypeSupport                           28D5       1       1      10   .bss        
+     commCallBack                              28D6       3       3      10   .bss        
+     UnlockList                                29BE      45      69      54   .common     
+     m_CurrSessionType                         2A03       1       1      17   .common     
+     ResponsePending                           2A04       1       1      14   .common     
+     suppressResponse                          2A05       1       1      25   .common     
+     ResponseLength                            2A06       2       2      38   .common     
+     CurrentService                            2A08       1       1      10   .common     
+     EnableDTCDetect                           2A09       1       1       4   .common     
+     HighVoltage                               2A0A       1       1       1   .common     
+     SaveDTCInBlock                            2A0B       1       1       5   .common     
 MODULE:                 -- DiagnosticTimer.c.o --
 - PROCEDURES:
-     DiagTimer_Set                            E9C9E      1B      27      32   .text       
-     DiagTimer_HasStopped                     E9CB9       B      11       2   .text       
-     DiagTimer_HasExpired                     E9CC4      46      70      16   .text       
-     DiagTimer_GetTickCount                   E9D0A       7       7       4   .text       
-     DiagTimer_ISR_Proc                       E9D11      10      16       2   .text       
+     DiagTimer_Set                            E9F1F      1B      27      32   .text       
+     DiagTimer_HasStopped                     E9F3A       B      11       2   .text       
+     DiagTimer_HasExpired                     E9F45      46      70      16   .text       
+     DiagTimer_GetTickCount                   E9F8B       7       7       4   .text       
+     DiagTimer_ISR_Proc                       E9F92      10      16       2   .text       
 - VARIABLES:
-     SystemTickCount                           2965       4       4      10   .bss        
+     SystemTickCount                           28D9       4       4      10   .bss        
 MODULE:                 -- J1939TP.c.o --
 - PROCEDURES:
-     J1939TPReceiveData                       E9D21      C3     195       2   .text       
-     TPCMSetParamBAM                          E9DE4       7       7       2   .text       
+     J1939TPReceiveData                       E9FA2      C3     195       2   .text       
+     TPCMSetParamBAM                          EA065       7       7       2   .text       
 - VARIABLES:
-     sendInterface                             2969       3       3       2   .bss        
-     BAMRxState                                2A98       1       1       3   .common     
-     BAMRxLength                               2A99       2       2       6   .common     
-     BAMRxFrameLength                          2A9B       1       1       1   .common     
-     BAMRxReceived                             2A9C       1       1       7   .common     
-     BAMRxBuf                                  2A9D      50      80       1   .common     
+     sendInterface                             28DD       3       3       2   .bss        
+     BAMRxState                                2A0C       1       1       3   .common     
+     BAMRxLength                               2A0D       2       2       6   .common     
+     BAMRxFrameLength                          2A0F       1       1       1   .common     
+     BAMRxReceived                             2A10       1       1       7   .common     
+     BAMRxBuf                                  2A11      50      80       1   .common     
 MODULE:                 -- NetworkLayer.c.o --
 - PROCEDURES:
-     NetworkLayer_InitParam                   E9DEB      8D     141       2   .text       
-     NetworkLayer_SetParam                    E9E78      52      82       2   .text       
-     IsRxBuffEmpty                            E9ECA       D      13       2   .text       
-     IsTxBuffEmpty                            E9ED7       D      13       2   .text       
-     IsTxBuffFull                             E9EE4      20      32       2   .text       
-     NetworkLayer_SendSF                      E9F04      81     129       2   .text       
-     NetworkLayer_SendFF                      E9F85      8B     139       2   .text       
-     NetworkLayer_SendCF                      EA010      A9     169       2   .text       
-     NetworkLayer_SendFC                      EA0B9      66     102       4   .text       
-     NetworkLayer_RxSF                        EA11F     129     297       3   .text       
-     NetworkLayer_RxFF                        EA248     106     262       6   .text       
-     NetworkLayer_RxCF                        EA34E      BD     189       2   .text       
-     NetworkLayer_RxFC                        EA40B      AA     170       2   .text       
-     NetworkLayer_RxProc                      EA4B5      81     129       2   .text       
-     NetworkLayer_RxFrame                     EA536     11E     286       2   .text       
-     NetworkLayer_TxFrame                     EA654      7C     124       2   .text       
-     NetworkLayer_TxEnd                       EA6D0       9       9      10   .text       
-     NetworkLayer_TxStart                     EA6D9      19      25       2   .text       
-     NetworkLayer_RxEnd                       EA6F2      12      18      10   .text       
-     NetworkLayer_RxStart                     EA704      21      33       2   .text       
-     NetworkLayer_TxProc                      EA725      34      52       2   .text       
-     NetworkLayer_NotifyToUpperLayer          EA759      29      41       6   .text       
-     N_USData_request                         EA782      41      65       4   .text       
-     N_USData_confirm                         EA7C3      B1     177       6   .text       
-     N_USData_FF_indication                   EA874      3F      63       2   .text       
-     N_USData_indication                      EA8B3     128     296      14   .text       
-     NetworkLayer_MainProc                    EA9DB     282     642      20   .text       
-     NetworkLayer_Proc                        EAC5D       D      13       2   .text       
-     IsIndicationListEmpty                    EAC6A       D      13       2   .text       
-     IsIndicationListFull                     EAC77      22      34       2   .text       
-     PullIndication                           EAC99      28      40       2   .text       
+     NetworkLayer_InitParam                   EA06C      8D     141       2   .text       
+     NetworkLayer_SetParam                    EA0F9      52      82       2   .text       
+     IsRxBuffEmpty                            EA14B       D      13       2   .text       
+     IsTxBuffEmpty                            EA158       D      13       2   .text       
+     IsTxBuffFull                             EA165      20      32       2   .text       
+     NetworkLayer_SendSF                      EA185      81     129       2   .text       
+     NetworkLayer_SendFF                      EA206      8B     139       2   .text       
+     NetworkLayer_SendCF                      EA291      A9     169       2   .text       
+     NetworkLayer_SendFC                      EA33A      66     102       4   .text       
+     NetworkLayer_RxSF                        EA3A0     129     297       3   .text       
+     NetworkLayer_RxFF                        EA4C9     106     262       6   .text       
+     NetworkLayer_RxCF                        EA5CF      BD     189       2   .text       
+     NetworkLayer_RxFC                        EA68C      AA     170       2   .text       
+     NetworkLayer_RxProc                      EA736      81     129       2   .text       
+     NetworkLayer_RxFrame                     EA7B7     11E     286       2   .text       
+     NetworkLayer_TxFrame                     EA8D5      7E     126       2   .text       
+     NetworkLayer_TxEnd                       EA953       9       9      10   .text       
+     NetworkLayer_TxStart                     EA95C      19      25       2   .text       
+     NetworkLayer_RxEnd                       EA975      12      18      10   .text       
+     NetworkLayer_RxStart                     EA987      21      33       2   .text       
+     NetworkLayer_TxProc                      EA9A8      34      52       2   .text       
+     NetworkLayer_NotifyToUpperLayer          EA9DC      29      41       6   .text       
+     N_USData_request                         EAA05      41      65       4   .text       
+     N_USData_confirm                         EAA46      B1     177       6   .text       
+     N_USData_FF_indication                   EAAF7      3F      63       2   .text       
+     N_USData_indication                      EAB36     128     296      14   .text       
+     NetworkLayer_MainProc                    EAC5E     282     642      20   .text       
+     NetworkLayer_Proc                        EAEE0       D      13       2   .text       
+     IsIndicationListEmpty                    EAEED       D      13       2   .text       
+     IsIndicationListFull                     EAEFA      22      34       2   .text       
+     PullIndication                           EAF1C      28      40       2   .text       
 - VARIABLES:
-     m_NetworkStatus                           296C       2       2      18   .bss        
-     m_N_Result                                296E       2       2      23   .bss        
-     m_DuplexMode                              2970       2       2       4   .bss        
-     m_TimePeriod                              2972      14      20      37   .bss        
-     m_TxStep                                  2986       2       2       6   .bss        
-     m_RxStep                                  2988       2       2       5   .bss        
-     m_AddressFormat                           298A       7       7      51   .bss        
-     CFDataPionter                             2991       2       2       4   .bss        
-     TxParam                                   2993       C      12      31   .bss        
-     RxParam                                   299F       C      12      43   .bss        
-     NetworkDataBufRx                          29AB      64     100       2   .bss        
-     m_PyhReqID                                2A0F       4       4       6   .bss        
-     m_FunReqID                                2A13       4       4       6   .bss        
-     m_ResponseID                              2A17       4       4       4   .bss        
-     m_PyhReqID1                               2A1B       4       4       4   .bss        
-     m_FunReqID1                               2A1F       4       4       4   .bss        
-     m_ResponseID1                             2A23       4       4       2   .bss        
-     m_CurrResponseID                          2A27       4       4       5   .bss        
-     RxDataBuff                                2A2B       7       7      33   .bss        
-     SendTimer                                 2A32       5       5       4   .bss        
-     ReciveTimer                               2A37       5       5       4   .bss        
-     CFRequestTimer                            2A3C       5       5       3   .bss        
-     NetworkSend                               2A41       3       3       5   .bss        
-     IndicationList                            2AED      30      48       2   .common     
-     IndicationInIndex                         2B1D       1       1       8   .common     
-     IndicationOutIndex                        2B1E       1       1       7   .common     
-     RxFrameBuff                               2B1F      45      69       3   .common     
-     RxInIndex                                 2B64       1       1       6   .common     
-     RxOutIndex                                2B65       1       1       6   .common     
-     TxFrameBuff                               2B66      45      69      25   .common     
-     TxInIndex                                 2BAB       1       1      25   .common     
-     TxOutIndex                                2BAC       1       1       8   .common     
-     FrameFillData                             2BAD       1       1       5   .common     
+     m_NetworkStatus                           28E0       2       2      18   .bss        
+     m_N_Result                                28E2       2       2      23   .bss        
+     m_DuplexMode                              28E4       2       2       4   .bss        
+     m_TimePeriod                              28E6      14      20      37   .bss        
+     m_TxStep                                  28FA       2       2       6   .bss        
+     m_RxStep                                  28FC       2       2       5   .bss        
+     m_AddressFormat                           28FE       7       7      51   .bss        
+     CFDataPionter                             2905       2       2       4   .bss        
+     TxParam                                   2907       C      12      31   .bss        
+     RxParam                                   2913       C      12      43   .bss        
+     NetworkDataBufRx                          291F      64     100       2   .bss        
+     m_PyhReqID                                2983       4       4       6   .bss        
+     m_FunReqID                                2987       4       4       6   .bss        
+     m_ResponseID                              298B       4       4       4   .bss        
+     m_PyhReqID1                               298F       4       4       4   .bss        
+     m_FunReqID1                               2993       4       4       4   .bss        
+     m_ResponseID1                             2997       4       4       2   .bss        
+     m_CurrResponseID                          299B       4       4       5   .bss        
+     RxDataBuff                                299F       7       7      33   .bss        
+     SendTimer                                 29A6       5       5       4   .bss        
+     ReciveTimer                               29AB       5       5       4   .bss        
+     CFRequestTimer                            29B0       5       5       3   .bss        
+     NetworkSend                               29B5       3       3       5   .bss        
+     IndicationList                            2A61      30      48       2   .common     
+     IndicationInIndex                         2A91       1       1       8   .common     
+     IndicationOutIndex                        2A92       1       1       7   .common     
+     RxFrameBuff                               2A93      45      69       3   .common     
+     RxInIndex                                 2AD8       1       1       6   .common     
+     RxOutIndex                                2AD9       1       1       6   .common     
+     TxFrameBuff                               2ADA      45      69      25   .common     
+     TxInIndex                                 2B1F       1       1      25   .common     
+     TxOutIndex                                2B20       1       1       8   .common     
+     FrameFillData                             2B21       1       1       5   .common     
 MODULE:                 -- EEPromDriver.c.o --
 - PROCEDURES:
-     BackupSector                             EACC1      53      83       6   .text       
-     WriteBlock                               EAD14      96     150       6   .text       
-     EraseSectorInternal                      EADAA      3F      63       6   .text       
-     WriteWord                                EADE9      4C      76       4   .text       
-     EEProm_SetByte                           EAE35     174     372       3   .text       
-     EEProm_GetByte                           EAFA9      64     100       2   .text       
-     EEProm_SetWord                           EB00D      D9     217       2   .text       
-     EEProm_SetLong                           EB0E6     106     262       3   .text       
-     Diagnostic_EEProm_Init                   EB1EC       A      10       2   .text       
-     Diagnostic_EEProm_Write                  EB1F6      A0     160      11   .text       
-     Diagnostic_EEProm_Read                   EB296      2A      42      12   .text       
+     BackupSector                             EAF44      53      83       6   .text       
+     WriteBlock                               EAF97      96     150       6   .text       
+     EraseSectorInternal                      EB02D      3F      63       6   .text       
+     WriteWord                                EB06C      4C      76       4   .text       
+     EEProm_SetByte                           EB0B8     174     372       3   .text       
+     EEProm_GetByte                           EB22C      64     100       2   .text       
+     EEProm_SetWord                           EB290      D9     217       2   .text       
+     EEProm_SetLong                           EB369     106     262       3   .text       
+     Diagnostic_EEProm_Init                   EB46F       A      10       2   .text       
+     Diagnostic_EEProm_Write                  EB479      A0     160      11   .text       
+     Diagnostic_EEProm_Read                   EB519      2A      42      12   .text       
 - VARIABLES:
-     EEPromEnMode                              2A44       1       1       4   .bss        
-     EEBackupArray                             2A45       4       4       9   .bss        
+     EEPromEnMode                              29B8       1       1       4   .bss        
+     EEBackupArray                             29B9       4       4       9   .bss        
 MODULE:                 -- RTI1.c.o --
 - PROCEDURES:
-     RTI1_Init                                EB2C0      17      23       2   .text       
+     RTI1_Init                                EB543      17      23       2   .text       
 - VARIABLES:
 
 *********************************************************************************************
@@ -921,14 +933,14 @@ MODULE STATISTIC
   Cpu.c.o                                      0    115      0
   IO_Map.c.o                                 328      0      0
   Vectors.c.o                                  0      0    128
-  DiagnosticDemo.c.o                           5   1147      0
-  CAN1.c.o                                     0     96      0
+  DiagnosticDemo.c.o                           5   1260      0
+  CAN1.c.o                                     0    104      0
   TJA1043_Can_Sel.c.o                          0     13      0
   TJA1043_EN.c.o                               0     13      0
-  Diagnostic.c.o                            2479   6163      0
+  Diagnostic.c.o                            2339   6683     11
   DiagnosticTimer.c.o                          4    131      0
   J1939TP.c.o                                 88    202      0
-  NetworkLayer.c.o                           409   3798      0
+  NetworkLayer.c.o                           409   3800      0
   EEPromDriver.c.o                             5   1535      0
   RTI1.c.o                                     0     23      0
   other                                      256     10    241
@@ -940,28 +952,32 @@ SECTION: ".text"
   Init memcpy memset PE_low_level_init ForceReset SystemReset 
   CommulicatonControl HD10SeedToKeyLevel1 SendFrame IoControl_9826 
   NMGetLimpHome Diagnostic_Init_Config main CAN1_Init InitAddSecurityAlgorithm 
+  FactorySecuritySeedToKey InitFactorySecuriyAlgorithm 
   InitSetSessionSupportAndSecurityAccess InitAddDID InitAddDTC 
   InitAddDTCSnapShot InitSetAgingCounterRecordNumber 
   InitSetAgedCounterRecordNumber InitSetOccurrenceCounterRecordNumber 
   InitSetPendingCounterRecordNumber InitSetDTCAvailiableMask InitAddDTCGroup 
   InitSetSysResetParam InitSetCommControlParam InitSetSessionControlParam 
-  InitSetTesterPresentSupress InitSetDTCControlSupress Diagnostic_SetNLParam 
-  Diagnostic_Init GenerateSeed GotoSession Service10PosResponse Service10Handle 
-  Service11Handle Service27Handle Service28Handle Service3EHandle 
-  Service83Handle Service84Handle Service85Handle Service86Handle 
-  Service87Handle SearchDidNode Service22Handle Service23Handle Service24Handle 
-  Service2AHandle Service2CHandle Service2EHandle Service3DHandle 
-  SearchDTCGroup Service14Handle SearchDTCByMaskAndFillResponse 
-  FillAllDTCResponse GetDTCNumberByMask GetDTCNodeByCode FillDTCSnapshotReponse 
-  Service19Handle Service2FHandle Service31Handle Service34Handle 
-  Service35Handle Service36Handle Service37Handle ServiceNegReponse 
-  Diagnostic_ServiceHandle Diagnostic_MainProc Diagnostic_TimeProc 
-  SaveSnapShotData DtcHandle Diagnostic_DTCProc J1939Proc Diagnostic_Proc 
-  Diagnostic_RxFrame Diagnostic_1msTimer Diagnostic_ClearDTC 
-  Diagnostic_LoadAllDTC Diagnostic_LoadSecuriyFaultCounter 
-  Diagnostic_BindingSnapshot Diagnostic_LoadAllData DiagTimer_Set 
-  DiagTimer_HasStopped DiagTimer_HasExpired DiagTimer_GetTickCount 
-  DiagTimer_ISR_Proc J1939TPReceiveData TPCMSetParamBAM NetworkLayer_InitParam 
+  InitSetTesterPresentSupress InitSetDTCControlSupress 
+  InitSetCanDriverVersionDID InitSetCanNMVersionDID 
+  InitSetCanDiagnosticVersionDID InitSetCanDataBaseVersionDID 
+  InitSetCurrentSessionDID Diagnostic_SetNLParam Diagnostic_Init GenerateSeed 
+  GotoSession Service10PosResponse Service10Handle Service11Handle 
+  Service27Handle Service28Handle Service3EHandle Service83Handle 
+  Service84Handle Service85Handle Service86Handle Service87Handle SearchDidNode 
+  Service22Handle Service23Handle Service24Handle Service2AHandle 
+  Service2CHandle Service2EHandle Service3DHandle SearchDTCGroup 
+  Service14Handle SearchDTCByMaskAndFillResponse FillAllDTCResponse 
+  GetDTCNumberByMask GetDTCNodeByCode FillDTCSnapshotReponse Service19Handle 
+  Service2FHandle Service31Handle Service34Handle Service35Handle 
+  Service36Handle Service37Handle ServiceNegReponse Diagnostic_ServiceHandle 
+  Diagnostic_MainProc Diagnostic_TimeProc SaveSnapShotData DtcHandle 
+  Diagnostic_DTCProc J1939Proc Diagnostic_Proc Diagnostic_RxFrame 
+  Diagnostic_1msTimer Diagnostic_ClearDTC Diagnostic_LoadAllDTC 
+  Diagnostic_LoadSecuriyFaultCounter Diagnostic_BindingSnapshot 
+  Diagnostic_LoadAllData DiagTimer_Set DiagTimer_HasStopped 
+  DiagTimer_HasExpired DiagTimer_GetTickCount DiagTimer_ISR_Proc 
+  J1939TPReceiveData TPCMSetParamBAM NetworkLayer_InitParam 
   NetworkLayer_SetParam IsRxBuffEmpty IsTxBuffEmpty IsTxBuffFull 
   NetworkLayer_SendSF NetworkLayer_SendFF NetworkLayer_SendCF 
   NetworkLayer_SendFC NetworkLayer_RxSF NetworkLayer_RxFF NetworkLayer_RxCF 
@@ -994,6 +1010,8 @@ SECTION: ".bss"
   EEBackupArray 
 SECTION: ".init"
   Cpu_Interrupt _EntryPoint 
+SECTION: ".rodata"
+  DriverVersion NMVersion DiagnosticVersion DatabaseVersion 
 SECTION: "NON_BANKED"
   _LOAD_FAR_8 _LOAD_FAR_16 _Startup _BDIVMODU _LSHL _LSHRU _LCMP _LINC _ILSEXT 
   _COPY _CASE_DIRECT_BYTE _CASE_CHECKED_BYTE Can_Rx_Interrupt RTI_Interrupt 
@@ -1702,9 +1720,9 @@ OBJECT LIST SORTED BY ADDRESS
      _CANCTL1                                   141       1       1       3   .abs_section_141
      _CANBTR0                                   142       1       1       1   .abs_section_142
      _CANBTR1                                   143       1       1       1   .abs_section_143
-     _CANRFLG                                   144       1       1       2   .abs_section_144
+     _CANRFLG                                   144       1       1       3   .abs_section_144
      _CANRIER                                   145       1       1       1   .abs_section_145
-     _CANTFLG                                   146       1       1       2   .abs_section_146
+     _CANTFLG                                   146       1       1       3   .abs_section_146
      _CANTIER                                   147       1       1       1   .abs_section_147
      _CANTARQ                                   148       1       1       0   .abs_section_148
      _CANTAAK                                   149       1       1       0   .abs_section_149
@@ -1743,8 +1761,8 @@ OBJECT LIST SORTED BY ADDRESS
      _CANRXDSR7                                 16B       1       1       0   .abs_section_16b
      _CANRXDLR                                  16C       1       1       2   .abs_section_16c
      _CANRXTSR                                  16E       2       2       0   .abs_section_16e
-     _CANTXIDR0                                 170       1       1       1   .abs_section_170
-     _CANTXIDR1                                 171       1       1       1   .abs_section_171
+     _CANTXIDR0                                 170       1       1       2   .abs_section_170
+     _CANTXIDR1                                 171       1       1       2   .abs_section_171
      _CANTXIDR2                                 172       1       1       1   .abs_section_172
      _CANTXIDR3                                 173       1       1       1   .abs_section_173
      _CANTXDSR0                                 174       1       1       1   .abs_section_174
@@ -1808,10 +1826,10 @@ OBJECT LIST SORTED BY ADDRESS
      TestCurrentTemp                           2000       1       1       1   .data       
      CurrentSpeed                              2001       2       2       1   .data       
      CurrentVoltage                            2003       1       1       4   .data       
-     m_SecurityLevel                           2004       2       2       5   .data       
+     m_SecurityLevel                           2004       2       2       6   .data       
      P2CanServerMax                            2006       2       2       3   .data       
      P2ECanServerMax                           2008       2       2       3   .data       
-     ServiceList                               200A      EA     234      19   .data       
+     ServiceList                               200A      EA     234      20   .data       
      m_UnlockStep                              20F4       2       2      11   .bss        
      WaitConfirmBeforeJump                     20F6       1       1       4   .bss        
      WaitConfirmBeforeErase                    20F7       1       1       2   .bss        
@@ -1823,8 +1841,8 @@ OBJECT LIST SORTED BY ADDRESS
      WaitConfimBeforeReset                     20FD       1       1       4   .bss        
      Seed                                      20FE       5       5       7   .bss        
      key                                       2103       4       4       8   .bss        
-     m_NRC                                     2107       2       2      42   .bss        
-     DiagnosticBuffTX                          2109      C8     200      90   .bss        
+     m_NRC                                     2107       2       2      41   .bss        
+     DiagnosticBuffTX                          2109      C8     200      91   .bss        
      S3serverTimer                             21D1       5       5       3   .bss        
      TesterPhyID                               21D6       4       4       4   .bss        
      TesterFunID                               21DA       4       4       5   .bss        
@@ -1835,232 +1853,243 @@ OBJECT LIST SORTED BY ADDRESS
      N_Ta                                      21EE       1       1       6   .bss        
      N_Sa                                      21EF       1       1       6   .bss        
      SessionSupport                            21F0       1       1       8   .bss        
-     DTCS                                      21F1     299     665      34   .bss        
-     DTCAdded                                  248A       1       1      12   .bss        
-     DIDS                                      248B     460    1120      10   .bss        
-     DIDAdded                                  28EB       1       1       6   .bss        
-     SnapShots                                 28EC      3C      60      18   .bss        
-     DTCGROUPS                                 2928      1E      30       4   .bss        
-     DTCGroupAdded                             2946       1       1       5   .bss        
-     DtcAvailibaleMask                         2947       1       1       8   .bss        
-     DtcTimer                                  2948       5       5       3   .bss        
-     ModuleEEpromStartAddr                     294D       2       2       5   .bss        
-     EEpromSizeForUse                          294F       2       2       1   .bss        
-     EEpromUsed                                2951       2       2      11   .bss        
-     DTCSaved                                  2953       1       1       4   .bss        
-     DM1DTCNumber                              2954       1       1       2   .bss        
-     DTCSavedTimer                             2955       5       5       2   .bss        
-     ResetTypeSupport                          295A       1       1       8   .bss        
-     ResetCallBackFun                          295B       3       3      10   .bss        
-     m_EcuResetType                            295E       2       2       4   .bss        
-     TesterPresentSuppport                     2960       1       1       5   .bss        
-     CommTypeSupport                           2961       1       1      10   .bss        
-     commCallBack                              2962       3       3      10   .bss        
-     SystemTickCount                           2965       4       4      10   .bss        
-     sendInterface                             2969       3       3       2   .bss        
-     m_NetworkStatus                           296C       2       2      18   .bss        
-     m_N_Result                                296E       2       2      23   .bss        
-     m_DuplexMode                              2970       2       2       4   .bss        
-     m_TimePeriod                              2972      14      20      37   .bss        
-     m_TxStep                                  2986       2       2       6   .bss        
-     m_RxStep                                  2988       2       2       5   .bss        
-     m_AddressFormat                           298A       7       7      51   .bss        
-     CFDataPionter                             2991       2       2       4   .bss        
-     TxParam                                   2993       C      12      31   .bss        
-     RxParam                                   299F       C      12      43   .bss        
-     NetworkDataBufRx                          29AB      64     100       2   .bss        
-     m_PyhReqID                                2A0F       4       4       6   .bss        
-     m_FunReqID                                2A13       4       4       6   .bss        
-     m_ResponseID                              2A17       4       4       4   .bss        
-     m_PyhReqID1                               2A1B       4       4       4   .bss        
-     m_FunReqID1                               2A1F       4       4       4   .bss        
-     m_ResponseID1                             2A23       4       4       2   .bss        
-     m_CurrResponseID                          2A27       4       4       5   .bss        
-     RxDataBuff                                2A2B       7       7      33   .bss        
-     SendTimer                                 2A32       5       5       4   .bss        
-     ReciveTimer                               2A37       5       5       4   .bss        
-     CFRequestTimer                            2A3C       5       5       3   .bss        
-     NetworkSend                               2A41       3       3       5   .bss        
-     EEPromEnMode                              2A44       1       1       4   .bss        
-     EEBackupArray                             2A45       4       4       9   .bss        
-     IO9826_MixMtrCtrl                         2A49       1       1       4   .common     
-     UnlockList                                2A4A      45      69      53   .common     
-     m_CurrSessionType                         2A8F       1       1      12   .common     
-     ResponsePending                           2A90       1       1      14   .common     
-     suppressResponse                          2A91       1       1      24   .common     
-     ResponseLength                            2A92       2       2      38   .common     
-     CurrentService                            2A94       1       1      10   .common     
-     EnableDTCDetect                           2A95       1       1       4   .common     
-     HighVoltage                               2A96       1       1       1   .common     
-     SaveDTCInBlock                            2A97       1       1       5   .common     
-     BAMRxState                                2A98       1       1       3   .common     
-     BAMRxLength                               2A99       2       2       6   .common     
-     BAMRxFrameLength                          2A9B       1       1       1   .common     
-     BAMRxReceived                             2A9C       1       1       7   .common     
-     BAMRxBuf                                  2A9D      50      80       1   .common     
-     IndicationList                            2AED      30      48       2   .common     
-     IndicationInIndex                         2B1D       1       1       8   .common     
-     IndicationOutIndex                        2B1E       1       1       7   .common     
-     RxFrameBuff                               2B1F      45      69       3   .common     
-     RxInIndex                                 2B64       1       1       6   .common     
-     RxOutIndex                                2B65       1       1       6   .common     
-     TxFrameBuff                               2B66      45      69      25   .common     
-     TxInIndex                                 2BAB       1       1      25   .common     
-     TxOutIndex                                2BAC       1       1       8   .common     
-     FrameFillData                             2BAD       1       1       5   .common     
+     DTCS                                      21F1     253     595      34   .bss        
+     DTCAdded                                  2444       1       1      12   .bss        
+     DIDS                                      2445     41A    1050      12   .bss        
+     DIDAdded                                  285F       1       1       5   .bss        
+     SnapShots                                 2860      3C      60      18   .bss        
+     DTCGROUPS                                 289C      1E      30       4   .bss        
+     DTCGroupAdded                             28BA       1       1       5   .bss        
+     DtcAvailibaleMask                         28BB       1       1       8   .bss        
+     DtcTimer                                  28BC       5       5       3   .bss        
+     ModuleEEpromStartAddr                     28C1       2       2       5   .bss        
+     EEpromSizeForUse                          28C3       2       2       1   .bss        
+     EEpromUsed                                28C5       2       2      11   .bss        
+     DTCSaved                                  28C7       1       1       4   .bss        
+     DM1DTCNumber                              28C8       1       1       2   .bss        
+     DTCSavedTimer                             28C9       5       5       2   .bss        
+     ResetTypeSupport                          28CE       1       1       8   .bss        
+     ResetCallBackFun                          28CF       3       3      10   .bss        
+     m_EcuResetType                            28D2       2       2       4   .bss        
+     TesterPresentSuppport                     28D4       1       1       5   .bss        
+     CommTypeSupport                           28D5       1       1      10   .bss        
+     commCallBack                              28D6       3       3      10   .bss        
+     SystemTickCount                           28D9       4       4      10   .bss        
+     sendInterface                             28DD       3       3       2   .bss        
+     m_NetworkStatus                           28E0       2       2      18   .bss        
+     m_N_Result                                28E2       2       2      23   .bss        
+     m_DuplexMode                              28E4       2       2       4   .bss        
+     m_TimePeriod                              28E6      14      20      37   .bss        
+     m_TxStep                                  28FA       2       2       6   .bss        
+     m_RxStep                                  28FC       2       2       5   .bss        
+     m_AddressFormat                           28FE       7       7      51   .bss        
+     CFDataPionter                             2905       2       2       4   .bss        
+     TxParam                                   2907       C      12      31   .bss        
+     RxParam                                   2913       C      12      43   .bss        
+     NetworkDataBufRx                          291F      64     100       2   .bss        
+     m_PyhReqID                                2983       4       4       6   .bss        
+     m_FunReqID                                2987       4       4       6   .bss        
+     m_ResponseID                              298B       4       4       4   .bss        
+     m_PyhReqID1                               298F       4       4       4   .bss        
+     m_FunReqID1                               2993       4       4       4   .bss        
+     m_ResponseID1                             2997       4       4       2   .bss        
+     m_CurrResponseID                          299B       4       4       5   .bss        
+     RxDataBuff                                299F       7       7      33   .bss        
+     SendTimer                                 29A6       5       5       4   .bss        
+     ReciveTimer                               29AB       5       5       4   .bss        
+     CFRequestTimer                            29B0       5       5       3   .bss        
+     NetworkSend                               29B5       3       3       5   .bss        
+     EEPromEnMode                              29B8       1       1       4   .bss        
+     EEBackupArray                             29B9       4       4       9   .bss        
+     IO9826_MixMtrCtrl                         29BD       1       1       4   .common     
+     UnlockList                                29BE      45      69      54   .common     
+     m_CurrSessionType                         2A03       1       1      17   .common     
+     ResponsePending                           2A04       1       1      14   .common     
+     suppressResponse                          2A05       1       1      25   .common     
+     ResponseLength                            2A06       2       2      38   .common     
+     CurrentService                            2A08       1       1      10   .common     
+     EnableDTCDetect                           2A09       1       1       4   .common     
+     HighVoltage                               2A0A       1       1       1   .common     
+     SaveDTCInBlock                            2A0B       1       1       5   .common     
+     BAMRxState                                2A0C       1       1       3   .common     
+     BAMRxLength                               2A0D       2       2       6   .common     
+     BAMRxFrameLength                          2A0F       1       1       1   .common     
+     BAMRxReceived                             2A10       1       1       7   .common     
+     BAMRxBuf                                  2A11      50      80       1   .common     
+     IndicationList                            2A61      30      48       2   .common     
+     IndicationInIndex                         2A91       1       1       8   .common     
+     IndicationOutIndex                        2A92       1       1       7   .common     
+     RxFrameBuff                               2A93      45      69       3   .common     
+     RxInIndex                                 2AD8       1       1       6   .common     
+     RxOutIndex                                2AD9       1       1       6   .common     
+     TxFrameBuff                               2ADA      45      69      25   .common     
+     TxInIndex                                 2B1F       1       1      25   .common     
+     TxOutIndex                                2B20       1       1       8   .common     
+     FrameFillData                             2B21       1       1       5   .common     
      Cpu_Interrupt                             C000       2       2      59   .init       
      _EntryPoint                               C002      40      64       3   .init       
-     _LOAD_FAR_8                               C04C       B      11       2   NON_BANKED  
-     _LOAD_FAR_16                              C057       B      11       6   NON_BANKED  
-     _Startup                                  C062       B      11       1   NON_BANKED  
-     _BDIVMODU                                 C06D       A      10       1   NON_BANKED  
-     _LSHL                                     C077      11      17       8   NON_BANKED  
-     _LSHRU                                    C088      11      17       6   NON_BANKED  
-     _LCMP                                     C099      19      25      12   NON_BANKED  
-     _LINC                                     C0B2       5       5       1   NON_BANKED  
-     _ILSEXT                                   C0B7       7       7       3   NON_BANKED  
-     _COPY                                     C0BE       8       8       8   NON_BANKED  
-     _CASE_DIRECT_BYTE                         C0C6       5       5       1   NON_BANKED  
-     _CASE_CHECKED_BYTE                        C0CB      14      20       4   NON_BANKED  
-     Can_Rx_Interrupt                          C0DF      DE     222       6   NON_BANKED  
-     RTI_Interrupt                             C1BD       8       8       1   NON_BANKED  
+     DriverVersion                             C04C       3       3       1   .rodata     
+     NMVersion                                 C04F       3       3       1   .rodata     
+     DiagnosticVersion                         C052       3       3       1   .rodata     
+     DatabaseVersion                           C055       2       2       1   .rodata     
+     _LOAD_FAR_8                               C057       B      11       2   NON_BANKED  
+     _LOAD_FAR_16                              C062       B      11       6   NON_BANKED  
+     _Startup                                  C06D       B      11       1   NON_BANKED  
+     _BDIVMODU                                 C078       A      10       1   NON_BANKED  
+     _LSHL                                     C082      11      17       8   NON_BANKED  
+     _LSHRU                                    C093      11      17       7   NON_BANKED  
+     _LCMP                                     C0A4      19      25      12   NON_BANKED  
+     _LINC                                     C0BD       5       5       1   NON_BANKED  
+     _ILSEXT                                   C0C2       7       7       3   NON_BANKED  
+     _COPY                                     C0C9       8       8       8   NON_BANKED  
+     _CASE_DIRECT_BYTE                         C0D1       5       5       2   NON_BANKED  
+     _CASE_CHECKED_BYTE                        C0D6      14      20       3   NON_BANKED  
+     Can_Rx_Interrupt                          C0EA      DE     222       6   NON_BANKED  
+     RTI_Interrupt                             C1C8       8       8       1   NON_BANKED  
      _InterruptVectorTable                     FF80      7A     122       0   .abs_section_ff80
      _ResetVectorTable                         FFFA       6       6       0   .abs_section_fffa
      Init                                     E8000      29      41       2   .text       
-     memcpy                                   E8029      24      36      10   .text       
+     memcpy                                   E8029      24      36       8   .text       
      memset                                   E804D      18      24       2   .text       
      PE_low_level_init                        E8065      31      49       2   .text       
      ForceReset                               E8096      11      17       2   .text       
      SystemReset                              E80A7      14      20       3   .text       
      CommulicatonControl                      E80BB       1       1       3   .text       
      HD10SeedToKeyLevel1                      E80BC       7       7       3   .text       
-     SendFrame                                E80C3      7C     124       3   .text       
-     IoControl_9826                           E813F      2B      43       6   .text       
-     NMGetLimpHome                            E816A       3       3       3   .text       
-     Diagnostic_Init_Config                   E816D     2A4     676       2   .text       
-     main                                     E8411      1A      26       2   .text       
-     CAN1_Init                                E842B      60      96       2   .text       
-     InitAddSecurityAlgorithm                 E848B      76     118       2   .text       
-     InitSetSessionSupportAndSecurityAccess      E8501      82     130      22   .text       
-     InitAddDID                               E8583      64     100      10   .text       
-     InitAddDTC                               E85E7      47      71       2   .text       
-     InitAddDTCSnapShot                       E862E      2D      45      10   .text       
-     InitSetAgingCounterRecordNumber          E865B       4       4       2   .text       
-     InitSetAgedCounterRecordNumber           E865F       4       4       2   .text       
-     InitSetOccurrenceCounterRecordNumber      E8663       4       4       2   .text       
-     InitSetPendingCounterRecordNumber        E8667       4       4       2   .text       
-     InitSetDTCAvailiableMask                 E866B       4       4       2   .text       
-     InitAddDTCGroup                          E866F      23      35       2   .text       
-     InitSetSysResetParam                     E8692      35      53       2   .text       
-     InitSetCommControlParam                  E86C7      47      71       2   .text       
-     InitSetSessionControlParam               E870E      2A      42       2   .text       
-     InitSetTesterPresentSupress              E8738       6       6       2   .text       
-     InitSetDTCControlSupress                 E873E       8       8       2   .text       
-     Diagnostic_SetNLParam                    E8746      33      51       2   .text       
-     Diagnostic_Init                          E8779      BA     186       2   .text       
-     GenerateSeed                             E8833      40      64       2   .text       
-     GotoSession                              E8873      54      84       4   .text       
-     Service10PosResponse                     E88C7      2B      43       4   .text       
-     Service10Handle                          E88F2      9E     158       2   .text       
-     Service11Handle                          E8990      BC     188       2   .text       
-     Service27Handle                          E8A4C     283     643      24   .text       
-     Service28Handle                          E8CCF      D5     213       2   .text       
-     Service3EHandle                          E8DA4      66     102       2   .text       
-     Service83Handle                          E8E0A       1       1       2   .text       
-     Service84Handle                          E8E0B       1       1       2   .text       
-     Service85Handle                          E8E0C      76     118       2   .text       
-     Service86Handle                          E8E82       1       1       2   .text       
-     Service87Handle                          E8E83       1       1       2   .text       
-     SearchDidNode                            E8E84      2D      45       6   .text       
-     Service22Handle                          E8EB1      E7     231       3   .text       
-     Service23Handle                          E8F98       1       1       2   .text       
-     Service24Handle                          E8F99       1       1       2   .text       
-     Service2AHandle                          E8F9A       1       1       2   .text       
-     Service2CHandle                          E8F9B       1       1       2   .text       
-     Service2EHandle                          E8F9C      B4     180       2   .text       
-     Service3DHandle                          E9050       1       1       2   .text       
-     SearchDTCGroup                           E9051      2F      47       2   .text       
-     Service14Handle                          E9080      5A      90       2   .text       
-     SearchDTCByMaskAndFillResponse           E90DA      65     101       2   .text       
-     FillAllDTCResponse                       E913F      58      88       2   .text       
-     GetDTCNumberByMask                       E9197      2F      47       2   .text       
-     GetDTCNodeByCode                         E91C6      43      67       2   .text       
-     FillDTCSnapshotReponse                   E9209      DF     223       3   .text       
-     Service19Handle                          E92E8     246     582      21   .text       
-     Service2FHandle                          E952E      CC     204       2   .text       
-     Service31Handle                          E95FA       1       1       2   .text       
-     Service34Handle                          E95FB       1       1       2   .text       
-     Service35Handle                          E95FC       1       1       2   .text       
-     Service36Handle                          E95FD       1       1       2   .text       
-     Service37Handle                          E95FE       1       1       2   .text       
-     ServiceNegReponse                        E95FF      2B      43       2   .text       
-     Diagnostic_ServiceHandle                 E962A     159     345      11   .text       
-     Diagnostic_MainProc                      E9783     18D     397       4   .text       
-     Diagnostic_TimeProc                      E9910      80     128       2   .text       
-     SaveSnapShotData                         E9990      4C      76       2   .text       
-     DtcHandle                                E99DC      88     136       2   .text       
-     Diagnostic_DTCProc                       E9A64      5B      91       2   .text       
-     J1939Proc                                E9ABF       1       1       2   .text       
-     Diagnostic_Proc                          E9AC0      15      21       2   .text       
-     Diagnostic_RxFrame                       E9AD5      48      72       2   .text       
-     Diagnostic_1msTimer                      E9B1D       5       5       2   .text       
-     Diagnostic_ClearDTC                      E9B22      67     103       2   .text       
-     Diagnostic_LoadAllDTC                    E9B89      3B      59       2   .text       
-     Diagnostic_LoadSecuriyFaultCounter       E9BC4      80     128       2   .text       
-     Diagnostic_BindingSnapshot               E9C44      4D      77       2   .text       
-     Diagnostic_LoadAllData                   E9C91       D      13       2   .text       
-     DiagTimer_Set                            E9C9E      1B      27      32   .text       
-     DiagTimer_HasStopped                     E9CB9       B      11       2   .text       
-     DiagTimer_HasExpired                     E9CC4      46      70      16   .text       
-     DiagTimer_GetTickCount                   E9D0A       7       7       4   .text       
-     DiagTimer_ISR_Proc                       E9D11      10      16       2   .text       
-     J1939TPReceiveData                       E9D21      C3     195       2   .text       
-     TPCMSetParamBAM                          E9DE4       7       7       2   .text       
-     NetworkLayer_InitParam                   E9DEB      8D     141       2   .text       
-     NetworkLayer_SetParam                    E9E78      52      82       2   .text       
-     IsRxBuffEmpty                            E9ECA       D      13       2   .text       
-     IsTxBuffEmpty                            E9ED7       D      13       2   .text       
-     IsTxBuffFull                             E9EE4      20      32       2   .text       
-     NetworkLayer_SendSF                      E9F04      81     129       2   .text       
-     NetworkLayer_SendFF                      E9F85      8B     139       2   .text       
-     NetworkLayer_SendCF                      EA010      A9     169       2   .text       
-     NetworkLayer_SendFC                      EA0B9      66     102       4   .text       
-     NetworkLayer_RxSF                        EA11F     129     297       3   .text       
-     NetworkLayer_RxFF                        EA248     106     262       6   .text       
-     NetworkLayer_RxCF                        EA34E      BD     189       2   .text       
-     NetworkLayer_RxFC                        EA40B      AA     170       2   .text       
-     NetworkLayer_RxProc                      EA4B5      81     129       2   .text       
-     NetworkLayer_RxFrame                     EA536     11E     286       2   .text       
-     NetworkLayer_TxFrame                     EA654      7C     124       2   .text       
-     NetworkLayer_TxEnd                       EA6D0       9       9      10   .text       
-     NetworkLayer_TxStart                     EA6D9      19      25       2   .text       
-     NetworkLayer_RxEnd                       EA6F2      12      18      10   .text       
-     NetworkLayer_RxStart                     EA704      21      33       2   .text       
-     NetworkLayer_TxProc                      EA725      34      52       2   .text       
-     NetworkLayer_NotifyToUpperLayer          EA759      29      41       6   .text       
-     N_USData_request                         EA782      41      65       4   .text       
-     N_USData_confirm                         EA7C3      B1     177       6   .text       
-     N_USData_FF_indication                   EA874      3F      63       2   .text       
-     N_USData_indication                      EA8B3     128     296      14   .text       
-     NetworkLayer_MainProc                    EA9DB     282     642      20   .text       
-     NetworkLayer_Proc                        EAC5D       D      13       2   .text       
-     IsIndicationListEmpty                    EAC6A       D      13       2   .text       
-     IsIndicationListFull                     EAC77      22      34       2   .text       
-     PullIndication                           EAC99      28      40       2   .text       
-     BackupSector                             EACC1      53      83       6   .text       
-     WriteBlock                               EAD14      96     150       6   .text       
-     EraseSectorInternal                      EADAA      3F      63       6   .text       
-     WriteWord                                EADE9      4C      76       4   .text       
-     EEProm_SetByte                           EAE35     174     372       3   .text       
-     EEProm_GetByte                           EAFA9      64     100       2   .text       
-     EEProm_SetWord                           EB00D      D9     217       2   .text       
-     EEProm_SetLong                           EB0E6     106     262       3   .text       
-     Diagnostic_EEProm_Init                   EB1EC       A      10       2   .text       
-     Diagnostic_EEProm_Write                  EB1F6      A0     160      11   .text       
-     Diagnostic_EEProm_Read                   EB296      2A      42      12   .text       
-     RTI1_Init                                EB2C0      17      23       2   .text       
-     TJA1043_Can_Sel_PutVal                   EB2D7       D      13       2   TJA1043_Can_Sel_CODE
-     TJA1043_EN_PutVal                        EB2E4       D      13       2   TJA1043_EN_CODE
+     SendFrame                                E80C3      B3     179       4   .text       
+     IoControl_9826                           E8176      2B      43       6   .text       
+     NMGetLimpHome                            E81A1       3       3       3   .text       
+     Diagnostic_Init_Config                   E81A4     2DE     734       2   .text       
+     main                                     E8482      1A      26       2   .text       
+     CAN1_Init                                E849C      68     104       2   .text       
+     InitAddSecurityAlgorithm                 E8504      76     118       4   .text       
+     FactorySecuritySeedToKey                 E857A      56      86       3   .text       
+     InitFactorySecuriyAlgorithm              E85D0      29      41       2   .text       
+     InitSetSessionSupportAndSecurityAccess      E85F9      82     130      22   .text       
+     InitAddDID                               E867B      68     104      20   .text       
+     InitAddDTC                               E86E3      47      71       2   .text       
+     InitAddDTCSnapShot                       E872A      2D      45      10   .text       
+     InitSetAgingCounterRecordNumber          E8757       4       4       2   .text       
+     InitSetAgedCounterRecordNumber           E875B       4       4       2   .text       
+     InitSetOccurrenceCounterRecordNumber      E875F       4       4       2   .text       
+     InitSetPendingCounterRecordNumber        E8763       4       4       2   .text       
+     InitSetDTCAvailiableMask                 E8767       4       4       2   .text       
+     InitAddDTCGroup                          E876B      23      35       2   .text       
+     InitSetSysResetParam                     E878E      35      53       2   .text       
+     InitSetCommControlParam                  E87C3      47      71       2   .text       
+     InitSetSessionControlParam               E880A      2A      42       2   .text       
+     InitSetTesterPresentSupress              E8834       6       6       2   .text       
+     InitSetDTCControlSupress                 E883A       8       8       2   .text       
+     InitSetCanDriverVersionDID               E8842      1A      26       2   .text       
+     InitSetCanNMVersionDID                   E885C      1A      26       2   .text       
+     InitSetCanDiagnosticVersionDID           E8876      1A      26       2   .text       
+     InitSetCanDataBaseVersionDID             E8890      1A      26       2   .text       
+     InitSetCurrentSessionDID                 E88AA      1A      26       2   .text       
+     Diagnostic_SetNLParam                    E88C4      33      51       2   .text       
+     Diagnostic_Init                          E88F7      BA     186       2   .text       
+     GenerateSeed                             E89B1      40      64       2   .text       
+     GotoSession                              E89F1      54      84       4   .text       
+     Service10PosResponse                     E8A45      2B      43       4   .text       
+     Service10Handle                          E8A70      BB     187       2   .text       
+     Service11Handle                          E8B2B      BC     188       2   .text       
+     Service27Handle                          E8BE7     299     665      25   .text       
+     Service28Handle                          E8E80      D5     213       2   .text       
+     Service3EHandle                          E8F55      66     102       2   .text       
+     Service83Handle                          E8FBB       1       1       2   .text       
+     Service84Handle                          E8FBC       1       1       2   .text       
+     Service85Handle                          E8FBD      76     118       2   .text       
+     Service86Handle                          E9033       1       1       2   .text       
+     Service87Handle                          E9034       1       1       2   .text       
+     SearchDidNode                            E9035      2D      45       6   .text       
+     Service22Handle                          E9062      D6     214       2   .text       
+     Service23Handle                          E9138       1       1       2   .text       
+     Service24Handle                          E9139       1       1       2   .text       
+     Service2AHandle                          E913A       1       1       2   .text       
+     Service2CHandle                          E913B       1       1       2   .text       
+     Service2EHandle                          E913C     120     288       6   .text       
+     Service3DHandle                          E925C       1       1       2   .text       
+     SearchDTCGroup                           E925D      2F      47       2   .text       
+     Service14Handle                          E928C      5A      90       2   .text       
+     SearchDTCByMaskAndFillResponse           E92E6      65     101       2   .text       
+     FillAllDTCResponse                       E934B      58      88       2   .text       
+     GetDTCNumberByMask                       E93A3      2F      47       2   .text       
+     GetDTCNodeByCode                         E93D2      43      67       2   .text       
+     FillDTCSnapshotReponse                   E9415      DF     223       3   .text       
+     Service19Handle                          E94F4     246     582      21   .text       
+     Service2FHandle                          E973A      CC     204       2   .text       
+     Service31Handle                          E9806       1       1       2   .text       
+     Service34Handle                          E9807       1       1       2   .text       
+     Service35Handle                          E9808       1       1       2   .text       
+     Service36Handle                          E9809       1       1       2   .text       
+     Service37Handle                          E980A       1       1       2   .text       
+     ServiceNegReponse                        E980B      2B      43       2   .text       
+     Diagnostic_ServiceHandle                 E9836     1CE     462      18   .text       
+     Diagnostic_MainProc                      E9A04     18D     397       4   .text       
+     Diagnostic_TimeProc                      E9B91      80     128       2   .text       
+     SaveSnapShotData                         E9C11      4C      76       2   .text       
+     DtcHandle                                E9C5D      88     136       2   .text       
+     Diagnostic_DTCProc                       E9CE5      5B      91       2   .text       
+     J1939Proc                                E9D40       1       1       2   .text       
+     Diagnostic_Proc                          E9D41      15      21       2   .text       
+     Diagnostic_RxFrame                       E9D56      48      72       2   .text       
+     Diagnostic_1msTimer                      E9D9E       5       5       2   .text       
+     Diagnostic_ClearDTC                      E9DA3      67     103       2   .text       
+     Diagnostic_LoadAllDTC                    E9E0A      3B      59       2   .text       
+     Diagnostic_LoadSecuriyFaultCounter       E9E45      80     128       2   .text       
+     Diagnostic_BindingSnapshot               E9EC5      4D      77       2   .text       
+     Diagnostic_LoadAllData                   E9F12       D      13       2   .text       
+     DiagTimer_Set                            E9F1F      1B      27      32   .text       
+     DiagTimer_HasStopped                     E9F3A       B      11       2   .text       
+     DiagTimer_HasExpired                     E9F45      46      70      16   .text       
+     DiagTimer_GetTickCount                   E9F8B       7       7       4   .text       
+     DiagTimer_ISR_Proc                       E9F92      10      16       2   .text       
+     J1939TPReceiveData                       E9FA2      C3     195       2   .text       
+     TPCMSetParamBAM                          EA065       7       7       2   .text       
+     NetworkLayer_InitParam                   EA06C      8D     141       2   .text       
+     NetworkLayer_SetParam                    EA0F9      52      82       2   .text       
+     IsRxBuffEmpty                            EA14B       D      13       2   .text       
+     IsTxBuffEmpty                            EA158       D      13       2   .text       
+     IsTxBuffFull                             EA165      20      32       2   .text       
+     NetworkLayer_SendSF                      EA185      81     129       2   .text       
+     NetworkLayer_SendFF                      EA206      8B     139       2   .text       
+     NetworkLayer_SendCF                      EA291      A9     169       2   .text       
+     NetworkLayer_SendFC                      EA33A      66     102       4   .text       
+     NetworkLayer_RxSF                        EA3A0     129     297       3   .text       
+     NetworkLayer_RxFF                        EA4C9     106     262       6   .text       
+     NetworkLayer_RxCF                        EA5CF      BD     189       2   .text       
+     NetworkLayer_RxFC                        EA68C      AA     170       2   .text       
+     NetworkLayer_RxProc                      EA736      81     129       2   .text       
+     NetworkLayer_RxFrame                     EA7B7     11E     286       2   .text       
+     NetworkLayer_TxFrame                     EA8D5      7E     126       2   .text       
+     NetworkLayer_TxEnd                       EA953       9       9      10   .text       
+     NetworkLayer_TxStart                     EA95C      19      25       2   .text       
+     NetworkLayer_RxEnd                       EA975      12      18      10   .text       
+     NetworkLayer_RxStart                     EA987      21      33       2   .text       
+     NetworkLayer_TxProc                      EA9A8      34      52       2   .text       
+     NetworkLayer_NotifyToUpperLayer          EA9DC      29      41       6   .text       
+     N_USData_request                         EAA05      41      65       4   .text       
+     N_USData_confirm                         EAA46      B1     177       6   .text       
+     N_USData_FF_indication                   EAAF7      3F      63       2   .text       
+     N_USData_indication                      EAB36     128     296      14   .text       
+     NetworkLayer_MainProc                    EAC5E     282     642      20   .text       
+     NetworkLayer_Proc                        EAEE0       D      13       2   .text       
+     IsIndicationListEmpty                    EAEED       D      13       2   .text       
+     IsIndicationListFull                     EAEFA      22      34       2   .text       
+     PullIndication                           EAF1C      28      40       2   .text       
+     BackupSector                             EAF44      53      83       6   .text       
+     WriteBlock                               EAF97      96     150       6   .text       
+     EraseSectorInternal                      EB02D      3F      63       6   .text       
+     WriteWord                                EB06C      4C      76       4   .text       
+     EEProm_SetByte                           EB0B8     174     372       3   .text       
+     EEProm_GetByte                           EB22C      64     100       2   .text       
+     EEProm_SetWord                           EB290      D9     217       2   .text       
+     EEProm_SetLong                           EB369     106     262       3   .text       
+     Diagnostic_EEProm_Init                   EB46F       A      10       2   .text       
+     Diagnostic_EEProm_Write                  EB479      A0     160      11   .text       
+     Diagnostic_EEProm_Read                   EB519      2A      42      12   .text       
+     RTI1_Init                                EB543      17      23       2   .text       
+     TJA1043_Can_Sel_PutVal                   EB55A       D      13       2   TJA1043_Can_Sel_CODE
+     TJA1043_EN_PutVal                        EB567       D      13       2   TJA1043_EN_CODE
 
 *********************************************************************************************
 UNUSED-OBJECTS SECTION
@@ -2080,10 +2109,8 @@ rtshc12.c.o (ansibi.lib):
   _CASE_SEARCH _CASE_SEARCH_BYTE _CASE_SEARCH_8 _CASE_SEARCH_8_BYTE _FCALL 
   _FPCMP 
 Diagnostic.c.o:
-  InitSetCanDriverVersionDID InitSetCanNMVersionDID 
-  InitSetCanDiagnosticVersionDID InitSetCanDataBaseVersionDID 
-  InitSetCurrentSessionDID Diagnostic_Set2ndReqAndResID Diagnostic_DelInit 
-  Diagnostic_SaveAllDTC Diagnostic_DTCDefaultValue Diagnostic_ConfigVIN 
+  Diagnostic_Set2ndReqAndResID Diagnostic_DelInit Diagnostic_SaveAllDTC 
+  Diagnostic_DTCDefaultValue Diagnostic_ConfigVIN 
 DiagnosticTimer.c.o:
   DiagTimer_Init DiagTimer_Stop DiagTimer_WaitExpired DiagTimer_DelayMs 
   DiagTimer_DelayUs 
@@ -2104,63 +2131,62 @@ Cpu.c.o:
 DiagnosticDemo.c.o:
   TestF180Data 
 Diagnostic.c.o:
-  DriverVersion NMVersion DiagnosticVersion DatabaseVersion m_BlockIndex 
-  ProgramAddress ProgramLength ProgramLengthComplete IsUpdating retLen 
-  J1939BufTX J1939Timer LowVoltage 
+  m_BlockIndex ProgramAddress ProgramLength ProgramLengthComplete IsUpdating 
+  retLen J1939BufTX J1939Timer LowVoltage 
 J1939TP.c.o:
   sendBuf DTIndex TotalFrameLength dataBuf DTTimer BAMTimer 
 
 *********************************************************************************************
 COPYDOWN SECTION
 ---------------------------------------------------------------------------------------------
-------- ROM-ADDRESS: 0xC1C5 ---- SIZE       4 ---
+------- ROM-ADDRESS: 0xC1D0 ---- SIZE       4 ---
 Filling bytes inserted
  00EB2000
-------- ROM-ADDRESS: 0xC1C9 ---- RAM-ADDRESS: 0x2000 ---- SIZE       1 ---
+------- ROM-ADDRESS: 0xC1D4 ---- RAM-ADDRESS: 0x2000 ---- SIZE       1 ---
 Name of initialized Object : TestCurrentTemp
  40
-------- ROM-ADDRESS: 0xC1CA ---- RAM-ADDRESS: 0x2001 ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC1D5 ---- RAM-ADDRESS: 0x2001 ---- SIZE       2 ---
 Name of initialized Object : CurrentSpeed
  0895
-------- ROM-ADDRESS: 0xC1CC ---- RAM-ADDRESS: 0x2003 ---- SIZE       1 ---
+------- ROM-ADDRESS: 0xC1D7 ---- RAM-ADDRESS: 0x2003 ---- SIZE       1 ---
 Name of initialized Object : CurrentVoltage
  87
-------- ROM-ADDRESS: 0xC1CD ---- SIZE       1 ---
+------- ROM-ADDRESS: 0xC1D8 ---- SIZE       1 ---
 Filling bytes inserted
  00
-------- ROM-ADDRESS: 0xC1CE ---- RAM-ADDRESS: 0x2005 ---- SIZE       1 ---
+------- ROM-ADDRESS: 0xC1D9 ---- RAM-ADDRESS: 0x2005 ---- SIZE       1 ---
 Name of initialized Object : m_SecurityLevel:1
  07
-------- ROM-ADDRESS: 0xC1CF ---- SIZE       1 ---
+------- ROM-ADDRESS: 0xC1DA ---- SIZE       1 ---
 Filling bytes inserted
  00
-------- ROM-ADDRESS: 0xC1D0 ---- RAM-ADDRESS: 0x2007 ---- SIZE       1 ---
+------- ROM-ADDRESS: 0xC1DB ---- RAM-ADDRESS: 0x2007 ---- SIZE       1 ---
 Name of initialized Object : P2CanServerMax:1
  32
-------- ROM-ADDRESS: 0xC1D1 ---- RAM-ADDRESS: 0x2008 ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC1DC ---- RAM-ADDRESS: 0x2008 ---- SIZE       2 ---
 Name of initialized Object : P2ECanServerMax
  01F4
-------- ROM-ADDRESS: 0xC1D3 ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC1DE ---- SIZE       2 ---
 Filling bytes inserted
  0000
-------- ROM-ADDRESS: 0xC1D5 ---- RAM-ADDRESS: 0x200C ---- SIZE     223 ---
+------- ROM-ADDRESS: 0xC1E0 ---- RAM-ADDRESS: 0x200C ---- SIZE     223 ---
 Name of initialized Object : ServiceList:2
- 1077777788 F20E000011 7007778990
- 0E00002770 07008A4C0E 0000280007
- 708CCF0E00 003E777777 8DA40E0000
- 830000008E 0A0E000084 0000008E0B
- 0E00008500 07708E0C0E 0000860000
- 008E820E00 0087000000 8E830E0000
- 220707008E B10E000023 0000008F98
- 0E00002400 00008F990E 00002A0000
- 008F9A0E00 002C000000 8F9B0E0000
- 3D00000090 500E00002E 1000008F9C
- 0E00001407 777090800E 0000190707
- 0092E80E00 002F000100 952E0E0000
- 3110010095 FA0E000034 10000095FB
- 0E00003500 000095FC0E 0000361000
- 0095FD0E00 0037100000 95FE0E
-------- ROM-ADDRESS: 0xC2B4 ---- SIZE       2 ---
+ 107777778A 700E000011 7007778B2B
+ 0E00002770 07008BE70E 0000280007
+ 708E800E00 003E777777 8F550E0000
+ 830000008F BB0E000084 0000008FBC
+ 0E00008500 07708FBD0E 0000860000
+ 0090330E00 0087000000 90340E0000
+ 2207070090 620E000023 0000009138
+ 0E00002400 000091390E 00002A0000
+ 00913A0E00 002C000000 913B0E0000
+ 3D00000092 5C0E00002E 100000913C
+ 0E00001407 7770928C0E 0000190707
+ 0094F40E00 002F000100 973A0E0000
+ 3110010098 060E000034 1000009807
+ 0E00003500 000098080E 0000361000
+ 0098090E00 0037100000 980A0E
+------- ROM-ADDRESS: 0xC2BF ---- SIZE       2 ---
 Filling bytes inserted
  0000
 
@@ -2190,27 +2216,34 @@ Init                      USES _startupData
 PE_low_level_init         USES _WOMM _PTS _WOMS _DDRS _PTT _PERT _DDRT 
                                 _CPMUINT _CPMULVCTL _IRQCR CAN1_Init RTI1_Init 
 SystemReset               USES ForceReset 
-SendFrame                 USES _CANTFLG _CANTBSEL _CANTXIDR0 _LSHRU _CANTXIDR1 
-                                _CANTXIDR2 _CANTXIDR3 _CANTXDSR0 _CANTXDLR _CANTXTBPR 
+SendFrame                 USES _CANTFLG _CANTBSEL SendFrame _CANTXIDR0 _LSHRU 
+                                _CANTXIDR1 _CANTXIDR2 _CANTXIDR3 _CANTXDSR0 _CANTXDLR 
+                                _CANTXTBPR 
 IoControl_9826            USES IO9826_MixMtrCtrl 
 Diagnostic_Init_Config    USES SendFrame Diagnostic_Init 
                                 InitSetSessionSupportAndSecurityAccess InitSetSessionControlParam HD10SeedToKeyLevel1 
-                                InitAddSecurityAlgorithm InitSetTesterPresentSupress SystemReset 
-                                InitSetSysResetParam CommulicatonControl InitSetCommControlParam 
+                                InitAddSecurityAlgorithm InitFactorySecuriyAlgorithm 
+                                InitSetTesterPresentSupress SystemReset InitSetSysResetParam 
+                                CommulicatonControl InitSetCommControlParam 
                                 InitSetDTCControlSupress InitAddDID TestCurrentTemp IO9826_MixMtrCtrl 
-                                IoControl_9826 InitSetDTCAvailiableMask NMGetLimpHome 
-                                InitAddDTC InitAddDTCGroup CurrentSpeed 
-                                InitAddDTCSnapShot CurrentVoltage InitSetAgingCounterRecordNumber 
-                                InitSetAgedCounterRecordNumber InitSetOccurrenceCounterRecordNumber 
-                                InitSetPendingCounterRecordNumber Diagnostic_LoadAllData Diagnostic_SetNLParam 
+                                IoControl_9826 InitSetCanDriverVersionDID 
+                                InitSetCanNMVersionDID InitSetCanDiagnosticVersionDID 
+                                InitSetCanDataBaseVersionDID InitSetCurrentSessionDID 
+                                InitSetDTCAvailiableMask NMGetLimpHome InitAddDTC InitAddDTCGroup 
+                                CurrentSpeed InitAddDTCSnapShot CurrentVoltage 
+                                InitSetAgingCounterRecordNumber InitSetAgedCounterRecordNumber 
+                                InitSetOccurrenceCounterRecordNumber InitSetPendingCounterRecordNumber 
+                                Diagnostic_LoadAllData Diagnostic_SetNLParam 
 main                      USES PE_low_level_init TJA1043_Can_Sel_PutVal 
                                 TJA1043_EN_PutVal Diagnostic_Init_Config Diagnostic_Proc 
-CAN1_Init                 USES _CANCTL0 _CANCTL1 _CANBTR1 _CANBTR0 _CANIDAC 
-                                _CANIDAR0 _CANIDAR1 _CANIDAR2 _CANIDAR3 _CANIDAR4 
-                                _CANIDAR5 _CANIDAR6 _CANIDAR7 _CANIDMR0 _CANIDMR1 
-                                _CANIDMR2 _CANIDMR3 _CANIDMR4 _CANIDMR5 _CANIDMR6 
-                                _CANIDMR7 _CANRIER _CANTIER 
+CAN1_Init                 USES _CANRFLG _CANTFLG _CANCTL0 _CANCTL1 _CANBTR1 
+                                _CANBTR0 _CANIDAC _CANIDAR0 _CANIDAR1 _CANIDAR2 
+                                _CANIDAR3 _CANIDAR4 _CANIDAR5 _CANIDAR6 _CANIDAR7 
+                                _CANIDMR0 _CANIDMR1 _CANIDMR2 _CANIDMR3 _CANIDMR4 
+                                _CANIDMR5 _CANIDMR6 _CANIDMR7 _CANRIER _CANTIER 
 InitAddSecurityAlgorithm  USES UnlockList ModuleEEpromStartAddr EEpromUsed 
+InitFactorySecuriyAlgorithm USES FactorySecuritySeedToKey 
+                                InitAddSecurityAlgorithm 
 InitSetSessionSupportAndSecurityAccess USES ServiceList 
 InitAddDID                USES DIDAdded DIDS ModuleEEpromStartAddr EEpromUsed 
 InitAddDTC                USES DTCAdded DTCS ModuleEEpromStartAddr EEpromUsed 
@@ -2226,6 +2259,11 @@ InitSetCommControlParam   USES CommTypeSupport commCallBack
 InitSetSessionControlParam USES SessionSupport 
 InitSetTesterPresentSupress USES TesterPresentSuppport 
 InitSetDTCControlSupress  USES TesterPresentSuppport 
+InitSetCanDriverVersionDID USES DriverVersion InitAddDID 
+InitSetCanNMVersionDID    USES NMVersion InitAddDID 
+InitSetCanDiagnosticVersionDID USES DiagnosticVersion InitAddDID 
+InitSetCanDataBaseVersionDID USES DatabaseVersion InitAddDID 
+InitSetCurrentSessionDID  USES m_CurrSessionType InitAddDID 
 Diagnostic_SetNLParam     USES N_Sa N_Ta NetworkLayer_SetParam 
 Diagnostic_Init           USES TesterPhyID EcuID TesterFunID N_Ta N_Sa 
                                 NetworkLayer_InitParam TPCMSetParamBAM P2CanServerMax P2ECanServerMax 
@@ -2241,7 +2279,7 @@ GotoSession               USES S3serverTimer DiagTimer_Set commCallBack
                                 WaitConfirmBeforeJump 
 Service10PosResponse      USES DiagnosticBuffTX P2CanServerMax P2ECanServerMax 
                                 ResponseLength 
-Service10Handle           USES m_NRC SessionSupport _CASE_CHECKED_BYTE 
+Service10Handle           USES m_NRC SessionSupport _CASE_DIRECT_BYTE 
                                 m_CurrSessionType ResponsePending suppressResponse 
                                 Service10PosResponse GotoSession 
 Service11Handle           USES m_NRC ResetTypeSupport m_EcuResetType 
@@ -2264,11 +2302,12 @@ Service85Handle           USES m_NRC TesterPresentSuppport ResponsePending
                                 DiagnosticBuffTX ResponseLength 
 SearchDidNode             USES DIDS DIDAdded 
 Service22Handle           USES m_NRC SearchDidNode DiagnosticBuffTX 
-                                Service22Handle memcpy Diagnostic_EEProm_Read ResponsePending 
-                                suppressResponse ResponseLength 
-Service2EHandle           USES m_NRC SearchDidNode Diagnostic_EEProm_Write 
-                                memcpy DiagnosticBuffTX ResponseLength 
-                                ResponsePending suppressResponse 
+                                Diagnostic_EEProm_Read ResponsePending suppressResponse memcpy 
+                                ResponseLength 
+Service2EHandle           USES Service2EHandle SearchDidNode m_CurrSessionType 
+                                memcpy m_SecurityLevel m_NRC ResponsePending 
+                                suppressResponse DiagnosticBuffTX ResponseLength 
+                                Diagnostic_EEProm_Write 
 SearchDTCGroup            USES DTCGROUPS DTCGroupAdded 
 Service14Handle           USES m_NRC suppressResponse _ILSEXT SearchDTCGroup 
                                 CurrentService DiagnosticBuffTX ResponseLength 
@@ -2290,8 +2329,9 @@ Service19Handle           USES m_NRC _CASE_DIRECT_BYTE GetDTCNumberByMask
 Service2FHandle           USES m_NRC SearchDidNode DiagnosticBuffTX 
                                 ResponsePending suppressResponse ResponseLength 
 ServiceNegReponse         USES DiagnosticBuffTX N_Sa N_Ta N_USData_request 
-Diagnostic_ServiceHandle  USES CurrentService ServiceList suppressResponse 
-                                m_CurrSessionType Diagnostic_ServiceHandle m_NRC m_SecurityLevel 
+Diagnostic_ServiceHandle  USES CurrentService ServiceList 
+                                Diagnostic_ServiceHandle suppressResponse m_CurrSessionType m_NRC 
+                                m_SecurityLevel 
 Diagnostic_MainProc       USES IsIndicationListEmpty Diagnostic_MainProc 
                                 PullIndication _ILSEXT TesterPhyID TesterFunID EcuID N_Ta 
                                 N_Sa TesterPhyID1 TesterFunID1 EcuID1 
@@ -2456,7 +2496,7 @@ DEPENDENCY TREE
  |  |  |     | 
  |  |  |     +- Service10Handle     
  |  |  |     |  | 
- |  |  |     |  +- _CASE_CHECKED_BYTE  
+ |  |  |     |  +- _CASE_DIRECT_BYTE   
  |  |  |     |  |    
  |  |  |     |  +- Service10PosResponse
  |  |  |     |  |    
@@ -2466,8 +2506,8 @@ DEPENDENCY TREE
  |  |  |     |          
  |  |  |     +- Service11Handle     
  |  |  |     |  | 
- |  |  |     |  +- _CASE_CHECKED_BYTE   (see above)
- |  |  |     |     
+ |  |  |     |  +- _CASE_CHECKED_BYTE  
+ |  |  |     |       
  |  |  |     +- Service27Handle     
  |  |  |     |  | 
  |  |  |     |  +- GenerateSeed        
@@ -2562,10 +2602,10 @@ DEPENDENCY TREE
  |  |  |     |  | 
  |  |  |     |  +- SearchDidNode       
  |  |  |     |  |    
- |  |  |     |  +- memcpy              
- |  |  |     |  |    
  |  |  |     |  +- Diagnostic_EEProm_Read (see above)
- |  |  |     |     
+ |  |  |     |  |  
+ |  |  |     |  +- memcpy              
+ |  |  |     |       
  |  |  |     +- Service23Handle     
  |  |  |     |    
  |  |  |     +- Service24Handle     
@@ -2580,9 +2620,9 @@ DEPENDENCY TREE
  |  |  |     |  | 
  |  |  |     |  +- SearchDidNode        (see above)
  |  |  |     |  |  
- |  |  |     |  +- Diagnostic_EEProm_Write (see above)
- |  |  |     |  |  
  |  |  |     |  +- memcpy               (see above)
+ |  |  |     |  |  
+ |  |  |     |  +- Diagnostic_EEProm_Write (see above)
  |  |  |     |     
  |  |  |     +- Service14Handle     
  |  |  |     |  | 
@@ -2596,8 +2636,8 @@ DEPENDENCY TREE
  |  |  |     |        
  |  |  |     +- Service19Handle     
  |  |  |     |  | 
- |  |  |     |  +- _CASE_DIRECT_BYTE   
- |  |  |     |  |    
+ |  |  |     |  +- _CASE_DIRECT_BYTE    (see above)
+ |  |  |     |  |  
  |  |  |     |  +- GetDTCNumberByMask  
  |  |  |     |  |    
  |  |  |     |  +- SearchDTCByMaskAndFillResponse
@@ -2632,6 +2672,12 @@ DEPENDENCY TREE
  |  |  |    
  |  |  +- InitAddSecurityAlgorithm
  |  |  |    
+ |  |  +- InitFactorySecuriyAlgorithm
+ |  |  |  | 
+ |  |  |  +- FactorySecuritySeedToKey
+ |  |  |  |    
+ |  |  |  +- InitAddSecurityAlgorithm (see above)
+ |  |  |     
  |  |  +- InitSetTesterPresentSupress
  |  |  |    
  |  |  +- SystemReset         
@@ -2650,6 +2696,26 @@ DEPENDENCY TREE
  |  |  |    
  |  |  +- IoControl_9826      
  |  |  |    
+ |  |  +- InitSetCanDriverVersionDID
+ |  |  |  | 
+ |  |  |  +- InitAddDID           (see above)
+ |  |  |     
+ |  |  +- InitSetCanNMVersionDID
+ |  |  |  | 
+ |  |  |  +- InitAddDID           (see above)
+ |  |  |     
+ |  |  +- InitSetCanDiagnosticVersionDID
+ |  |  |  | 
+ |  |  |  +- InitAddDID           (see above)
+ |  |  |     
+ |  |  +- InitSetCanDataBaseVersionDID
+ |  |  |  | 
+ |  |  |  +- InitAddDID           (see above)
+ |  |  |     
+ |  |  +- InitSetCurrentSessionDID
+ |  |  |  | 
+ |  |  |  +- InitAddDID           (see above)
+ |  |  |     
  |  |  +- InitSetDTCAvailiableMask
  |  |  |    
  |  |  +- NMGetLimpHome       
@@ -2892,6 +2958,6 @@ STATISTIC SECTION
 
 ExeFile:
 --------
-Number of blocks to be downloaded: 9
-Total size of all blocks to be downloaded: 13863
+Number of blocks to be downloaded: 10
+Total size of all blocks to be downloaded: 14517
 

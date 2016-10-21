@@ -3,16 +3,16 @@
 **     Filename  : Vectors.c
 **     Project   : DiagnosticDemo
 **     Processor : MC9S12G128VLH
-**     Version   : Component 01.016, Driver 02.06, CPU db: 3.00.002
+**     Version   : Component 01.016, Driver 02.06, CPU db: 3.00.017
 **     Compiler  : CodeWarrior HC12 C Compiler
-**     Date/Time : 2016/9/1, 10:21
+**     Date/Time : 2016/10/13, 13:48
 **     Abstract  :
 **         This component "MC9S12G128_64" implements properties, methods,
 **         and events of the CPU.
 **     Settings  :
 **
 **
-**     Copyright : 1997 - 2010 Freescale Semiconductor, Inc. All Rights Reserved.
+**     Copyright : 1997 - 2011 Freescale Semiconductor, Inc. All Rights Reserved.
 **     
 **     http      : www.freescale.com
 **     mail      : support@freescale.com
@@ -103,7 +103,7 @@ static const tIsrFunc _ResetVectorTable[] @0xFFFAU = { /* Reset vector table */
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 3.02 [04.44]
+**     This file was created by Processor Expert 3.05 [04.46]
 **     for the Freescale HCS12 series of microcontrollers.
 **
 ** ###################################################################

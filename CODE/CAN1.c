@@ -4,9 +4,9 @@
 **     Project   : DiagnosticDemo
 **     Processor : MC9S12G128VLH
 **     Component : Init_MSCAN
-**     Version   : Component 01.067, Driver 01.11, CPU db: 3.00.002
+**     Version   : Component 01.067, Driver 01.11, CPU db: 3.00.017
 **     Compiler  : CodeWarrior HC12 C Compiler
-**     Date/Time : 2016/9/1, 10:47
+**     Date/Time : 2016/10/13, 13:48
 **     Abstract  :
 **          This file implements the MSCAN (MSCAN) module initialization
 **          according to the Peripheral Initialization Bean settings,
@@ -98,7 +98,7 @@
 **     Contents  :
 **         Init - void CAN1_Init(void);
 **
-**     Copyright : 1997 - 2010 Freescale Semiconductor, Inc. All Rights Reserved.
+**     Copyright : 1997 - 2011 Freescale Semiconductor, Inc. All Rights Reserved.
 **     
 **     http      : www.freescale.com
 **     mail      : support@freescale.com
@@ -148,6 +148,11 @@ ISR(Can_Rx_Interrupt)
 */
 void CAN1_Init(void)
 {
+  /* CANRFLG: WUPIF=1,CSCIF=1,OVRIF=1,RXF=1 */
+  setReg8Bits(CANRFLG, 0xC3U);          
+  /* CANTFLG: TXE2=1,TXE1=1,TXE0=1 */
+  setReg8Bits(CANTFLG, 0x07U);          
+
   /* CANCTL0: INITRQ=1 */
   setReg8Bits(CANCTL0, 0x01U);          
   while(CANCTL1_INITAK == 0U) {        /* Wait for init acknowledge */
@@ -209,7 +214,7 @@ void CAN1_Init(void)
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 3.02 [04.44]
+**     This file was created by Processor Expert 3.05 [04.46]
 **     for the Freescale HCS12 series of microcontrollers.
 **
 ** ###################################################################

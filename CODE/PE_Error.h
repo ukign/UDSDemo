@@ -6,14 +6,14 @@
 **     Component : PE_Error
 **     Version   : Driver 01.01
 **     Compiler  : CodeWarrior HC12 C Compiler
-**     Date/Time : 2016/9/1, 9:16
+**     Date/Time : 2016/10/13, 13:48
 **     Abstract  :
 **         This component "PE_Error" contains internal definitions
 **         of the error constants.
 **     Contents  :
 **         No public methods
 **
-**     Copyright : 1997 - 2010 Freescale Semiconductor, Inc. All Rights Reserved.
+**     Copyright : 1997 - 2011 Freescale Semiconductor, Inc. All Rights Reserved.
 **     
 **     http      : www.freescale.com
 **     mail      : support@freescale.com

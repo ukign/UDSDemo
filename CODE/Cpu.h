@@ -4,10 +4,10 @@
 **     Project   : DiagnosticDemo
 **     Processor : MC9S12G128VLH
 **     Component : MC9S12G128_64
-**     Version   : Component 01.016, Driver 02.06, CPU db: 3.00.002
-**     Datasheet : MC9S12GRMV1 Rev. 0.29 April 20, 2010
+**     Version   : Component 01.016, Driver 02.06, CPU db: 3.00.017
+**     Datasheet : MC9S12GRMV1 Rev. 1.02 June 7, 2011
 **     Compiler  : CodeWarrior HC12 C Compiler
-**     Date/Time : 2016/9/1, 10:31
+**     Date/Time : 2016/10/13, 13:48
 **     Abstract  :
 **         This component "MC9S12G128_64" implements properties, methods,
 **         and events of the CPU.
@@ -19,7 +19,7 @@
 **         SetWaitMode - void Cpu_SetWaitMode(void);
 **         SetStopMode - void Cpu_SetStopMode(void);
 **
-**     Copyright : 1997 - 2010 Freescale Semiconductor, Inc. All Rights Reserved.
+**     Copyright : 1997 - 2011 Freescale Semiconductor, Inc. All Rights Reserved.
 **     
 **     http      : www.freescale.com
 **     mail      : support@freescale.com
@@ -159,7 +159,7 @@ void PE_low_level_init(void);
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 3.02 [04.44]
+**     This file was created by Processor Expert 3.05 [04.46]
 **     for the Freescale HCS12 series of microcontrollers.
 **
 ** ###################################################################

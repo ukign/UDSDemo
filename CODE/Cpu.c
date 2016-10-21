@@ -4,10 +4,10 @@
 **     Project   : DiagnosticDemo
 **     Processor : MC9S12G128VLH
 **     Component : MC9S12G128_64
-**     Version   : Component 01.016, Driver 02.06, CPU db: 3.00.002
-**     Datasheet : MC9S12GRMV1 Rev. 0.29 April 20, 2010
+**     Version   : Component 01.016, Driver 02.06, CPU db: 3.00.017
+**     Datasheet : MC9S12GRMV1 Rev. 1.02 June 7, 2011
 **     Compiler  : CodeWarrior HC12 C Compiler
-**     Date/Time : 2016/9/1, 16:58
+**     Date/Time : 2016/10/13, 13:48
 **     Abstract  :
 **         This component "MC9S12G128_64" implements properties, methods,
 **         and events of the CPU.
@@ -19,7 +19,7 @@
 **         SetWaitMode - void Cpu_SetWaitMode(void);
 **         SetStopMode - void Cpu_SetStopMode(void);
 **
-**     Copyright : 1997 - 2010 Freescale Semiconductor, Inc. All Rights Reserved.
+**     Copyright : 1997 - 2011 Freescale Semiconductor, Inc. All Rights Reserved.
 **     
 **     http      : www.freescale.com
 **     mail      : support@freescale.com
@@ -145,6 +145,10 @@ void Cpu_SetWaitMode(void)
 ** ===================================================================
 */
 extern void _Startup(void);            /* Forward declaration of external startup function declared in file Start12.c */
+
+/*** !!! Here you can place your own code using property "User data declarations" on the build options tab of the CPU component. !!! ***/
+
+
 #pragma CODE_SEG __NEAR_SEG NON_BANKED
 
 
@@ -152,6 +156,9 @@ extern void _Startup(void);            /* Forward declaration of external startu
 #pragma NO_EXIT                        /* Suppress generation of exit from a function */
 void _EntryPoint(void)
 {
+
+  /*** !!! Here you can place your own code using property "User code before PE initialization" on the build options tab of the CPU compoennt. !!! ***/
+
   /* ### MC9S12G128_64 "Cpu" init code ... */
   /*  PE initialization code after reset */
   /* MMCCTL1: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,NVMRES=0 */
@@ -177,7 +184,7 @@ void _EntryPoint(void)
   setReg8(CPMUSYNR, 0x01U);            /* Set the multiplier register */ 
   /* CPMUPOSTDIV: ??=0,??=0,??=0,POSTDIV4=0,POSTDIV3=0,POSTDIV2=0,POSTDIV1=0,POSTDIV0=0 */
   setReg8(CPMUPOSTDIV, 0x00U);         /* Set the post divider register */ 
-  /* CPMUOSC: OSCE=1,OSCBW=0,OSCPINS_EN=0,OSCFILT=0 */
+  /* CPMUOSC: OSCE=1,??=0,OSCPINS_EN=0,??=0,??=0,??=0,??=0,??=0 */
   setReg8(CPMUOSC, 0x80U);             /* Enable the oscillator */ 
   /* CPMUPLL: ??=0,??=0,FM1=0,FM0=0,??=0,??=0,??=0,??=0 */
   setReg8(CPMUPLL, 0x00U);             /* Set the PLL frequency modulation */ 
@@ -188,6 +195,9 @@ void _EntryPoint(void)
   /* CPMUCOP: RSBCK=1,WRTMASK=0 */
   clrSetReg8Bits(CPMUCOP, 0x20U, 0x40U); 
   /*** End of PE initialization code after reset ***/
+
+  /*** !!! Here you can place your own code using property "User code after PE initialization" on the build options tab of the CPU component. !!! ***/
+
   /*lint -save  -e950 Disable MISRA rule (1.1) checking. */
   __asm("jmp _Startup");               /* Jump to C startup code */
   /*lint -restore Enable MISRA rule (1.1) checking. */
@@ -247,7 +257,7 @@ void PE_low_level_init(void)
 /*
 ** ###################################################################
 **
-**     This file was created by Processor Expert 3.02 [04.44]
+**     This file was created by Processor Expert 3.05 [04.46]
 **     for the Freescale HCS12 series of microcontrollers.
 **
 ** ###################################################################
