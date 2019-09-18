@@ -75,7 +75,7 @@ void CommulicatonControl(CommulicationType type, communicationParam param)
 	}
 }
 
-uint32_t HD10SeedToKeyLevel1(uint32_t seed)
+uint32_t SeedToKeyDemo(uint32_t seed)
 {
 	return 0x12345678;//针对某一个请求的安全算法
 }
@@ -238,7 +238,7 @@ void Diagnostic_Init_Config(void)
    
 	//********************************** service 27*****************************************//
     
-	InitAddSecurityAlgorithm(LEVEL_ONE,HD10SeedToKeyLevel1,0x01,0x02, NULL ,3 , 10000, SUB_PROGRAM | SUB_EXTENDED,4);
+	InitAddSecurityAlgorithm(LEVEL_ONE,SeedToKeyDemo,0x01,0x02, NULL ,3 , 10000, SUB_PROGRAM | SUB_EXTENDED,4);
 	InitFactorySecuriyAlgorithm();
 	//InitAddSecurityAlgorithm(LEVEL_THREE,HD10SeedToKey,0x07,0x08, NULL ,3 , 10000, SUB_PROGRAM);
 	InitSetSessionSupportAndSecurityAccess(TRUE,0x27,LEVEL_UNSUPPORT,LEVEL_ZERO,LEVEL_ZERO,LEVEL_UNSUPPORT,LEVEL_UNSUPPORT,LEVEL_UNSUPPORT);

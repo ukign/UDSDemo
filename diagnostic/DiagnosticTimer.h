@@ -1,15 +1,4 @@
-/**
-  ******************************************************************************
-  * @file    timer.h
-  * @author  Soundtech Application Team
-  * @version V1.0.0
-  * @date    14-Jan-2015
-  * @brief   Header file for timer.c module.
-  * <h2><center>&copy; COPYRIGHT 2015 Soundtech</center></h2>
-  ******************************************************************************  
-  */ 
-  
-/* Define to prevent recursive inclusion -------------------------------------*/
+
 #ifndef __TIMER_H
 #define __TIMER_H
 
@@ -59,6 +48,4 @@ void DiagTimer_ISR_Proc(void);
 
 
 #endif /* __TIMER_H */
-
-/******************* (C) COPYRIGHT 2015 Soundtech *****END OF FILE****/
 

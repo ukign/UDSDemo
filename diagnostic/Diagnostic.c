@@ -460,26 +460,7 @@ bool InitAddSecurityAlgorithm(SecurityLevel level, SecurityFun AlgoritthmFun,byt
 
 uint32_t FactorySecuritySeedToKey(uint32_t seed)
 {
-	uint8_t i;
-	uint32_t xor = 0x52756959;// asscii "RuiY"
-	uint32_t key;
-
-	key = seed ^ xor;
-
-	for (i=0; i < 32; i++)
-	{
-		if (key & 0x80000000)
-		{
-			key = key << 1;
-			key = key ^ xor;
-		}
-		else 
-		{
-			key = key << 1; 
-		}
-	}
-
-	return key;
+	return 0x12345678;
 }
 
 void InitFactorySecuriyAlgorithm(void)
@@ -3099,7 +3080,7 @@ void DtcHandle(DTCNode* DtcNode)
 			}
 			if(DtcNode->FaultOccurrences < 0xff)
 			{
-				DtcNode->FaultOccurrences++;//ÉÏÆûÉÌÓÃcvtc 27033 section10.1.1
+				DtcNode->FaultOccurrences++;
 			}
 			#endif
 		}
